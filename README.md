@@ -1,2 +1,2 @@
 # SIMASET-RSUIC
- Sistem Informasi Aset PDO SQLSRV AdminLTE
+ Sistem Informasi Aset RSUIC PDO SQLSRV AdminLTE
