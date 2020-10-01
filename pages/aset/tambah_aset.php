@@ -16,7 +16,7 @@ include "conf/conn.php";
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
-                    <form role="form" method="post" action="pages/mahasiswa/tambah_mahasiswa_proses.php">
+                    <form role="form" method="post" action="pages/aset/tambah_aset_proses.php">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="">Kode Aset</label>
@@ -45,7 +45,7 @@ include "conf/conn.php";
                             </div>
                             <div class="form-group">
                                 <label for="">Nilai Aset</label>
-                                <input type="text" name="merk_aset" class="form-control" placeholder="Nilai Aset, ex: 300000" required>
+                                <input type="text" name="nilai_aset" class="form-control" placeholder="Nilai Aset, ex: 300000" required>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Aset</label>
@@ -107,7 +107,7 @@ include "conf/conn.php";
                             </div>
                         </div>
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary" title="Simpan Data"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
+                            <button type="submit" name="simpan_data" class="btn btn-primary" title="Simpan Data"><i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
                         </div>
                     </form>
                 </div>
