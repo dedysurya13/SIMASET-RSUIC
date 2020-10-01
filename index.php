@@ -441,7 +441,7 @@ if(isset($_SESSION['kode_petugas'])==0){
     //Date picker
     $('#datepicker').datepicker({
       autoclose: true,
-      format: 'dd/mm/yyyy'
+      format: 'yyyy/mm/dd'
     });
 
     //iCheck for checkbox and radio inputs
