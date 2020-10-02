@@ -37,11 +37,17 @@
                                     include "conf/conn.php";
                                     $no=0;
                                     
+                                    //a.kode_aset, a.nama_aset, a.merk_aset, a.tahun_aset, a.nilai_aset, date_format(a.tanggal_aset,'%d %m %Y'), a.spesifikasi_aset, j.nama_jenis, u.nama_unit, s.nama_suplier
+
+                                    //echo $row['tanggal_aset']->format('d/m/Y');
+                                    //echo substr($row['tanggal_aset'], 0, 11);                                
+
                                     $sql = "SELECT * FROM tb_aset as a INNER JOIN tb_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_suplier as s ON a.kode_suplier = s.kode_suplier ORDER BY kode_aset ASC";
 
                                     $dataAset = $conn->query($sql);
-
+                                    
                                     while ($row=$dataAset->fetch()){
+                                    
                                 ?>
                                         <tr>
                                             <td><?php echo $no=$no+1;?></td>
@@ -50,7 +56,7 @@
                                             <td><?php echo $row['merk_aset'];?></td>
                                             <td><?php echo $row['tahun_aset'];?></td>
                                             <td><?php echo $row['nilai_aset'];?></td>
-                                            <td><?php echo $row['tanggal_aset'];?></td>
+                                            <td><?php echo substr($row['tanggal_aset'], 0, 11);?></td>
                                             <td><?php echo $row['spesifikasi_aset'];?></td>
                                             <td><?php echo $row['nama_jenis'];?></td>
                                             <td><?php echo $row['nama_unit'];?></td>
