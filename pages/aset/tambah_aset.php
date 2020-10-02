@@ -53,7 +53,7 @@ include "conf/conn.php";
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker">
+                                <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -65,7 +65,7 @@ include "conf/conn.php";
                                 <?php
                                     $jenisQuery = $conn->query("SELECT * FROM tb_jenis");
                                 ?>
-                                <select name="jenis_aset" class="form-control" id="">
+                                <select id="jenis_aset" name="jenis_aset" class="form-control" id="">
 
                                     <option value=''>- Jenis Aset -</option>
 
@@ -80,7 +80,7 @@ include "conf/conn.php";
                                 <?php
                                     $unitQuery = $conn->query("SELECT * FROM tb_unit");
                                 ?>
-                                <select name="nama_unit" class="form-control" id="">
+                                <select id="nama_unit" name="nama_unit" class="form-control" id="">
 
                                     <option value=''>- Nama Unit -</option>
 
@@ -95,7 +95,7 @@ include "conf/conn.php";
                                 <?php
                                     $suplierQuery = $conn->query("SELECT * FROM tb_suplier");
                                 ?>
-                                <select name="nama_suplier" class="form-control" id="">
+                                <select id="nama_suplier" name="nama_suplier" class="form-control" id="">
 
                                     <option value=''>- Nama Suplier -</option>
 
