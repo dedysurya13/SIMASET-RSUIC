@@ -470,6 +470,13 @@ if(isset($_SESSION['kode_petugas'])==0){
       showInputs: false
     });
   });
+
+  //pencarian select option
+  $(document).ready(function() {
+      $('#jenis_aset').select2();
+      $('#nama_unit').select2();
+      $('#nama_suplier').select2();
+  });
 </script>
 
 </body>
