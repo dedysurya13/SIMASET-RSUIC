@@ -141,16 +141,52 @@ if(isset($_SESSION['kode_petugas'])==0){
       <li class="treeview">
         <li><a href="index.php"><i class="glyphicon glyphicon-home"></i> <span>Beranda</span></a></li>
       </li>
+      <li class="header">KELOLA</li>
       <li class="treeview">
-          <a href="#">
-            <i class="glyphicon glyphicon-briefcase"></i> <span>Kelola Data</span>
+          <a href="index.php?page=data_aset">
+            <i class="glyphicon glyphicon glyphicon-list-alt"></i> <span>Kelola Aset</span>
+            <!--
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
+            -->
           </a>
+          <!--
           <ul class="treeview-menu">
             <li><a href="index.php?page=data_aset"><i class="glyphicon glyphicon-education"></i> <span>Data Aset</span></a></li>
           </ul>
+          -->
+      </li>
+      <li class="treeview">
+          <a href="#">
+            <i class="glyphicon glyphicon glyphicon-home"></i> <span>Kelola Unit</span>
+          </a>
+      </li>
+      <li class=treeview>
+          <a href="#">
+            <i class="glyphicon glyphicon glyphicon-tags"></i> <span>Kelola Jenis Aset</span>
+          </a>
+      </li>
+      <li class="treeview">
+          <a href="#">
+            <i class="glyphicon glyphicon glyphicon-shopping-cart"></i> <span>Kelola Suplier</span>
+          </a>
+      </li>
+      <li class="header">ASET RUSAK</li>
+      <li class=treeview>
+          <a href="#">
+            <i class="glyphicon glyphicon glyphicon glyphicon-zoom-in"></i> <span>Pemerikasan Aset</span>
+          </a>
+      </li>
+      <li class=treeview>
+          <a href="#">
+            <i class="glyphicon glyphicon glyphicon glyphicon-remove"></i> <span>Aset Rusak</span>
+          </a>
+      </li>
+      <li class=treeview>
+          <a href="#">
+            <i class="glyphicon glyphicon glyphicon glyphicon-wrench"></i> <span>Perbaikan Aset</span>
+          </a>
       </li>
       <li class="header">SETTING</li>
         <li class="treeview">
@@ -477,6 +513,36 @@ if(isset($_SESSION['kode_petugas'])==0){
       $('#nama_unit').select2();
       $('#nama_suplier').select2();
   });
+
+  //cari data
+  $(document).ready(function(){
+
+  // Search all columns
+    $('#txt_searchall').keyup(function(){
+      // Search Text
+      var search = $(this).val();
+
+      // Hide all table tbody rows
+      $('table tbody tr').hide();
+
+      // Count total search result
+      var len = $('table tbody tr:not(.notfound) td:contains("'+search+'")').length;
+
+      if(len > 0){
+        // Searching text in columns and show match row
+        $('table tbody tr:not(.notfound) td:contains("'+search+'")').each(function(){
+          $(this).closest('tr').show();
+        });
+      }else{
+        $('.notfound').show();
+      }
+  });
+  $.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+      return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+  });
+});
 </script>
 
 </body>
