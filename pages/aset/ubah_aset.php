@@ -3,11 +3,11 @@ include "conf/conn.php";
 
 //'".$_GET['kode_aset']."'
 
-$sql = "SELECT * FROM tb_aset as a INNER JOIN tb_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_suplier as s ON a.kode_suplier = s.kode_suplier WHERE kode_aset='poli1-0001'";
+$sql = "SELECT * FROM tb_aset as a INNER JOIN tb_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_suplier as s ON a.kode_suplier = s.kode_suplier WHERE kode_aset='".$_GET['id']."'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
-print_r($row);
+//print_r($row);
 ?>
 
 <div class="content-wrapper">
@@ -23,15 +23,16 @@ print_r($row);
         <div class="row">
             <div class="col-md-12">
                 <div class="box-primary">
-                    <form role="form" method="post" action="pages/mahasiswa/ubah_aset_proses.php">
+                    <form role="form" method="post" action="pages/aset/ubah_aset_proses.php">
                         <div class="box-body">
+                            <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                             <label for="">Kode Aset</label>
                                 <input type="text" name="kode_aset" class="form-control" placeholder="Kode Aset, ex: poli1-0001" value="<?php echo $row['kode_aset']; ?>" disabled>
                             </div>
                             <div class="form-group">
                             <label for="">Nama Aset</label>
-                                <input type="text" name="merk_aset" class="form-control" placeholder="Nama Aset, ex: Printer" value="<?php echo $row['nama_aset']; ?>" required>
+                                <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex: Printer" value="<?php echo $row['nama_aset']; ?>" required>
                             </div>
                             <div class="form-group">
                             <label for="">Merk Aset</label>
@@ -114,7 +115,7 @@ print_r($row);
                             </div>
                         </div>
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary" title="Simpan Data"> <i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
+                            <button type="submit" name="simpan_data" class="btn btn-primary" title="Simpan Data"> <i class="glyphicon glyphicon-floppy-disk"></i> Simpan</button>
                         </div>
                     </form>
                 </div>
