@@ -16,16 +16,16 @@
                             <div class="col-sm-1">
                                 <a href="index.php?page=tambah_aset" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
                             </div>
-                            
+                            <!--
                             <div class="col-sm-11">
                                 <input class="form-control" id='txt_searchall' type="text" placeholder="Cari Aset" aria-label="Search">
                             </div>
-                           
+                            -->
                         </div>
                         
                     </div>
                     <div class="box-body table-responsive">
-                        <table id="mahasiswa" class="table table-bordered table-hover">
+                        <table id="data_aset" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
