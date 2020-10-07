@@ -103,7 +103,7 @@ $(function () {
 });
 
 $(function () {
-    $('#data_aset').DataTable({
+    $('#tabel').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,
