@@ -163,12 +163,12 @@ if(isset($_SESSION['kode_petugas'])==0){
           </a>
       </li>
       <li class=treeview>
-          <a href="#">
+          <a href="index.php?page=data_jenis">
             <i class="glyphicon glyphicon glyphicon-tags"></i> <span>Kelola Jenis Aset</span>
           </a>
       </li>
       <li class="treeview">
-          <a href="#">
+          <a href="index.php?page=data_suplier">
             <i class="glyphicon glyphicon glyphicon-shopping-cart"></i> <span>Kelola Suplier</span>
           </a>
       </li>
