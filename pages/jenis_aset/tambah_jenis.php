@@ -5,10 +5,10 @@ include "conf/conn.php";
 ?>
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Tambah Unit</h1>
+        <h1>Tambah Jenis Aset</h1>
         <ol class="breadcrumb">
             <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Tambah Unit</li>
+            <li class="active">Tambah Jenis Aset</li>
         </ol>
     </section>
 
@@ -16,19 +16,15 @@ include "conf/conn.php";
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
-                    <form role="form" method="post" action="pages/unit/tambah_unit_proses.php">
+                    <form role="form" method="post" action="pages/jenis_aset/tambah_jenis_proses.php">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="">Kode Unit</label>
-                                <input type="text" name="kode_unit" class="form-control" placeholder="Kode Unit" required>
+                                <label for="">Kode</label>
+                                <input type="text" name="kode_jenis" class="form-control" placeholder="Kode Jenis Aset" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Nama Unit</label>
-                                <input type="text" name="nama_unit" class="form-control" placeholder="Nama Unit" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Nama Penanggung Jawab</label>
-                                <input type="text" name="nama_pj" class="form-control" placeholder="Penanggung Jawab" required>
+                                <label for="">Jenis Aset</label>
+                                <input type="text" name="nama_jenis" class="form-control" placeholder="Nama Jenis Aset" required>
                             </div>
                         </div>
                         <div class="box-footer">
