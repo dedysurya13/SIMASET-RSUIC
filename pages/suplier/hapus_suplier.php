@@ -3,9 +3,9 @@ include "../../conf/conn.php";
 $id = $_GET['id'];
 
 try{
-    $query = $conn->query("DELETE FROM tb_jenis WHERE kode_jenis='$id' ");
+    $query = $conn->query("DELETE FROM tb_suplier WHERE kode_suplier='$id' ");
     echo '<script>alert("Data Berhasil Dihapus.");
-    window.location.href="../../index.php?page=data_jenis"</script>';
+    window.location.href="../../index.php?page=data_suplier"</script>';
 }catch(PDOException $e){
     echo $e->getMessage();
 }
