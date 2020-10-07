@@ -35,6 +35,17 @@ if(isset($_GET['page'])){
         case 'ubah_jenis';
             include 'pages/jenis_aset/ubah_jenis.php';
         break;
+
+
+        case 'data_suplier':
+            include 'pages/suplier/data_suplier.php';
+        break;
+        case 'tambah_suplier';
+            include 'pages/suplier/tambah_suplier.php';
+        break;
+        case 'ubah_suplier';
+            include 'pages/suplier/ubah_suplier.php';
+        break;
     }
 }else{
     include "pages/beranda.php";
