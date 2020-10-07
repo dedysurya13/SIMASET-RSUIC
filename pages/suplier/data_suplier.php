@@ -1,9 +1,9 @@
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Data Jenis Aset</h1>
+        <h1>Data Suplier</h1>
         <ol>
             <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Data Jenis Aset</li>
+            <li class="active">Data Suplier</li>
         </ol>
     </section>
 
@@ -14,7 +14,7 @@
                     <div class="box-header">
                         <div class="form-group row">
                             <div class="col-sm-1">
-                                <a href="index.php?page=tambah_jenis" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
+                                <a href="index.php?page=tambah_suplier" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
                             </div>
                             <!--
                             <div class="col-sm-11">
@@ -30,7 +30,10 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Kode</th>
-                                    <th>Jenis Aset</th>
+                                    <th>Nama Suplier</th>
+                                    <th>Alamat</th>
+                                    <th>Telefon</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,21 +41,23 @@
                                     include "conf/conn.php";
                                     $no=0;                            
 
-                                    $sql = "SELECT * FROM tb_jenis ORDER BY kode_jenis ASC";
+                                    $sql = "SELECT * FROM tb_suplier ORDER BY kode_suplier ASC";
 
-                                    $dataJenis = $conn->query($sql);
+                                    $dataSuplier = $conn->query($sql);
                                     
-                                    while ($row=$dataJenis->fetch()){
+                                    while ($row=$dataSuplier->fetch()){
                                     
                                 ?>
                                         <tr>
                                             <td><?php echo $no=$no+1;?></td>
-                                            <td><?php echo $row['kode_jenis'];?></td>
-                                            <td><?php echo $row['nama_jenis'];?></td>
+                                            <td><?php echo $row['kode_suplier'];?></td>
+                                            <td><?php echo $row['nama_suplier'];?></td>
+                                            <td><?php echo $row['alamat_suplier'];?></td>
+                                            <td><?php echo $row['telp_suplier'];?></td>
                                             <td>
-                                                <a href="index.php?page=ubah_jenis&id=<?=$row['kode_jenis'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
+                                                <a href="index.php?page=ubah_suplier&id=<?=$row['kode_suplier'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
 
-                                                <a href="pages/jenis_aset/hapus_jenis.php?id=<?=$row['kode_jenis'];?>" class="btn btn-danger" role="button" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash"></i></a>
+                                                <a href="pages/suplier/hapus_suplier.php?id=<?=$row['kode_suplier'];?>" class="btn btn-danger" role="button" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash"></i></a>
                                             </td>
                                         </tr>
                                 <?php
