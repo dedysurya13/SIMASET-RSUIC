@@ -25,7 +25,7 @@
                         
                     </div>
                     <div class="box-body table-responsive">
-                        <table id="data_aset" class="table table-bordered table-hover">
+                        <table id="tabel" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -88,10 +88,3 @@
         </div> <!-- /.row -->
     </section> <!-- /.content -->
 </div> <!-- /.content-wrapper -->
-
-<!-- Javascript Datatable -->
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#aset').DataTable();
-  });
-</script>
