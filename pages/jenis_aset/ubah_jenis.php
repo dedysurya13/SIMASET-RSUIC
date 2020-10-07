@@ -3,7 +3,7 @@ include "conf/conn.php";
 
 //'".$_GET['kode_aset']."'
 
-$sql = "SELECT * FROM tb_unit WHERE kode_unit='".$_GET['id']."'";
+$sql = "SELECT * FROM tb_jenis WHERE kode_jenis='".$_GET['id']."'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -12,10 +12,10 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
 
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Ubah Unit</h1>
+        <h1>Ubah Jenis Aset</h1>
         <ol class="breadcrumb">
             <li><a href="index.php"><i class="fa fa-dashboard"> Home</i></a></li>
-            <li class="active">Ubah Unit</li>
+            <li class="active">Ubah Jenis Aset</li>
         </ol>
     </section>
 
@@ -23,20 +23,16 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
         <div class="row">
             <div class="col-md-12">
                 <div class="box-primary">
-                    <form role="form" method="post" action="pages/unit/ubah_unit_proses.php">
+                    <form role="form" method="post" action="pages/jenis_aset/ubah_jenis_proses.php">
                         <div class="box-body">
                             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
-                            <label for="">Kode Unit</label>
-                                <input type="text" name="kode_unit" class="form-control" placeholder="Kode Unit" value="<?php echo $row['kode_unit']; ?>" disabled>
+                            <label for="">Kode</label>
+                                <input type="text" name="kode_jenis" class="form-control" placeholder="Kode Jenis Aset" value="<?php echo $row['kode_jenis']; ?>" disabled>
                             </div>
                             <div class="form-group">
-                            <label for="">Nama Unit</label>
-                                <input type="text" name="nama_unit" class="form-control" placeholder="Nama Unit" value="<?php echo $row['nama_unit']; ?>" required>
-                            </div>
-                            <div class="form-group">
-                            <label for="">Penanggung Jawab</label>
-                                <input type="text" name="nama_pj" class="form-control" placeholder="Penanggung Jawab" value="<?php echo $row['nama_pj']; ?>" required>
+                            <label for="">Jenis Aset</label>
+                                <input type="text" name="nama_jenis" class="form-control" placeholder="Nama Jenis Aset" value="<?php echo $row['nama_jenis']; ?>" required>
                             </div>
                         </div>
                         <div class="box-footer">
