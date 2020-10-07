@@ -1,12 +1,12 @@
 
 <?php
-/*session_start();
+session_start();
 include "conf/conn.php";
 if(isset($_SESSION['kode_petugas'])==0){
     echo '<script>alert("Anda Harus Login Terlebih Dahulu !!!");
     window.location.href="pages/login.php"</script>';
     }else{
-      */
+      
 ?>
 
 <!DOCTYPE html>
@@ -444,4 +444,4 @@ if(isset($_SESSION['kode_petugas'])==0){
 </body>
 </html>
 
-<?php // } ?>
+<?php } ?>
