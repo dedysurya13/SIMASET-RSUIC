@@ -19,10 +19,21 @@ if(isset($_GET['page'])){
             include 'pages/unit/data_unit.php';
         break;
         case 'tambah_unit';
-            include 'pages/aset/tambah_unit.php';
+            include 'pages/unit/tambah_unit.php';
         break;
         case 'ubah_unit';
-            include 'pages/aset/ubah_unit.php';
+            include 'pages/unit/ubah_unit.php';
+        break;
+
+
+        case 'data_jenis':
+            include 'pages/jenis_aset/data_jenis.php';
+        break;
+        case 'tambah_jenis';
+            include 'pages/jenis_aset/tambah_jenis.php';
+        break;
+        case 'ubah_jenis';
+            include 'pages/jenis_aset/ubah_jenis.php';
         break;
     }
 }else{
