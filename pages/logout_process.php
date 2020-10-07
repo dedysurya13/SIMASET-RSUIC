@@ -2,7 +2,7 @@
 session_start();
 include '../conf/conn.php';
 
-$sess_admin = $_SESSION['id_admin'];
+$sess_admin = $_SESSION['kode_petugas'];
 
 if (isset($sess_admin)){
     session_destroy();
