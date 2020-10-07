@@ -36,9 +36,10 @@ $stmt->bindParam(':password', $_POST['password'], PDO::PARAM_STR);
 $stmt->execute();
 
 if(($row = $stmt->fetch(PDO::FETCH_ASSOC))){
+    session_start();
     $_SESSION['kode_petugas']=$row['kode_petugas'];
 ?>
-    <script>alert("Selamat Datang <?= $row['username']; ?> Kamu Telah Login Ke Halaman Admin.");
+    <script>alert("Selamat Datang <?= $row['nama_petugas']; ?> Kamu Telah Login Ke Halaman Admin.");
         window.location.href="../index.php"</script>
 <?php
 }else{
