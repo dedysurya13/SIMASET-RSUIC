@@ -5,10 +5,10 @@ include "conf/conn.php";
 ?>
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Tambah Jenis Aset</h1>
+        <h1>Tambah Suplier</h1>
         <ol class="breadcrumb">
             <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Tambah Jenis Aset</li>
+            <li class="active">Tambah Suplier</li>
         </ol>
     </section>
 
@@ -16,15 +16,23 @@ include "conf/conn.php";
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-primary">
-                    <form role="form" method="post" action="pages/jenis_aset/tambah_jenis_proses.php">
+                    <form role="form" method="post" action="pages/suplier/tambah_suplier_proses.php">
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="">Kode</label>
-                                <input type="text" name="kode_jenis" class="form-control" placeholder="Kode Jenis Aset" required>
+                                <input type="text" name="kode_suplier" class="form-control" placeholder="Kode Suplier" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Jenis Aset</label>
-                                <input type="text" name="nama_jenis" class="form-control" placeholder="Nama Jenis Aset" required>
+                                <label for="">Nama Suplier</label>
+                                <input type="text" name="nama_suplier" class="form-control" placeholder="Nama Suplier" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Alamat</label>
+                                <input type="text" name="alamat_suplier" class="form-control" placeholder="Alamat Suplier" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Telepon</label>
+                                <input type="number" name="telp_suplier" class="form-control" placeholder="Telepon Suplier" required>
                             </div>
                         </div>
                         <div class="box-footer">
