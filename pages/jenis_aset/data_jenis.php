@@ -31,6 +31,7 @@
                                     <th>#</th>
                                     <th>Kode</th>
                                     <th>Jenis Aset</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
