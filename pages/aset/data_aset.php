@@ -1,3 +1,9 @@
+<?php
+    function buatRupiah($angka){
+        $hasil = "Rp " . number_format($angka,2,',','.');
+        return $hasil;
+        }
+?>
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Data Aset</h1>
@@ -65,7 +71,7 @@
                                             <td><?php echo $row['nama_aset'];?></td>
                                             <td><?php echo $row['merk_aset'];?></td>
                                             <td><?php echo $row['tahun_aset'];?></td>
-                                            <td><?php echo $row['nilai_aset'];?></td>
+                                            <td><?php echo buatRupiah($row['nilai_aset']);?></td>
                                             <td><?php echo substr($row['tanggal_aset'], 0, 11);?></td>
                                             <td><?php echo $row['spesifikasi_aset'];?></td>
                                             <td><?php echo $row['nama_jenis'];?></td>
@@ -74,7 +80,15 @@
                                             <td>
                                                 <a href="index.php?page=ubah_aset&id=<?=$row['kode_aset'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
 
-                                                <a href="pages/aset/hapus_aset.php?id=<?=$row['kode_aset'];?>" class="btn btn-danger" role="button" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash"></i></a>
+                                                <?php 
+                                                    if($_SESSION['kode_petugas']==1){
+                                                ?>        
+                                                        <a href="pages/aset/hapus_aset.php?id=<?=$row['kode_aset'];?>" class="btn btn-danger" role="button" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash"></i></a>
+                                                <?php
+                                                    }
+                                                ?>
+                                                
+                                                
                                             </td>
                                         </tr>
                                 <?php
