@@ -111,4 +111,5 @@ $(function () {
       'info'        : true,
       'autoWidth'   : false
     })
-  })
+})
+
