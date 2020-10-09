@@ -54,7 +54,7 @@
                                                 <a href="index.php?page=ubah_jenis&id=<?=$row['kode_jenis'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
 
                                                 <?php 
-                                                    if($_SESSION['role']==1){
+                                                    if($_SESSION['kode_role']==1){
                                                 ?> 
                                                     <a href="pages/jenis_aset/hapus_jenis.php?id=<?=$row['kode_jenis'];?>" class="btn btn-danger" role="button" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash"></i></a>
                                                 <?php
