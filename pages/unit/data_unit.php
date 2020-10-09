@@ -55,7 +55,14 @@
                                             <td>
                                                 <a href="index.php?page=ubah_unit&id=<?=$row['kode_unit'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
 
-                                                <a href="pages/unit/hapus_unit.php?id=<?=$row['kode_unit'];?>" class="btn btn-danger" role="button" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash"></i></a>
+                                                <?php 
+                                                    if($_SESSION['kode_role']==1){
+                                                ?> 
+                                                    
+                                                    <a href="pages/unit/hapus_unit.php?id=<?=$row['kode_unit'];?>" class="btn btn-danger" role="button" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash"></i></a>
+                                                <?php
+                                                    }
+                                                ?>
                                             </td>
                                         </tr>
                                 <?php
