@@ -2,7 +2,7 @@
 <?php
 session_start();
 include "conf/conn.php";
-if(isset($_SESSION['kode_petugas'])==0){
+if(isset($_SESSION['role'])==0){
     echo '<script>alert("Anda Harus Login Terlebih Dahulu !!!");
     window.location.href="pages/login.php"</script>';
     }else{
@@ -190,7 +190,13 @@ if(isset($_SESSION['kode_petugas'])==0){
       </li>
       <li class="header">SETTING</li>
         <li class="treeview">
-          <li><a href="#"><i class="glyphicon glyphicon-cog"></i> <span>Pengaturan</span></a></li>
+        <?php 
+          if($_SESSION['role']==1){
+        ?>
+            <li><a href="index.php?page=data_petugas"><i class="glyphicon glyphicon-user"></i> <span>Kelola Petugas</span></a></li>
+        <?php
+          }
+        ?>
           <li><a href="pages/logout_process.php"><i class="glyphicon glyphicon-lock"></i> <span>Logout</span></a></li>
         </li>
       </ul>
