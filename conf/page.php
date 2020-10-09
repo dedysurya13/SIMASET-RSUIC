@@ -46,6 +46,22 @@ if(isset($_GET['page'])){
         case 'ubah_suplier';
             include 'pages/suplier/ubah_suplier.php';
         break;
+
+
+
+
+
+
+
+        case 'data_petugas':
+            include 'pages/petugas/data_petugas.php';
+        break;
+        case 'tambah_petugas';
+            include 'pages/petugas/tambah_petugas.php';
+        break;
+        case 'ubah_petugas';
+            include 'pages/petugas/ubah_petugas.php';
+        break;
     }
 }else{
     include "pages/beranda.php";
