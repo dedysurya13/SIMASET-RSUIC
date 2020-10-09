@@ -62,6 +62,13 @@ if(isset($_GET['page'])){
         case 'ubah_petugas';
             include 'pages/petugas/ubah_petugas.php';
         break;
+
+
+
+        //401
+        case '401':
+            include 'pages/401.php';
+        break;
     }
 }else{
     include "pages/beranda.php";
