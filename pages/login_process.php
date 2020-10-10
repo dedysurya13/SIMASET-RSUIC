@@ -38,6 +38,7 @@ $stmt->execute();
 if(($row = $stmt->fetch(PDO::FETCH_ASSOC))){
     session_start();
     $_SESSION['kode_role']=$row['kode_role'];
+    $_SESSION['kode_petugas']=$row['kode_petugas'];
 ?>
     <script>alert("Selamat Datang <?= $row['nama_petugas']; ?> Kamu Telah Login Ke Halaman Admin.");
         window.location.href="../index.php"</script>
