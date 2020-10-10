@@ -25,7 +25,7 @@
                         
                     </div>
                     <div class="box-body table-responsive">
-                        <table id="tabel" class="table table-bordered table-hover">
+                        <table id="tabelJenis" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>

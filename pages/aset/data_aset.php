@@ -1,6 +1,6 @@
 <?php
     function buatRupiah($angka){
-        $hasil = "Rp " . number_format($angka,2,',','.');
+        $hasil = "Rp " . number_format($angka,0,'','.');
         return $hasil;
         }
 ?>
@@ -31,7 +31,7 @@
                         
                     </div>
                     <div class="box-body table-responsive">
-                        <table id="tabel" class="table table-bordered table-hover">
+                        <table id="tabelAset" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
