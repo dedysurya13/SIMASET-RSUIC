@@ -65,51 +65,80 @@ $(function () {
     });
   });
 
-  //pencarian select option
-  $(document).ready(function() {
-      $('#jenis_aset').select2();
-      $('#nama_unit').select2();
-      $('#nama_suplier').select2();
-  });
-
-  //cari data
-  $(document).ready(function(){
-
-  // Search all columns
-    $('#txt_searchall').keyup(function(){
-      // Search Text
-      var search = $(this).val();
-
-      // Hide all table tbody rows
-      $('table tbody tr').hide();
-
-      // Count total search result
-      var len = $('table tbody tr:not(.notfound) td:contains("'+search+'")').length;
-
-      if(len > 0){
-        // Searching text in columns and show match row
-        $('table tbody tr:not(.notfound) td:contains("'+search+'")').each(function(){
-          $(this).closest('tr').show();
-        });
-      }else{
-        $('.notfound').show();
-      }
-  });
-  $.expr[":"].contains = $.expr.createPseudo(function(arg) {
-    return function( elem ) {
-      return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
-    };
-  });
-});
-
-$(function () {
-    $('#tabel').DataTable({
+$(function() {
+    $('#tabelAset').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : false
-    })
-})
+      'autoWidth'   : true,
+      dom: 'lfrtiBp',
+            buttons: [{ 
+              extend: 'print', 
+              text: ' Cetak',
+              title: 'Data Aset',
+              className: 'btn glyphicon glyphicon-print',
+              exportOptions:
+              { columns: [0,1,2,3,4,5,6,7,8,9,10] }
+            }]
+    });
+
+    $('#tabelJenis').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true,
+      dom: 'lfrtiBp',
+            buttons: [
+              { extend: 'print', 
+                text: ' Cetak',
+                title: 'Data Jenis Aset',
+                className: 'btn glyphicon glyphicon-print',
+                exportOptions:
+              { columns: [0,1,2] }
+              },
+            ]
+    });
+
+    $('#tabelSuplier').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true,
+      dom: 'lfrtiBp',
+            buttons: [
+              { extend: 'print', 
+                text: ' Cetak',
+                title: 'Data Suplier',
+                className: 'btn glyphicon glyphicon-print',
+                exportOptions:
+              { columns: [0,1,2,3,4] }
+              },
+            ]
+    });
+
+    $('#tabelUnit').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true,
+      dom: 'lfrtiBp',
+            buttons: [
+              { extend: 'print', 
+                text: ' Cetak',
+                title: 'Data Unit',
+                className: 'btn glyphicon glyphicon-print',
+                exportOptions:
+              { columns: [0,1,2,3] }
+              },
+            ]
+    });
+});
 
