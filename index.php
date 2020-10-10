@@ -14,7 +14,7 @@ if(isset($_SESSION['kode_role'])==0){
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>SIMASET RSU Islam Cawas</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -42,8 +42,8 @@ if(isset($_SESSION['kode_role'])==0){
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
-  <!-- jQuery 2.2.3 -->
-  <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+  <!-- DataTables Button -->
+  <link rel="stylesheet" href="plugins/datatables/extensions/Button/buttons.dataTable.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -58,9 +58,9 @@ if(isset($_SESSION['kode_role'])==0){
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini">ASET</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>SIMASET</b> RSUIC</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -413,7 +413,7 @@ if(isset($_SESSION['kode_role'])==0){
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
-<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="plugins/jQuery/jquery-3.5.1.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- Select2 -->
@@ -444,6 +444,10 @@ if(isset($_SESSION['kode_role'])==0){
 <!-- DataTables -->
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- DataTables Button -->
+<script src="plugins/datatables/extensions/Button/dataTable.buttons.min.js"></script>
+<script src="plugins/datatables/extensions/Button/buttons.print.min.js"></script>
+<!--<script src="plugins/datatebles/extensions/Button/buttons.colVis.min.js"></script>-->
 <!-- tambahan javascript-->
 <script src="dist/js/index.js"></script>
 
