@@ -446,7 +446,11 @@ if(isset($_SESSION['kode_role'])==0){
 <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- DataTables Button -->
 <script src="plugins/datatables/extensions/Button/dataTable.buttons.min.js"></script>
+<script src="plugins/datatables/extensions/Button/buttons.html5.min.js"></script>
 <script src="plugins/datatables/extensions/Button/buttons.print.min.js"></script>
+<script src="plugins/datatables/extensions/Button/pdfmake.min.js"></script>
+<script src="plugins/datatables/extensions/Button/vfs_fonts.js"></script>
+<script src="plugins/datatables/extensions/Button/jszip.min.js"></script>
 <!--<script src="plugins/datatebles/extensions/Button/buttons.colVis.min.js"></script>-->
 <!-- tambahan javascript-->
 <script src="dist/js/index.js"></script>
