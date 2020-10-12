@@ -73,15 +73,30 @@ $(function() {
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : true,
-      dom: 'lfrtiBp',
-            buttons: [{ 
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
+            buttons: [
+              { 
               extend: 'print', 
               text: ' Cetak',
               title: 'Data Aset',
               className: 'btn glyphicon glyphicon-print',
-              exportOptions:
-              { columns: [0,1,2,3,4,5,6,7,8,9,10] }
-            }]
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
+              },
+              {
+                extend: 'excel',
+                text: ' Excel',
+                title: 'Data Aset',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
+              },
+              {
+                extend: 'pdf',
+                text: ' PDF',
+                title: 'Data Aset',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
+              }
+            ]
     });
 
     $('#tabelJenis').DataTable({
@@ -91,7 +106,7 @@ $(function() {
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : true,
-      dom: 'lfrtiBp',
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
             buttons: [
               { extend: 'print', 
                 text: ' Cetak',
@@ -110,7 +125,7 @@ $(function() {
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : true,
-      dom: 'lfrtiBp',
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
             buttons: [
               { extend: 'print', 
                 text: ' Cetak',
@@ -129,7 +144,8 @@ $(function() {
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : true,
-      dom: 'lfrtiBp',
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>", 
+      //'lfrtiBp'
             buttons: [
               { extend: 'print', 
                 text: ' Cetak',
