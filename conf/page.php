@@ -48,6 +48,15 @@ if(isset($_GET['page'])){
         break;
 
 
+        case 'data_pemeriksaan':
+            include 'pages/pemeriksaan/data_pemeriksaan.php';
+        break;
+        case 'tambah_pemeriksaan';
+            include 'pages/pemeriksaan/tambah_pemeriksaan.php';
+        break;
+        case 'ubah_pemeriksaan';
+            include 'pages/pemeriksaan/ubah_pemeriksaan.php';
+        break;
 
 
 
