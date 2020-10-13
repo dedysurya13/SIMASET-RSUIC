@@ -63,7 +63,14 @@ $(function () {
     $(".timepicker").timepicker({
       showInputs: false
     });
+
+    //Search di select option
+    $('#kode_aset, #jenis_aset, #nama_unit, #nama_suplier, #kode_role').select2({
+      
+    });
   });
+
+
 
 $(function() {
     $('#tabelAset').DataTable({
@@ -77,7 +84,7 @@ $(function() {
             buttons: [
               { 
               extend: 'print', 
-              text: ' Cetak',
+              text: ' Print',
               title: 'Data Aset',
               className: 'btn glyphicon glyphicon-print',
               exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
@@ -109,7 +116,7 @@ $(function() {
       dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
             buttons: [
               { extend: 'print', 
-                text: ' Cetak',
+                text: ' Print',
                 title: 'Data Jenis Aset',
                 className: 'btn glyphicon glyphicon-print',
                 exportOptions:
@@ -128,7 +135,7 @@ $(function() {
       dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
             buttons: [
               { extend: 'print', 
-                text: ' Cetak',
+                text: ' Print',
                 title: 'Data Suplier',
                 className: 'btn glyphicon glyphicon-print',
                 exportOptions:
@@ -148,12 +155,45 @@ $(function() {
       //'lfrtiBp'
             buttons: [
               { extend: 'print', 
-                text: ' Cetak',
+                text: ' Print',
                 title: 'Data Unit',
                 className: 'btn glyphicon glyphicon-print',
                 exportOptions:
               { columns: [0,1,2,3] }
               },
+            ]
+    });
+
+    $('#tabelPemeriksaan').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true,
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
+            buttons: [
+              { 
+              extend: 'print', 
+              text: ' Print',
+              title: 'Pemeriksaan Aset',
+              className: 'btn glyphicon glyphicon-print',
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+              },
+              {
+                extend: 'excel',
+                text: ' Excel',
+                title: 'Pemeriksaan Aset',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+              },
+              {
+                extend: 'pdf',
+                text: ' PDF',
+                title: 'Pemeriksaan Aset',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+              }
             ]
     });
 });
