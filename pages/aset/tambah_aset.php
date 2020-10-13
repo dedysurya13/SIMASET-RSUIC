@@ -63,7 +63,7 @@ include "conf/conn.php";
                             <div class="form-group">
                                 <label>Jenis Aset</label>
                                 <?php
-                                    $jenisQuery = $conn->query("SELECT * FROM tb_jenis");
+                                    $jenisQuery = $conn->query("SELECT * FROM tb_jenis ORDER BY nama_jenis ASC");
                                 ?>
                                 <select id="jenis_aset" name="jenis_aset" class="form-control" id="">
 
@@ -78,7 +78,7 @@ include "conf/conn.php";
                             <div class="form-group">
                                 <label>Nama Unit</label>
                                 <?php
-                                    $unitQuery = $conn->query("SELECT * FROM tb_unit");
+                                    $unitQuery = $conn->query("SELECT * FROM tb_unit ORDER BY nama_unit ASC");
                                 ?>
                                 <select id="nama_unit" name="nama_unit" class="form-control" id="">
 
@@ -93,7 +93,7 @@ include "conf/conn.php";
                             <div class="form-group">
                                 <label>Nama Suplier</label>
                                 <?php
-                                    $suplierQuery = $conn->query("SELECT * FROM tb_suplier");
+                                    $suplierQuery = $conn->query("SELECT * FROM tb_suplier ORDER BY nama_suplier ASC");
                                 ?>
                                 <select id="nama_suplier" name="nama_suplier" class="form-control" id="">
 
