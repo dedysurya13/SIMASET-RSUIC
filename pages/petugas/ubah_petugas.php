@@ -28,23 +28,23 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                             <label for="">Kode Petugas</label>
-                                <input type="text" name="kode_petugas" class="form-control" placeholder="Kode Petugas" value="<?php echo $row['kode_petugas']; ?>" disabled>
+                                <input type="text" name="kode_petugas" class="form-control" placeholder="Kode Petugas" value="<?php echo $row['kode_petugas']; ?>" autocomplete="off" disabled>
                             </div>
                             <div class="form-group">
                             <label for="">Username</label>
-                                <input type="text" name="username" class="form-control" placeholder="Username" value="<?php echo $row['username']; ?>" required>
+                                <input type="text" name="username" class="form-control" placeholder="Username" value="<?php echo $row['username']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                             <label for="">Password</label>
-                                <input type="text" name="password" class="form-control" placeholder="Password" value="<?php echo $row['password']; ?>" required>
+                                <input type="text" name="password" class="form-control" placeholder="Password" value="<?php echo $row['password']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Petugas</label>
-                                <input type="text" name="nama_petugas" class="form-control" placeholder="Nama Petugas" value="<?php echo $row['nama_petugas']; ?>" required>
+                                <input type="text" name="nama_petugas" class="form-control" placeholder="Nama Petugas" value="<?php echo $row['nama_petugas']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Telepon Petugas</label>
-                                <input type="number" name="telp_petugas" class="form-control" placeholder="Telepon Petugas"  value="<?php echo $row['telp_petugas']; ?>" required>
+                                <input type="number" name="telp_petugas" class="form-control" placeholder="Telepon Petugas"  value="<?php echo $row['telp_petugas']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label>Role</label>

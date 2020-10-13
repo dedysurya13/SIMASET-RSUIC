@@ -20,23 +20,23 @@ if($_SESSION['kode_role']==1){
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="">Kode Petugas</label>
-                                <input type="text" name="kode_petugas" class="form-control" placeholder="Kode Petugas" required>
+                                <input type="text" name="kode_petugas" class="form-control" placeholder="Kode Petugas" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Username </label>
-                                <input type="text" name="username" class="form-control" placeholder="Username" required>
+                                <input type="text" name="username" class="form-control" placeholder="Username" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="text" name="password" class="form-control" placeholder="Password" required>
+                                <input type="text" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Petugas</label>
-                                <input type="text" name="nama_petugas" class="form-control" placeholder="Nama Petugas" required>
+                                <input type="text" name="nama_petugas" class="form-control" placeholder="Nama Petugas" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Telepon</label>
-                                <input type="number" name="telp_petugas" class="form-control" placeholder="Telepon Petugas" required>
+                                <input type="number" name="telp_petugas" class="form-control" placeholder="Telepon Petugas" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label>Role Petugas</label>

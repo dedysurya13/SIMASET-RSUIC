@@ -28,11 +28,11 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                             <label for="">Kode Unit</label>
-                                <input type="text" name="kode_unit" class="form-control" placeholder="Kode Unit" value="<?php echo $row['kode_unit']; ?>" disabled>
+                                <input type="text" name="kode_unit" class="form-control" placeholder="Kode Unit" value="<?php echo $row['kode_unit']; ?>" autocomplete="off" disabled>
                             </div>
                             <div class="form-group">
                             <label for="">Nama Unit</label>
-                                <input type="text" name="nama_unit" class="form-control" placeholder="Nama Unit" value="<?php echo $row['nama_unit']; ?>" required>
+                                <input type="text" name="nama_unit" class="form-control" placeholder="Nama Unit" value="<?php echo $row['nama_unit']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                             <label for="">Penanggung Jawab</label>

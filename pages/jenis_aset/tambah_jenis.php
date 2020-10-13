@@ -20,11 +20,11 @@ include "conf/conn.php";
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="">Kode</label>
-                                <input type="text" name="kode_jenis" class="form-control" placeholder="Kode Jenis Aset" required>
+                                <input type="text" name="kode_jenis" class="form-control" placeholder="Kode Jenis Aset" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Jenis Aset</label>
-                                <input type="text" name="nama_jenis" class="form-control" placeholder="Nama Jenis Aset" required>
+                                <input type="text" name="nama_jenis" class="form-control" placeholder="Nama Jenis Aset" autocomplete="off" required>
                             </div>
                         </div>
                         <div class="box-footer">

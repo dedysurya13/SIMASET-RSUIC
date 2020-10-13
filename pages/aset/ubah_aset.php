@@ -28,15 +28,15 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                             <label for="">Kode Aset</label>
-                                <input type="text" name="kode_aset" class="form-control" placeholder="Kode Aset, ex: poli1-0001" value="<?php echo $row['kode_aset']; ?>" disabled>
+                                <input type="text" name="kode_aset" class="form-control" placeholder="Kode Aset, ex: poli1-0001" value="<?php echo $row['kode_aset']; ?>" autocomplete="off" disabled>
                             </div>
                             <div class="form-group">
                             <label for="">Nama Aset</label>
-                                <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex: Printer" value="<?php echo $row['nama_aset']; ?>" required>
+                                <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex: Printer" value="<?php echo $row['nama_aset']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                             <label for="">Merk Aset</label>
-                                <input type="text" name="merk_aset" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['merk_aset']; ?>" required>
+                                <input type="text" name="merk_aset" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['merk_aset']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Tahun Aset</label>
@@ -53,7 +53,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             </div>
                             <div class="form-group">
                                 <label for="">Nilai Aset</label>
-                                <input type="text" name="nilai_aset" class="form-control" placeholder="Nilai Aset, ex: 300000" value="<?php echo $row['nilai_aset']; ?>" required>
+                                <input type="text" name="nilai_aset" class="form-control" placeholder="Nilai Aset, ex: 300000" value="<?php echo $row['nilai_aset']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Aset</label>
@@ -61,12 +61,12 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                    <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker" value="<?php echo substr($row['tanggal_aset'], 0, 11); ?>" required>
+                                    <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker" value="<?php echo substr($row['tanggal_aset'], 0, 11); ?>" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="">Spesifikasi Aset</label>
-                                <textarea name="spesifikasi_aset" class="form-control" rows="4" class="pull-right" placeholder="Spesifikasi aset"  value=""><?php echo $row['spesifikasi_aset']; ?></textarea>
+                                <textarea name="spesifikasi_aset" class="form-control" rows="4" class="pull-right" placeholder="Spesifikasi aset"  value=""  autocomplete="off" required><?php echo $row['spesifikasi_aset']; ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Jenis Aset</label>

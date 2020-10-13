@@ -20,15 +20,15 @@ include "conf/conn.php";
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="">Kode Unit</label>
-                                <input type="text" name="kode_unit" class="form-control" placeholder="Kode Unit" required>
+                                <input type="text" name="kode_unit" class="form-control" placeholder="Kode Unit" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Unit</label>
-                                <input type="text" name="nama_unit" class="form-control" placeholder="Nama Unit" required>
+                                <input type="text" name="nama_unit" class="form-control" placeholder="Nama Unit" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Penanggung Jawab</label>
-                                <input type="text" name="nama_pj" class="form-control" placeholder="Penanggung Jawab" required>
+                                <input type="text" name="nama_pj" class="form-control" placeholder="Penanggung Jawab" autocomplete="off" required>
                             </div>
                         </div>
                         <div class="box-footer">

@@ -20,19 +20,19 @@ include "conf/conn.php";
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="">Kode</label>
-                                <input type="text" name="kode_suplier" class="form-control" placeholder="Kode Suplier" required>
+                                <input type="text" name="kode_suplier" class="form-control" placeholder="Kode Suplier" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Suplier</label>
-                                <input type="text" name="nama_suplier" class="form-control" placeholder="Nama Suplier" required>
+                                <input type="text" name="nama_suplier" class="form-control" placeholder="Nama Suplier" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Alamat</label>
-                                <input type="text" name="alamat_suplier" class="form-control" placeholder="Alamat Suplier" required>
+                                <input type="text" name="alamat_suplier" class="form-control" placeholder="Alamat Suplier" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Telepon</label>
-                                <input type="number" name="telp_suplier" class="form-control" placeholder="Telepon Suplier" required>
+                                <input type="number" name="telp_suplier"  autocomplete="off"class="form-control" placeholder="Telepon Suplier" required>
                             </div>
                         </div>
                         <div class="box-footer">

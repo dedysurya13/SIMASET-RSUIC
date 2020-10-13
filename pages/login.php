@@ -34,11 +34,11 @@
     <p class="login-box-msg">Log In Untuk Masuk Ke Halaman Admin.</p>
     <form action="login_process.php" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="username" placeholder="Username">
+        <input type="text" class="form-control" name="username" placeholder="Username" autocomplete="off" required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="off" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">

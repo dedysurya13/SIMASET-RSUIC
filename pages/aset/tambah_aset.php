@@ -20,15 +20,15 @@ include "conf/conn.php";
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="">Kode Aset</label>
-                                <input type="text" name="kode_aset" class="form-control" placeholder="Kode Aset, ex: poli1-0001" required>
+                                <input type="text" name="kode_aset" class="form-control" placeholder="Kode Aset, ex: poli1-0001" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Aset</label>
-                                <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex,: Printer" required>
+                                <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex,: Printer" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Merk Aset</label>
-                                <input type="text" name="merk_aset" class="form-control" placeholder="Merk Aset, ex: Epson L310" required>
+                                <input type="text" name="merk_aset" class="form-control" placeholder="Merk Aset, ex: Epson L310" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Tahun Aset</label>
@@ -45,7 +45,7 @@ include "conf/conn.php";
                             </div>
                             <div class="form-group">
                                 <label for="">Nilai Aset</label>
-                                <input type="text" name="nilai_aset" class="form-control" placeholder="Nilai Aset, ex: 300000" required>
+                                <input type="text" name="nilai_aset" class="form-control" placeholder="Nilai Aset, ex: 300000" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Aset</label>
@@ -53,12 +53,12 @@ include "conf/conn.php";
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker" required>
+                                <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="">Spesifikasi Aset</label>
-                                <textarea name="spesifikasi_aset" class="form-control" rows="4" class="pull-right" placeholder="Spesifikasi aset" required></textarea>
+                                <textarea name="spesifikasi_aset" class="form-control" rows="4" class="pull-right" placeholder="Spesifikasi aset" autocomplete="off" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Jenis Aset</label>
