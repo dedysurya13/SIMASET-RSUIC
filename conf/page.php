@@ -59,6 +59,17 @@ if(isset($_GET['page'])){
         break;
 
 
+        case 'data_kerusakan':
+            include 'pages/kerusakan/data_kerusakan.php';
+        break;
+        case 'tambah_kerusakan';
+            include 'pages/kerusakan/tambah_kerusakan.php';
+        break;
+        case 'ubah_kerusakan';
+            include 'pages/kerusakan/ubah_kerusakan.php';
+        break;
+
+
 
 
 
