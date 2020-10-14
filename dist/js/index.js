@@ -61,7 +61,9 @@ $(function () {
 
     //Timepicker
     $(".timepicker").timepicker({
-      showInputs: false
+      showInputs: false,
+      showMeridian: false,
+      minuteStep: 1   
     });
 
     //Search di select option
@@ -176,21 +178,54 @@ $(function() {
               { 
               extend: 'print', 
               text: ' Print',
-              title: 'Pemeriksaan Aset',
+              title: 'Data Pemeriksaan Aset',
               className: 'btn glyphicon glyphicon-print',
               exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
               },
               {
                 extend: 'excel',
                 text: ' Excel',
-                title: 'Pemeriksaan Aset',
+                title: 'Data Pemeriksaan Aset',
                 className: 'btn glyphicon glyphicon-file',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
               },
               {
                 extend: 'pdf',
                 text: ' PDF',
-                title: 'Pemeriksaan Aset',
+                title: 'Data Pemeriksaan Aset',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+              }
+            ]
+    });
+
+    $('#tabelKerusakan').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true,
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
+            buttons: [
+              { 
+              extend: 'print', 
+              text: ' Print',
+              title: 'Data Kerusakan Aset',
+              className: 'btn glyphicon glyphicon-print',
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+              },
+              {
+                extend: 'excel',
+                text: ' Excel',
+                title: 'Data Kerusakan Aset',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+              },
+              {
+                extend: 'pdf',
+                text: ' PDF',
+                title: 'Data Kerusakan Aset',
                 className: 'btn glyphicon glyphicon-file',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
               }
