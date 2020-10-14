@@ -14,10 +14,10 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
 
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Ubah Suplier</h1>
+        <h1>Ubah Pemeriksaan Aset</h1>
         <ol class="breadcrumb">
             <li><a href="index.php"><i class="fa fa-dashboard"> Home</i></a></li>
-            <li class="active">Ubah Suplier</li>
+            <li class="active">Ubah Pemeriksaan Aset</li>
         </ol>
     </section>
 
