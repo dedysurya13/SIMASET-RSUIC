@@ -39,9 +39,9 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <div class="form-group">
                                 <label>Tanggal Pemeriksaan Aset</label>
                                 <div class="input-group date">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
                                     <input type="text" name="tanggal_pemeriksaan_aset" class="form-control pull-right" id="datepicker" value="<?php echo substr($row['tanggal_pemeriksaan_aset'], 0, 11); ?>" autocomplete="off" required>
                                 </div>
                             </div>
