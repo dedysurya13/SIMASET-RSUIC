@@ -143,7 +143,7 @@ if(isset($_SESSION['kode_role'])==0){
           </a>
       </li>
       <li class=treeview>
-          <a href="#">
+          <a href="index.php?page=data_perbaikan">
             <i class="glyphicon glyphicon glyphicon glyphicon-wrench"></i> <span>Perbaikan Aset</span>
           </a>
       </li>
