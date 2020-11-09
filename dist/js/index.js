@@ -37,7 +37,26 @@ $(function () {
       autoclose: true,
       format: 'yyyy/mm/dd'
     });
+    $('#datepicker_selesai').datepicker({
+      autoclose: true,
+      format: 'yyyy/mm/dd',
+      minDate: 0
+    });
+  /*
+    $("#datepicker").datepicker({
+      dateFormat:'dd/M/yy',
+      minDate: 'now',
+      changeMonth:true,
+      changeYear:true,
+      showOn: "focus",
+      //buttonImage: "YourImage",
+      buttonImageOnly: true, 
+      yearRange: "-100:+0",  
+      }); 
+   
+     $( "datepicker" ).datepicker( "option", "disabled", true );
 
+  */
     //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
@@ -65,9 +84,15 @@ $(function () {
       showMeridian: false,
       minuteStep: 1   
     });
+    $(".timepicker_selesai").timepicker({
+      showInputs: false,
+      showMeridian: false,
+      minuteStep: 15,
+      defaultTime: false  
+    });
 
     //Search di select option
-    $('#kode_aset, #jenis_aset, #nama_unit, #nama_suplier, #kode_role').select2({
+    $('#kode_aset, #jenis_aset, #nama_unit, #nama_suplier, #kode_role #kode_kerusakan_aset, #kode_status').select2({
       
     });
   });
@@ -228,6 +253,42 @@ $(function() {
                 title: 'Data Kerusakan Aset',
                 className: 'btn glyphicon glyphicon-file',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+              }
+            ]
+    });
+
+    $('#tabelPerbaikan').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true,
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
+            buttons: [
+              { 
+              extend: 'print', 
+              text: ' Print',
+              title: 'Data Perbaikan Aset',
+              className: 'btn glyphicon glyphicon-print',
+              orientation: 'landscape',
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] }
+              },
+              {
+                extend: 'excel',
+                text: ' Excel',
+                title: 'Data Perbaikan Aset',
+                className: 'btn glyphicon glyphicon-file',
+                orientation: 'landscape',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] }
+              },
+              {
+                extend: 'pdf',
+                text: ' PDF',
+                title: 'Data Perbaikan Aset',
+                className: 'btn glyphicon glyphicon-file',
+                orientation: 'landscape',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] }
               }
             ]
     });
