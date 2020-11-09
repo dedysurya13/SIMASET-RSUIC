@@ -70,7 +70,15 @@ if(isset($_GET['page'])){
         break;
 
 
-
+        case 'data_perbaikan':
+            include 'pages/perbaikan/data_perbaikan.php';
+        break;
+        case 'tambah_perbaikan';
+            include 'pages/perbaikan/tambah_perbaikan.php';
+        break;
+        case 'ubah_perbaikan';
+            include 'pages/perbaikan/ubah_perbaikan.php';
+        break;
 
 
         case 'data_petugas':
