@@ -60,32 +60,32 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <div class="form-group">
                                 <label>Status Perbaikan</label>
                                 <?php
-                                    $statusQuery = $conn->query("SELECT * FROM tb_status ORDER BY kode_status ASC");
+                                    $statusQuery = $conn->query("SELECT * FROM tb_status");
                                 ?>
                                 <select id="kode_status" name="kode_status" class="form-control" required>
 
                                     <option value="<?php echo $row['kode_status']; ?>"><?php echo $row['nama_status'];?></option>
 
-                                    <?php while ($row = $statusQuery->fetch(PDO::FETCH_ASSOC)){
-                                    extract($row);
+                                    <?php while ($rowStatus = $statusQuery->fetch(PDO::FETCH_ASSOC)){
+                                    extract($rowStatus);
                                     echo "<option value='{$kode_status}'>{$nama_status}</option>";
                                     }?>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Tanggal Selesai (Diisi setelah selesai diperbaiki)</label>
+                                <label>Tanggal Diterima (Diisi setelah selesai diperbaiki)</label>
                                 <div class="input-group date">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
-                                <input type="text" name="tanggal_selesai" class="form-control pull-right" id="datepicker_selesai" value="<?php echo substr($row['tanggal_selesai'], 0, 11); ?>" autocomplete="off">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" name="tanggal_selesai" class="form-control pull-right" id="datepickerSelesai" value="<?php echo substr($row['tanggal_selesai'], 0, 11); ?>" autocomplete="off">
                                 </div>
                             </div>
                             <div class="bootstrap-timepicker">
                                 <div class="form-group">
-                                    <label>Jam Selesai (Diisi setelah selesai diperbaiki)</label>
+                                    <label>Jam Diterima (Diisi setelah selesai diperbaiki)</label>
                                     <div class="input-group">
-                                    <input type="text" name="jam_selesai" class="form-control timepicker_selesai" value="<?php echo $row['jam_selesai']; ?>" autocomplete="off">
+                                        <input type="text" name="jam_selesai" class="form-control timepickerSelesai" value="<?php echo $row['jam_selesai']; ?>" autocomplete="off">
 
                                         <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>
@@ -94,7 +94,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="">Uraian Perbaikan</label>
+                                <label for="">Uraian Perbaikan (Diisi setelah selesai diperbaiki)</label>
                                 <textarea name="uraian_perbaikan" class="form-control" rows="4" class="pull-right" placeholder="Uraikan perbaikan"  value=""  autocomplete="off"><?php echo $row['uraian_perbaikan']; ?></textarea>
                             </div>
                             

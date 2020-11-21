@@ -1,7 +1,6 @@
 <?php
 include "conf/conn.php";
 
-
 ?>
 <div class="content-wrapper">
     <section class="content-header">
@@ -18,10 +17,7 @@ include "conf/conn.php";
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/suplier/tambah_suplier_proses.php">
                         <div class="box-body">
-                            <div class="form-group">
-                                <label for="">Kode</label>
-                                <input type="text" name="kode_suplier" class="form-control" placeholder="Kode Suplier" autocomplete="off" required>
-                            </div>
+                            <input type="hidden" name="kode_suplier" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label for="">Nama Suplier</label>
                                 <input type="text" name="nama_suplier" class="form-control" placeholder="Nama Suplier" autocomplete="off" required>

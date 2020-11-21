@@ -18,10 +18,7 @@ include "conf/conn.php";
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/jenis_aset/tambah_jenis_proses.php">
                         <div class="box-body">
-                            <div class="form-group">
-                                <label for="">Kode</label>
-                                <input type="text" name="kode_jenis" class="form-control" placeholder="Kode Jenis Aset" autocomplete="off" required>
-                            </div>
+                            <input type="hidden" name="kode_jenis" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label for="">Jenis Aset</label>
                                 <input type="text" name="nama_jenis" class="form-control" placeholder="Nama Jenis Aset" autocomplete="off" required>

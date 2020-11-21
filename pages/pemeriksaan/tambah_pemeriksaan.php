@@ -19,10 +19,7 @@ $kode_petugas = $_SESSION['kode_petugas'];
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/pemeriksaan/tambah_pemeriksaan_proses.php">
                         <div class="box-body">
-                            <div class="form-group">
-                                <label for="">Kode Pemeriksaan</label>
-                                <input type="text" name="kode_pemeriksaan_aset" class="form-control" placeholder="Kode Pemeriksaan Aset, ex: periksa-0001" autocomplete="off" required>
-                            </div>
+                            <input type="hidden" name="kode_pemeriksaan_aset" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label>Kode Aset</label>
                                 <?php

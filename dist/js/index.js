@@ -37,7 +37,7 @@ $(function () {
       autoclose: true,
       format: 'yyyy/mm/dd'
     });
-    $('#datepicker_selesai').datepicker({
+    $('#datepickerSelesai').datepicker({
       autoclose: true,
       format: 'yyyy/mm/dd',
       minDate: 0
@@ -84,7 +84,7 @@ $(function () {
       showMeridian: false,
       minuteStep: 1   
     });
-    $(".timepicker_selesai").timepicker({
+    $(".timepickerSelesai").timepicker({
       showInputs: false,
       showMeridian: false,
       minuteStep: 15,

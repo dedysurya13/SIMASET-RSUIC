@@ -2,7 +2,18 @@
     function buatRupiah($angka){
         $hasil = "Rp " . number_format($angka,0,'','.');
         return $hasil;
-        }
+    }
+
+    $sqlID = "SELECT MAX(kode_aset) FROM tb_aset";
+    $incrementID = $conn->prepare($sqlID);
+    $incrementID->execute();
+    $ambilID = $incrementID->fetch(PDO::FETCH_ASSOC);
+    $kodeID = strtok($ambilID[''], '-');
+    $potongID = substr($ambilID[''], 5);
+    $angkaID = (int)$potongID;
+    $angkaID = $angkaID + 10000001;
+    $hurufID = substr((string)$angkaID,1);
+    $hurufID = $kodeID."-".$hurufID;
 ?>
 <div class="content-wrapper">
     <section class="content-header">
@@ -20,7 +31,7 @@
                     <div class="box-header">
                         <div class="form-group row">
                             <div class="col-sm-1">
-                                <a href="index.php?page=tambah_aset" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
+                                <a href="index.php?page=tambah_aset&id=<?php echo $hurufID ?>" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
                             </div>
                             <!--
                             <div class="col-sm-11">

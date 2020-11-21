@@ -11,8 +11,16 @@ if(isset($_POST['simpan_data'])){
     $jam_selesai = $_POST['jam_selesai'];
     $uraian_perbaikan = $_POST['uraian_perbaikan'];
 
-    if ($tanggal_selesai =="1900/01/01"){
-        $tanggal_selesai1 = null;
+    if ($tanggal_selesai == ""){
+        $tanggal_selesai1 = NULL;
+    }else{
+        $tanggal_selesai1=$_POST['tanggal_selesai'];
+    }
+
+    if ($jam_selesai == "" || $jam_selesai == "00:00" ){
+        $jam_selesai1 = NULL;
+    }else{
+        $jam_selesai1=$_POST['jam_selesai'];
     }
 
     $query = $conn->prepare("INSERT INTO tb_perbaikan_aset (kode_perbaikan_aset, kode_kerusakan_aset, tanggal_diterima, jam_diterima, tanggal_selesai, jam_selesai, uraian_perbaikan, kode_status)
@@ -24,7 +32,7 @@ if(isset($_POST['simpan_data'])){
     $query->bindParam(':jam_diterima',$jam_diterima);
     $query->bindParam(':kode_status',$kode_status);
     $query->bindParam(':tanggal_selesai',$tanggal_selesai1);
-    $query->bindParam(':jam_selesai',$jam_selesai);
+    $query->bindParam(':jam_selesai',$jam_selesai1);
     $query->bindParam(':uraian_perbaikan',$uraian_perbaikan);
 
     $query->execute();
@@ -36,5 +44,7 @@ if(isset($_POST['simpan_data'])){
         $errors = $query->errorInfo();
         print_r($errors);
     }
+    //var_dump($tanggal_selesai);
+    //var_dump($tanggal_selesai1);
 }
 ?>

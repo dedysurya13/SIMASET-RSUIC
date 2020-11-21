@@ -1,3 +1,16 @@
+<?php
+    $sqlID = "SELECT MAX(kode_pemeriksaan_aset) FROM tb_pemeriksaan_aset";
+    $incrementID = $conn->prepare($sqlID);
+    $incrementID->execute();
+    $ambilID = $incrementID->fetch(PDO::FETCH_ASSOC);
+    $kodeID = strtok($ambilID[''], '-');
+    $potongID = substr($ambilID[''], 4);
+    $angkaID = (int)$potongID;
+    $angkaID = $angkaID + 100000001;
+    $hurufID = substr((string)$angkaID,1);
+    $hurufID = $kodeID."-".$hurufID;
+?>
+
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Pemeriksaan Aset</h1>
@@ -14,7 +27,7 @@
                     <div class="box-header">
                         <div class="form-group row">
                             <div class="col-sm-1">
-                                <a href="index.php?page=tambah_pemeriksaan" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
+                                <a href="index.php?page=tambah_pemeriksaan&id=<?php echo $hurufID ?>" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
                             </div>
                             <!--
                             <div class="col-sm-11">
@@ -46,7 +59,7 @@
                                     include "conf/conn.php";
                                     $no=0;                           
 
-                                    $sql = "SELECT * FROM tb_pemeriksaan_aset as pa INNER JOIN tb_aset as a ON  pa.kode_aset = a.kode_aset INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_petugas as pe ON pa.kode_petugas = pe.kode_petugas ORDER BY tanggal_pemeriksaan_aset DESC";
+                                    $sql = "SELECT * FROM tb_pemeriksaan_aset as pa INNER JOIN tb_aset as a ON  pa.kode_aset = a.kode_aset INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_petugas as pe ON pa.kode_petugas = pe.kode_petugas ORDER BY kode_pemeriksaan_aset DESC";
 
                                     $dataPemeriksaan = $conn->query($sql);
                                     

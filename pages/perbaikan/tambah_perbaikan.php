@@ -19,10 +19,7 @@ $kode_petugas = $_SESSION['kode_petugas'];
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/perbaikan/tambah_perbaikan_proses.php">
                         <div class="box-body">
-                            <div class="form-group">
-                                <label for="">Kode Perbaikan</label>
-                                <input type="text" name="kode_perbaikan_aset" class="form-control" placeholder="Kode Perbaikan Aset, ex: fix0001" autocomplete="off" required>
-                            </div>
+                                <input type="hidden" name="kode_perbaikan_aset" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label>Kode Kerusakan</label>
                                 <?php
@@ -80,14 +77,14 @@ $kode_petugas = $_SESSION['kode_petugas'];
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" name="tanggal_selesai" class="form-control pull-right" id="datepicker_selesai" autocomplete="off">
+                                <input type="text" name="tanggal_selesai" class="form-control pull-right" id="datepickerSelesai" autocomplete="off">
                                 </div>
                             </div>
                             <div class="bootstrap-timepicker">
                                 <div class="form-group">
                                     <label>Jam Selesai (Diisi setelah selesai diperbaiki)</label>
                                     <div class="input-group">
-                                        <input type="text" name="jam_selesai" class="form-control timepicker_selesai" autocomplete="off">
+                                        <input type="text" name="jam_selesai" class="form-control timepickerSelesai" autocomplete="off">
 
                                         <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>

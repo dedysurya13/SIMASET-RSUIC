@@ -18,10 +18,7 @@ include "conf/conn.php";
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/unit/tambah_unit_proses.php">
                         <div class="box-body">
-                            <div class="form-group">
-                                <label for="">Kode Unit</label>
-                                <input type="text" name="kode_unit" class="form-control" placeholder="Kode Unit" autocomplete="off" required>
-                            </div>
+                            <input type="hidden" name="kode_unit" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label for="">Nama Unit</label>
                                 <input type="text" name="nama_unit" class="form-control" placeholder="Nama Unit" autocomplete="off" required>
