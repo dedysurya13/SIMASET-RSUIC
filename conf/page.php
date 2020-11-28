@@ -91,7 +91,12 @@ if(isset($_GET['page'])){
             include 'pages/petugas/ubah_petugas.php';
         break;
 
+        
 
+        //cari
+        case'cari_aset':
+            include 'pages/cari_aset/aset.php';
+        break;
 
         //401
         case '401':
