@@ -1,4 +1,6 @@
-
+<?php
+include "../conf/conn.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +16,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Select2-->
+    <link rel="stylesheet" href="../plugins/select2/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="../plugins/iCheck/square/blue.css">
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -28,11 +33,11 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    Administrator
+    SIM Aset<br>RSU Islam Cawas
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Log In Untuk Masuk Ke Halaman Admin.</p>
+    <p class="login-box-msg">Log In Untuk Masuk Ke Halaman SIM Aset.</p>
     <form action="login_process.php" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" name="username" placeholder="Username" autocomplete="off" required>
@@ -49,6 +54,30 @@
         </div><br>
         </div>
     </form>
+    <br><br>
+    <form action="cari_aset/index.php" method="post">
+    <div class="form-group">
+        <label>Cari Aset</label>
+        <?php
+            $asetQuery = $conn->query("SELECT * FROM tb_aset ORDER BY kode_aset ASC");
+        ?>
+        <select id="kode_aset" name="kode_aset" class="kode_aset form-control">
+
+            <option value=''>- Kode Aset -</option>
+
+            <?php while ($row = $asetQuery->fetch(PDO::FETCH_ASSOC)){
+            extract($row);
+            echo "<option value='{$kode_aset}'>{$kode_aset}</option>";
+            }?>
+        </select>
+      </div>
+    <div class="row">
+      <!-- /.col -->
+      <div class="col-xs-4">
+        <button type="submit" name="submit_aset" class="btn btn-primary btn-block btn-flat">Cari Aset</button>
+      </div><br>
+      </div>
+    </form>
   </div>
   <!-- /.login-box-body -->
 </div>
@@ -57,5 +86,12 @@
 <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../bootstrap/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/select2.full.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.kode_aset').select2();
+  });
+</script>
 </body>
 </html>
