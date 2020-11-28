@@ -107,7 +107,7 @@ include "../../conf/conn.php";
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0.0
+      <b>Version</b> 1.0.1
     </div>
     <strong>Copyright &copy; 2020 <a href="#">RSU Islam Cawas</a></strong>
   </footer>
