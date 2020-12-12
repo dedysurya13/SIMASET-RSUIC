@@ -91,6 +91,8 @@
                                             <td>
                                                 <a href="index.php?page=ubah_aset&id=<?=$row['kode_aset'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
 
+                                                <a href="pages/cetak/single_label.php?id=<?=$row['kode_aset'];?>" target="_blank" class="btn btn-info" role="button" title="Cetak Label"><i class="glyphicon glyphicon-qrcode"></i></a>
+
                                                 <?php 
                                                     if($_SESSION['kode_role']==1){
                                                 ?>        
