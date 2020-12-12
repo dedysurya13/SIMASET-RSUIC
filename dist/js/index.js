@@ -95,8 +95,10 @@ $(function () {
     $('#kode_aset, #jenis_aset, #nama_unit, #nama_suplier, #kode_role #kode_kerusakan_aset, #kode_status').select2({
       
     });
+    $('#multi_label').select2({
+      maximumSelectionLength: 12,
+    });
   });
-
 
 
 $(function() {
