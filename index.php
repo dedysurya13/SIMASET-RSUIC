@@ -131,6 +131,11 @@ if(isset($_SESSION['kode_role'])==0){
             <i class="glyphicon glyphicon glyphicon-shopping-cart"></i> <span>Kelola Suplier</span>
           </a>
       </li>
+      <li class="treeview">
+          <a href="index.php?page=cetak_multi_label">
+            <i class="glyphicon glyphicon glyphicon-print"></i> <span>Cetak Label</span>
+          </a>
+      </li>
       <li class="header">ASET RUSAK</li>
       <li class=treeview>
           <a href="index.php?page=data_pemeriksaan">
