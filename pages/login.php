@@ -55,7 +55,7 @@ include "../conf/conn.php";
         </div>
     </form>
     <br><br>
-    <form action="cari_aset/index.php" method="post">
+    <form action="cari_aset/index.php" method="get">
     <div class="form-group">
         <label>Cari Aset</label>
         <?php
@@ -71,10 +71,10 @@ include "../conf/conn.php";
             }?>
         </select>
       </div>
-    <div class="row">
+    <div class="row"> 
       <!-- /.col -->
       <div class="col-xs-4">
-        <button type="submit" name="submit_aset" class="btn btn-primary btn-block btn-flat">Cari Aset</button>
+        <button type="submit" class="btn btn-primary btn-block btn-flat">Cari Aset</button>
       </div><br>
       </div>
     </form>
