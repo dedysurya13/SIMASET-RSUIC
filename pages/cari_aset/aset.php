@@ -2,15 +2,13 @@
 include "../../conf/conn.php";
 //'".$_GET['kode_aset']."'
 
-if(isset($_POST['submit_aset'])){
-    $kode_aset = $_POST['kode_aset'];
+    $kode_aset = $_GET['kode_aset'];
 
     $sql = "SELECT * FROM tb_aset as a INNER JOIN tb_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_suplier as s ON a.kode_suplier = s.kode_suplier WHERE kode_aset='".$kode_aset."'";
 
     $sth = $conn->prepare($sql);
     $sth->execute();
     $row = $sth->fetch(PDO::FETCH_ASSOC);
-}
 
 function buatRupiah($angka){
     $hasil = "Rp " . number_format($angka,0,'','.');
@@ -109,4 +107,156 @@ function buatRupiah($angka){
             </div>
         </div>
     </section>
+
+    <section class="content">
+    <!-- PEMERIKSAAN ASET -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-primary">
+                    <div class="content-header">
+                        <h1>Riwayat Pemeriksaan Aset</h1>
+                    </div>
+                    <div class="box-body table-responsive">
+                        <table id="tabelPemeriksaanAset" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kode Pemeriksaan</th>
+                                    <th>Tanggal Pemeriksaan</th>
+                                    <th>Status</th>
+                                    <th>Hasil Pemeriksaan</th>
+                                    <th>Petugas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $no=0;                            
+
+                                    $sqlPemeriksaanAset = "SELECT * FROM tb_pemeriksaan_aset As per INNER JOIN tb_petugas AS pet ON per.kode_petugas=pet.kode_petugas WHERE per.kode_aset='".$kode_aset."'";
+
+                                    $dataPemeriksaanAset = $conn->query($sqlPemeriksaanAset);
+                                    
+                                    while ($row=$dataPemeriksaanAset->fetch()){
+                                    
+                                ?>
+                                        <tr>
+                                            <td><?php echo $no=$no+1;?></td>
+                                            <td><?php echo $row['kode_pemeriksaan_aset'];?></td>
+                                            <td><?php echo substr($row['tanggal_pemeriksaan_aset'], 0, 11);?></td>
+                                            <td><?php echo $row['status_pemeriksaan_aset'];?></td>
+                                            <td><?php echo $row['hasil_pemeriksaan_aset'];?></td>
+                                            <td><?php echo $row['nama_petugas'];?></td>
+                                        </tr>
+                                <?php
+                                    }    
+                                ?>
+                            </tbody>
+                        </table>
+                    </div> <!-- /.box-body -->
+                </div> <!-- /.box -->
+            </div> <!-- /.col -->
+        </div> <!-- /.row -->
+        
+        <!-- KERUSAKAN ASET -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-primary">
+                    <div class="content-header">
+                        <h1>Riwayat Kerusakan Aset</h1>
+                    </div>
+                    <div class="box-body table-responsive">
+                        <table id="tabelPemeriksaanAset" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kode Kerusakan</th>
+                                    <th>Tanggal Lapor</th>
+                                    <th>Jam Lapor</th>
+                                    <th>Uraian Kerusakan</th>
+                                    <th>Petugas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $no=0;
+                                    
+                                    $sqlKerusakanAset = "SELECT * FROM tb_kerusakan_aset As ker INNER JOIN tb_petugas AS pet ON ker.kode_petugas=pet.kode_petugas WHERE ker.kode_aset='".$kode_aset."'";
+
+                                    $dataKerusakanAset = $conn->query($sqlKerusakanAset);
+                                    
+                                    while ($row=$dataKerusakanAset->fetch()){
+                                    
+                                ?>
+                                        <tr>
+                                            <td><?php echo $no=$no+1;?></td>
+                                            <td><?php echo $row['kode_kerusakan_aset'];?></td>
+                                            <td><?php echo substr($row['tanggal_lapor'], 0, 11);?></td>
+                                            <td><?php echo $row['jam_lapor'];?></td>
+                                            <td><?php echo $row['uraian_kerusakan'];?></td>
+                                            <td><?php echo $row['nama_petugas'];?></td>
+                                        </tr>
+                                <?php
+                                    }    
+                                ?>
+                            </tbody>
+                        </table>
+                    </div> <!-- /.box-body -->
+                </div> <!-- /.box -->
+            </div> <!-- /.col -->
+        </div> <!-- /.row -->
+
+        <!-- PERBAIKAN ASET -->
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-primary">
+                    <div class="content-header">
+                        <h1>Riwayat Perbaikan Aset</h1>
+                    </div>
+                    <div class="box-body table-responsive">
+                        <table id="tabelPemeriksaanAset" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kode Perbaikan</th>
+                                    <th>Kode Kerusakan</th>
+                                    <th>Tanggal Diterima</th>
+                                    <th>Jam Diterima</th>
+                                    <th>Tanggal Selesai</th>
+                                    <th>Jam Selesai</th>
+                                    <th>Uraian Perbaikan</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $no=0;                            
+
+                                    $sqlKerusakanAset = "SELECT * FROM tb_kerusakan_aset As ker INNER JOIN tb_perbaikan_aset as per on ker.kode_kerusakan_aset=per.kode_kerusakan_aset INNER JOIN tb_status as sts ON per.kode_status=sts.kode_status WHERE ker.kode_aset='".$kode_aset."'";
+
+                                    $dataKerusakanAset = $conn->query($sqlKerusakanAset);
+                                    
+                                    while ($row=$dataKerusakanAset->fetch()){
+                                    
+                                ?>
+                                        <tr>
+                                            <td><?php echo $no=$no+1;?></td>
+                                            <td><?php echo $row['kode_perbaikan_aset'];?></td>
+                                            <td><?php echo $row['kode_kerusakan_aset'];?></td>
+                                            <td><?php echo substr($row['tanggal_diterima'], 0, 11);?></td>
+                                            <td><?php echo $row['jam_diterima'];?></td>
+                                            <td><?php echo substr($row['tanggal_selesai'], 0, 11);?></td>
+                                            <td><?php echo $row['jam_selesai'];?></td>
+                                            <td><?php echo $row['uraian_perbaikan'];?></td>
+                                            <td><button type="button" class="<?php echo $row['btn_status'];?>"><?php echo $row['nama_status'];?></button></td>
+                                        </tr>
+                                <?php
+                                    }    
+                                ?>
+                            </tbody>
+                        </table>
+                    </div> <!-- /.box-body -->
+                </div> <!-- /.box -->
+            </div> <!-- /.col -->
+        </div> <!-- /.row -->
+    </section> <!-- /.content -->
 </div>
