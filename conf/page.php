@@ -93,6 +93,14 @@ if(isset($_GET['page'])){
 
         
 
+        //cetak_label
+        case'cetak_label':
+            include 'pages/cetak/single_label.php';
+        break;
+        case'cetak_multi_label':
+            include 'pages/cetak/multi_label.php';
+        break;
+
         //cari
         case'cari_aset':
             include 'pages/cari_aset/aset.php';
