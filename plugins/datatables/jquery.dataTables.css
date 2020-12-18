@@ -273,6 +273,8 @@ table.dataTable td {
  * Control feature layout
  */
 .dataTables_wrapper {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
   position: relative;
   clear: both;
   *zoom: 1;
