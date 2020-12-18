@@ -20,7 +20,7 @@
                             <form action="pages/cetak/multi_label_cetak.php" method="post">
                                 <div class="col-sm-6">
                                     <?php
-                                        $asetQuery = $conn->query("SELECT * FROM tb_aset ORDER BY kode_aset ASC");
+                                        $asetQuery = $conn->query("SELECT * FROM aset_data ORDER BY kode_aset ASC");
                                     ?>
                                     <select id="multi_label" name="kode_aset[]" class="kode_aset form-control" multiple="multiple">
                                         <?php while ($row = $asetQuery->fetch(PDO::FETCH_ASSOC)){
