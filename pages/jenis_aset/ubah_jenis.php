@@ -3,7 +3,7 @@ include "conf/conn.php";
 
 //'".$_GET['kode_aset']."'
 
-$sql = "SELECT * FROM tb_jenis WHERE kode_jenis='".$_GET['id']."'";
+$sql = "SELECT * FROM aset_jenis WHERE kode_jenis='".$_GET['id']."'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
