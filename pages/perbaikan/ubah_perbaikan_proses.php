@@ -24,7 +24,7 @@ if(isset($_POST['simpan_data'])){
     }
 
 
-    $sql = "UPDATE tb_perbaikan_aset SET tanggal_diterima=:tanggal_diterima, jam_diterima=:jam_diterima, tanggal_selesai=:tanggal_selesai, jam_selesai=:jam_selesai, uraian_perbaikan=:uraian_perbaikan, kode_status=:kode_status WHERE kode_perbaikan_aset=:id";
+    $sql = "UPDATE aset_perbaikan_aset SET tanggal_diterima=:tanggal_diterima, jam_diterima=:jam_diterima, tanggal_selesai=:tanggal_selesai, jam_selesai=:jam_selesai, uraian_perbaikan=:uraian_perbaikan, kode_status=:kode_status WHERE kode_perbaikan_aset=:id";
 
     $query = $conn->prepare($sql);
 
