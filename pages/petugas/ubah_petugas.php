@@ -3,7 +3,7 @@ include "conf/conn.php";
 
 //'".$_GET['kode_aset']."'
 
-$sql = "SELECT * FROM tb_petugas as p INNER JOIN tb_role_petugas as r ON p.kode_role = r.kode_role WHERE kode_petugas='".$_GET['id']."'";
+$sql = "SELECT * FROM aset_petugas as p INNER JOIN aset_role_petugas as r ON p.kode_role = r.kode_role WHERE kode_petugas='".$_GET['id']."'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -49,7 +49,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <div class="form-group">
                                 <label>Role</label>
                                 <?php
-                                    $roleQuery = $conn->query("SELECT * FROM tb_role_petugas");
+                                    $roleQuery = $conn->query("SELECT * FROM aset_role_petugas");
                                 ?>
                                 <select id="kode_role" name="kode_role" class="form-control" id="">
 
