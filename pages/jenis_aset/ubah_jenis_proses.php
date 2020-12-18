@@ -5,7 +5,7 @@ if(isset($_POST['simpan_data'])){
     $kode_jenis = $_POST['id'];
     $nama_jenis = $_POST['nama_jenis'];
 
-    $sql = "UPDATE tb_jenis SET nama_jenis=:nama_jenis WHERE kode_jenis=:id";
+    $sql = "UPDATE aset_jenis SET nama_jenis=:nama_jenis WHERE kode_jenis=:id";
 
     $query = $conn->prepare($sql);
 
