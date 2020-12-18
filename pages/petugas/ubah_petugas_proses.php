@@ -9,7 +9,7 @@ if(isset($_POST['simpan_data'])){
     $telp_petugas = $_POST['telp_petugas'];
     $kode_role = $_POST['kode_role'];
 
-    $sql = "UPDATE tb_petugas SET username=:username, password=:password, nama_petugas=:nama_petugas, telp_petugas=:telp_petugas, kode_role=:kode_role WHERE kode_petugas=:id";
+    $sql = "UPDATE aset_petugas SET username=:username, password=:password, nama_petugas=:nama_petugas, telp_petugas=:telp_petugas, kode_role=:kode_role WHERE kode_petugas=:id";
 
     $query = $conn->prepare($sql);
 
