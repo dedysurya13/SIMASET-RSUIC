@@ -1,7 +1,7 @@
 <?php
     include "/../conf/conn.php";
 
-    $maxAset = $conn->query("SELECT COUNT(kode_aset) FROM tb_aset");
+    $maxAset = $conn->query("SELECT COUNT(kode_aset) FROM aset_data");
     $maxAset->execute();
     $maxAset = $maxAset->fetchColumn();
 
@@ -13,15 +13,15 @@
         manggil = <?php echo $maxAset ?>
     */
 
-    $maxUnit = $conn->query("SELECT COUNT(kode_unit) FROM tb_unit");
+    $maxUnit = $conn->query("SELECT COUNT(kode_unit) FROM aset_unit");
     $maxUnit->execute();
     $maxUnit = $maxUnit->fetchColumn();
     
-    $maxJenis = $conn->query("SELECT COUNT(kode_jenis) FROM tb_jenis");
+    $maxJenis = $conn->query("SELECT COUNT(kode_jenis) FROM aset_jenis");
     $maxJenis->execute();
     $maxJenis = $maxJenis->fetchColumn();
 
-    $maxSuplier = $conn->query("SELECT COUNT(kode_suplier) FROM tb_suplier");
+    $maxSuplier = $conn->query("SELECT COUNT(kode_suplier) FROM aset_suplier");
     $maxSuplier->execute();
     $maxSuplier = $maxSuplier->fetchColumn();
 ?>
@@ -88,5 +88,112 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- CHART-->
+        <div class="col-md-4 nopadding">
+            <h4>Jenis Aset</h4>
+            <canvas id="jenisAset"></canvas>
+        </div>
+        <!--
+        <div class="col-md-5">
+            <h4>Pemeriksaan Aset</h4>
+            <canvas id="pemeriksaanAset"></canvas>
+        </div>
+        -->
     </section>
 </div>
+
+<!-- ChartJs -->
+<script src="plugins/chartjs/Chart.min.js"></script>
+<script>
+	var ctx = document.getElementById("jenisAset").getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'pie',
+		data: {
+			labels: ["IT", "Medis", "Umum"],
+			datasets: [{
+				label: '',
+				data: [
+				<?php 
+				$maxIT = $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JNS-00000001'");
+                $maxIT->execute();
+                $maxIT = $maxIT->fetchColumn();
+                echo $maxIT;
+				?>, 
+				<?php 
+				$maxMedis = $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JNS-00000002'");
+                $maxMedis->execute();
+                $maxMedis = $maxMedis->fetchColumn();
+                echo $maxMedis;
+				?>, 
+				<?php 
+				$maxUmum= $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JNS-00000003'");
+                $maxUmum->execute();
+                $maxUmum = $maxUmum->fetchColumn();
+                echo $maxUmum;
+				?>
+				],
+				backgroundColor: [
+				'rgba(255, 99, 132, 0.2)',
+				'rgba(54, 162, 235, 0.2)',
+				'rgba(255, 206, 86, 0.2)'
+				],
+				borderColor: [
+				'rgba(255,99,132,1)',
+				'rgba(54, 162, 235, 1)',
+				'rgba(255, 206, 86, 1)'
+				],
+				borderWidth: 1
+            }]
+            
+        },
+        options: {
+            //cutoutPercentage: 40,
+            responsive: true,
+
+        }
+    });
+    
+    /*
+    var ctx = document.getElementById("pemeriksaanAset").getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'pie',
+		data: {
+			labels: ["Baik", "Rusak"],
+			datasets: [{
+				label: '',
+				data: [
+				<?php 
+				//$maxBaik = $conn->query("SELECT COUNT(kode_pemeriksaan_aset) FROM aset_pemeriksaan_aset WHERE status_pemeriksaan_aset='Baik'");
+                //$maxBaik->execute();
+                //$maxBaik = $maxBaik->fetchColumn();
+                //echo $maxBaik;
+				?>, 
+				<?php 
+				//$maxRusak = $conn->query("SELECT COUNT(kode_pemeriksaan_aset) FROM aset_pemeriksaan_aset WHERE status_pemeriksaan_aset='Rusak'");
+                //$maxRusak->execute();
+                //$maxRusak = $maxRusak->fetchColumn();
+                //echo $maxRusak;
+				?>
+				],
+				backgroundColor: [
+				'rgba(7, 227, 43, 0.2)',
+				'rgba(227, 7, 7, 0.2)'
+				],
+				borderColor: [
+				'rgba(7, 227, 43,1)',
+				'rgba(227, 7, 7, 1)'
+				],
+				borderWidth: 1
+            }]
+            
+        },
+        options: {
+            //cutoutPercentage: 40,
+            responsive: true,
+
+        }
+	});
+    */
+</script>
