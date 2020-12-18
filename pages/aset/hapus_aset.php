@@ -3,10 +3,11 @@ include "../../conf/conn.php";
 $id = $_GET['id'];
 
 try{
-    $query = $conn->query("DELETE FROM tb_aset WHERE kode_aset='$id' ");
+    $query = $conn->query("DELETE FROM aset_data WHERE kode_aset='$id' ");
     echo '<script>alert("Data Berhasil Dihapus.");
     window.location.href="../../index.php?page=data_aset"</script>';
 }catch(PDOException $e){
+    echo '<script>alert("Data Gagal Dihapus.")';
     echo $e->getMessage();
 }
 
