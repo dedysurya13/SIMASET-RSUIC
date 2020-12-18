@@ -1,5 +1,9 @@
-
 <?php
+//tidak menyimpan cache
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 session_start();
 include "conf/conn.php";
 if(isset($_SESSION['kode_role'])==0){
@@ -38,6 +42,7 @@ if(isset($_SESSION['kode_role'])==0){
   <link rel="stylesheet" href="plugins/select2/select2.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/index.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
@@ -45,12 +50,20 @@ if(isset($_SESSION['kode_role'])==0){
   <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
   <!-- DataTables Button -->
   <link rel="stylesheet" href="plugins/datatables/extensions/Button/buttons.dataTable.min.css">
+  <!-- ChartJs -->
+  <link rel="stylesheet" href="plugins/chartjs/Chart.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style>
+    .nopadding {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -225,6 +238,8 @@ if(isset($_SESSION['kode_role'])==0){
 <script src="plugins/datatables/extensions/Button/vfs_fonts.js"></script>
 <script src="plugins/datatables/extensions/Button/jszip.min.js"></script>
 <!--<script src="plugins/datatebles/extensions/Button/buttons.colVis.min.js"></script>-->
+<!-- ChartJs -->
+<script src="plugins/chartjs/Chart.min.js"></script>
 <!-- tambahan javascript-->
 <script src="dist/js/index.js"></script>
 
