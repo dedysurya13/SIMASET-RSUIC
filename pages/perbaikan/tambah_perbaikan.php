@@ -23,7 +23,7 @@ $kode_petugas = $_SESSION['kode_petugas'];
                             <div class="form-group">
                                 <label>Kode Kerusakan</label>
                                 <?php
-                                    $asetQuery = $conn->query("SELECT * FROM tb_kerusakan_aset ORDER BY kode_kerusakan_aset ASC");
+                                    $asetQuery = $conn->query("SELECT * FROM aset_kerusakan_aset ORDER BY kode_kerusakan_aset ASC");
                                 ?>
                                 <select id="kode_kerusakan_aset" name="kode_kerusakan_aset" class="form-control" autocomplete="off" required>
 
@@ -59,7 +59,7 @@ $kode_petugas = $_SESSION['kode_petugas'];
                             <div class="form-group">
                                 <label>Status Perbaikan</label>
                                 <?php
-                                    $asetQuery = $conn->query("SELECT * FROM tb_status ORDER BY kode_status ASC");
+                                    $asetQuery = $conn->query("SELECT * FROM aset_status ORDER BY kode_status ASC");
                                 ?>
                                 <select id="kode_status" name="kode_status" class="form-control" required>
 
