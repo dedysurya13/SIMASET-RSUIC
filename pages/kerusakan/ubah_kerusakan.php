@@ -5,7 +5,7 @@ $kode_petugas = $_SESSION['kode_petugas'];
 
 //'".$_GET['kode_aset']."'
 
-$sql = "SELECT * FROM tb_kerusakan_aset WHERE kode_kerusakan_aset='".$_GET['id']."'";
+$sql = "SELECT * FROM aset_kerusakan_aset WHERE kode_kerusakan_aset='".$_GET['id']."'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
