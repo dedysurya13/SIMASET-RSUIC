@@ -4,7 +4,7 @@ include "../../conf/conn.php";
 
     $kode_aset = $_GET['kode_aset'];
 
-    $sql = "SELECT * FROM tb_aset as a INNER JOIN tb_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_suplier as s ON a.kode_suplier = s.kode_suplier WHERE kode_aset='".$kode_aset."'";
+    $sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier WHERE kode_aset='".$kode_aset."'";
 
     $sth = $conn->prepare($sql);
     $sth->execute();
@@ -132,7 +132,7 @@ function buatRupiah($angka){
                                 <?php
                                     $no=0;                            
 
-                                    $sqlPemeriksaanAset = "SELECT * FROM tb_pemeriksaan_aset As per INNER JOIN tb_petugas AS pet ON per.kode_petugas=pet.kode_petugas WHERE per.kode_aset='".$kode_aset."'";
+                                    $sqlPemeriksaanAset = "SELECT * FROM aset_pemeriksaan_aset As per INNER JOIN aset_petugas AS pet ON per.kode_petugas=pet.kode_petugas WHERE per.kode_aset='".$kode_aset."'";
 
                                     $dataPemeriksaanAset = $conn->query($sqlPemeriksaanAset);
                                     
@@ -180,7 +180,7 @@ function buatRupiah($angka){
                                 <?php
                                     $no=0;
                                     
-                                    $sqlKerusakanAset = "SELECT * FROM tb_kerusakan_aset As ker INNER JOIN tb_petugas AS pet ON ker.kode_petugas=pet.kode_petugas WHERE ker.kode_aset='".$kode_aset."'";
+                                    $sqlKerusakanAset = "SELECT * FROM aset_kerusakan_aset As ker INNER JOIN aset_petugas AS pet ON ker.kode_petugas=pet.kode_petugas WHERE ker.kode_aset='".$kode_aset."'";
 
                                     $dataKerusakanAset = $conn->query($sqlKerusakanAset);
                                     
@@ -231,7 +231,7 @@ function buatRupiah($angka){
                                 <?php
                                     $no=0;                            
 
-                                    $sqlKerusakanAset = "SELECT * FROM tb_kerusakan_aset As ker INNER JOIN tb_perbaikan_aset as per on ker.kode_kerusakan_aset=per.kode_kerusakan_aset INNER JOIN tb_status as sts ON per.kode_status=sts.kode_status WHERE ker.kode_aset='".$kode_aset."'";
+                                    $sqlKerusakanAset = "SELECT * FROM aset_kerusakan_aset As ker INNER JOIN aset_perbaikan_aset as per on ker.kode_kerusakan_aset=per.kode_kerusakan_aset INNER JOIN aset_status as sts ON per.kode_status=sts.kode_status WHERE ker.kode_aset='".$kode_aset."'";
 
                                     $dataKerusakanAset = $conn->query($sqlKerusakanAset);
                                     
