@@ -92,7 +92,7 @@ $(function () {
     });
 
     //Search di select option
-    $('#kode_aset, #jenis_aset, #nama_unit, #nama_suplier, #kode_role #kode_kerusakan_aset, #kode_status').select2({
+    $('#kode_aset, #jenis_aset, #nama_unit, #nama_suplier, #kode_role, #kode_kerusakan_aset, #kode_status').select2({
       
     });
     $('#multi_label').select2({
@@ -109,6 +109,8 @@ $(function() {
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : true,
+      header: false,
+      footer: false,
       dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
             buttons: [
               { 
@@ -116,7 +118,11 @@ $(function() {
               text: ' Print',
               title: 'Data Aset',
               className: 'btn glyphicon glyphicon-print',
-              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] },
+                customize: function (win) {
+                    $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                    $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                }
               },
               {
                 extend: 'excel',
@@ -125,13 +131,17 @@ $(function() {
                 className: 'btn glyphicon glyphicon-file',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
               },
+              /*
               {
                 extend: 'pdf',
                 text: ' PDF',
+                orientation: 'landscape',
+                pageSize: 'A4',
                 title: 'Data Aset',
                 className: 'btn glyphicon glyphicon-file',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
               }
+              */
             ]
     });
 
@@ -148,9 +158,19 @@ $(function() {
                 text: ' Print',
                 title: 'Data Jenis Aset',
                 className: 'btn glyphicon glyphicon-print',
-                exportOptions:
-              { columns: [0,1,2] }
+                exportOptions: { columns: [0,1,2] },
+                customize: function (win) {
+                  $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                  $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                }
               },
+              {
+                extend: 'excel',
+                text: ' Excel',
+                title: 'Data Jenis Aset',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2] }
+              }
             ]
     });
 
@@ -167,9 +187,19 @@ $(function() {
                 text: ' Print',
                 title: 'Data Suplier',
                 className: 'btn glyphicon glyphicon-print',
-                exportOptions:
-              { columns: [0,1,2,3,4] }
+                exportOptions: { columns: [0,1,2,3,4] },
+                customize: function (win) {
+                  $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                  $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                }
               },
+              {
+                extend: 'excel',
+                text: ' Excel',
+                title: 'Data Suplier',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2,3,4] }
+              }
             ]
     });
 
@@ -187,9 +217,19 @@ $(function() {
                 text: ' Print',
                 title: 'Data Unit',
                 className: 'btn glyphicon glyphicon-print',
-                exportOptions:
-              { columns: [0,1,2,3] }
+                exportOptions:{ columns: [0,1,2,3] },
+                customize: function (win) {
+                  $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                  $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                }
               },
+              {
+                extend: 'excel',
+                text: ' Excel',
+                title: 'Data Unit',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2,3] }
+              }
             ]
     });
 
@@ -207,7 +247,11 @@ $(function() {
               text: ' Print',
               title: 'Data Pemeriksaan Aset',
               className: 'btn glyphicon glyphicon-print',
-              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] },
+                customize: function (win) {
+                  $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                  $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                }
               },
               {
                 extend: 'excel',
@@ -216,6 +260,7 @@ $(function() {
                 className: 'btn glyphicon glyphicon-file',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
               },
+              /*
               {
                 extend: 'pdf',
                 text: ' PDF',
@@ -223,6 +268,7 @@ $(function() {
                 className: 'btn glyphicon glyphicon-file',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
               }
+              */
             ]
     });
 
@@ -240,7 +286,11 @@ $(function() {
               text: ' Print',
               title: 'Data Kerusakan Aset',
               className: 'btn glyphicon glyphicon-print',
-              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] },
+                customize: function (win) {
+                  $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                  $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                }
               },
               {
                 extend: 'excel',
@@ -249,6 +299,7 @@ $(function() {
                 className: 'btn glyphicon glyphicon-file',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
               },
+              /*
               {
                 extend: 'pdf',
                 text: ' PDF',
@@ -256,6 +307,7 @@ $(function() {
                 className: 'btn glyphicon glyphicon-file',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
               }
+              */
             ]
     });
 
@@ -274,7 +326,35 @@ $(function() {
               title: 'Data Perbaikan Aset',
               className: 'btn glyphicon glyphicon-print',
               orientation: 'landscape',
-              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] }
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] },
+              customize: function(win)
+                {
+                  
+                  $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                  $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+
+                  var last = null;
+                  var current = null;
+                  var bod = [];
+  
+                  var css = '@page { size: landscape; }',
+                      head = win.document.head || win.document.getElementsByTagName('head')[0],
+                      style = win.document.createElement('style');
+  
+                  style.type = 'text/css';
+                  style.media = 'print';
+  
+                  if (style.styleSheet)
+                  {
+                    style.styleSheet.cssText = css;
+                  }
+                  else
+                  {
+                    style.appendChild(win.document.createTextNode(css));
+                  }
+  
+                  head.appendChild(style);
+                }
               },
               {
                 extend: 'excel',
@@ -282,8 +362,9 @@ $(function() {
                 title: 'Data Perbaikan Aset',
                 className: 'btn glyphicon glyphicon-file',
                 orientation: 'landscape',
-                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] }
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] },
               },
+              /*
               {
                 extend: 'pdf',
                 text: ' PDF',
@@ -292,6 +373,7 @@ $(function() {
                 orientation: 'landscape',
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] }
               }
+              */
             ]
     });
 });
