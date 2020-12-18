@@ -1,0 +1,8 @@
+@media print {
+    html, body {
+        height: 99%;    
+    }
+}
+.print {
+    page-break-after: auto;
+}
