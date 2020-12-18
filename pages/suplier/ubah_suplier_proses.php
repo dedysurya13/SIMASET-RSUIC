@@ -7,7 +7,7 @@ if(isset($_POST['simpan_data'])){
     $alamat_suplier = $_POST['alamat_suplier'];
     $telp_suplier = $_POST['telp_suplier'];
 
-    $sql = "UPDATE tb_suplier SET nama_suplier=:nama_suplier, alamat_suplier=:alamat_suplier, telp_suplier=:telp_suplier WHERE kode_suplier=:id";
+    $sql = "UPDATE aset_suplier SET nama_suplier=:nama_suplier, alamat_suplier=:alamat_suplier, telp_suplier=:telp_suplier WHERE kode_suplier=:id";
 
     $query = $conn->prepare($sql);
 
