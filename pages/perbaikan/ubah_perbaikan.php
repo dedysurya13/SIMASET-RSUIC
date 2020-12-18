@@ -5,7 +5,7 @@ $kode_petugas = $_SESSION['kode_petugas'];
 
 //'".$_GET['kode_aset']."'
 
-$sql = "SELECT * FROM tb_perbaikan_aset as pa INNER JOIN tb_status as s ON pa.kode_status = s.kode_status WHERE kode_perbaikan_aset='".$_GET['id']."'";
+$sql = "SELECT * FROM aset_perbaikan_aset as pa INNER JOIN aset_status as s ON pa.kode_status = s.kode_status WHERE kode_perbaikan_aset='".$_GET['id']."'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -60,7 +60,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <div class="form-group">
                                 <label>Status Perbaikan</label>
                                 <?php
-                                    $statusQuery = $conn->query("SELECT * FROM tb_status");
+                                    $statusQuery = $conn->query("SELECT * FROM aset_status");
                                 ?>
                                 <select id="kode_status" name="kode_status" class="form-control" required>
 
