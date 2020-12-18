@@ -6,7 +6,7 @@ if(isset($_POST['simpan_data'])){
     $nama_unit = $_POST['nama_unit'];
     $nama_pj = $_POST['nama_pj'];
 
-    $query = $conn->prepare("INSERT INTO tb_unit (kode_unit, nama_unit, nama_pj)
+    $query = $conn->prepare("INSERT INTO aset_unit (kode_unit, nama_unit, nama_pj)
     VALUES (:kode_unit, :nama_unit, :nama_pj)");
 
     $query->bindParam(':kode_unit',$kode_unit);
