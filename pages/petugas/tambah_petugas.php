@@ -41,7 +41,7 @@ if($_SESSION['kode_role']==1){
                             <div class="form-group">
                                 <label>Role Petugas</label>
                                 <?php
-                                    $roleQuery = $conn->query("SELECT * FROM tb_role_petugas");
+                                    $roleQuery = $conn->query("SELECT * FROM aset_role_petugas");
                                 ?>
                                 <select id="kode_role" name="kode_role" class="form-control" id="">
 
@@ -50,6 +50,21 @@ if($_SESSION['kode_role']==1){
                                     <?php while ($row = $roleQuery->fetch(PDO::FETCH_ASSOC)){
                                     extract($row);
                                     echo "<option value='{$kode_role}'>{$nama_role}</option>";
+                                    }?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Unit</label>
+                                <?php
+                                    $unitQuery = $conn->query("SELECT * FROM aset_unit");
+                                ?>
+                                <select id="nama_unit" name="nama_unit" class="form-control" id="">
+
+                                    <option value=''>- Pilih Unit -</option>
+
+                                    <?php while ($row = $unitQuery->fetch(PDO::FETCH_ASSOC)){
+                                    extract($row);
+                                    echo "<option value='{$kode_unit}'>{$nama_unit}</option>";
                                     }?>
                                 </select>
                             </div>
