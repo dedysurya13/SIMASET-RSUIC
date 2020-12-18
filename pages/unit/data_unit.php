@@ -1,5 +1,5 @@
 <?php
-    $sqlID = "SELECT MAX(kode_unit) FROM tb_unit";
+    $sqlID = "SELECT MAX(kode_unit) FROM aset_unit";
     $incrementID = $conn->prepare($sqlID);
     $incrementID->execute();
     $ambilID = $incrementID->fetch(PDO::FETCH_ASSOC);
@@ -53,7 +53,7 @@
                                     include "conf/conn.php";
                                     $no=0;                            
 
-                                    $sql = "SELECT * FROM tb_unit ORDER BY kode_unit ASC";
+                                    $sql = "SELECT * FROM aset_unit ORDER BY kode_unit ASC";
 
                                     $dataUnit = $conn->query($sql);
                                     
