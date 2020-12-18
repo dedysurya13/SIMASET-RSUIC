@@ -31,7 +31,7 @@ if(isset($_POST['cetak_label'])){
             //cek lokasi file
             //echo 'Server PNG File: '.$pngAbsoluteFilePath;
 
-            $sql = "SELECT * FROM tb_aset as a INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit WHERE kode_aset='$id'";
+            $sql = "SELECT * FROM aset_data as a INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit WHERE kode_aset='$id'";
             $sth = $conn->prepare($sql);
             $sth->execute();
             $row = $sth->fetch(PDO::FETCH_ASSOC);
