@@ -3,7 +3,7 @@ include "conf/conn.php";
 
 //'".$_GET['kode_aset']."'
 
-$sql = "SELECT * FROM tb_aset as a INNER JOIN tb_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_suplier as s ON a.kode_suplier = s.kode_suplier WHERE kode_aset='".$_GET['id']."'";
+$sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier WHERE kode_aset='".$_GET['id']."'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -71,7 +71,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <div class="form-group">
                                 <label>Jenis Aset</label>
                                 <?php
-                                    $jenisQuery = $conn->query("SELECT * FROM tb_jenis");
+                                    $jenisQuery = $conn->query("SELECT * FROM aset_jenis");
                                 ?>
                                 <select id="jenis_aset" name="jenis_aset" class="form-control" id="">
 
@@ -86,7 +86,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <div class="form-group">
                                 <label>Nama Unit</label>
                                 <?php
-                                    $unitQuery = $conn->query("SELECT * FROM tb_unit");
+                                    $unitQuery = $conn->query("SELECT * FROM aset_unit");
                                 ?>
                                 <select id="nama_unit" name="nama_unit" class="form-control" id="">
 
@@ -101,7 +101,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                             <div class="form-group">
                                 <label>Nama Suplier</label>
                                 <?php
-                                    $suplierQuery = $conn->query("SELECT * FROM tb_suplier");
+                                    $suplierQuery = $conn->query("SELECT * FROM aset_suplier");
                                 ?>
                                 <select id="nama_suplier" name="nama_suplier" class="form-control" id="">
 
