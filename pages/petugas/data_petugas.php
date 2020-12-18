@@ -37,6 +37,7 @@
                                         <th>Nama petugas</th>
                                         <th>Telepon</th>
                                         <th>Role</th>
+                                        <th></th>
                                         <th>AKSI</th>
                                     </tr>
                                 </thead>
@@ -45,7 +46,7 @@
                                         include "conf/conn.php";
                                         $no=0;
                                     
-                                        $sql = "SELECT * FROM tb_petugas as p INNER JOIN tb_role_petugas as r ON p.kode_role = r.kode_role ORDER BY kode_petugas ASC";
+                                        $sql = "SELECT * FROM aset_petugas as p INNER JOIN aset_role_petugas as r ON p.kode_role = r.kode_role INNER JOIN aset_unit as u ON p.kode_unit=u.kode_unit ORDER BY kode_petugas ASC";
 
                                         $dataPetugas = $conn->query($sql);
                                         
@@ -60,6 +61,7 @@
                                                 <td><?php echo $row['nama_petugas'];?></td>
                                                 <td><?php echo $row['telp_petugas'];?></td>
                                                 <td><?php echo $row['nama_role'];?></td>
+                                                <td><?php echo $row['nama_unit'];?></td>
                                                 <td>
                                                     <a href="index.php?page=ubah_petugas&id=<?=$row['kode_petugas'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
 
