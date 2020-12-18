@@ -23,7 +23,7 @@ $kode_petugas = $_SESSION['kode_petugas'];
                             <div class="form-group">
                                 <label>Kode Aset</label>
                                 <?php
-                                    $asetQuery = $conn->query("SELECT * FROM tb_aset ORDER BY kode_aset ASC");
+                                    $asetQuery = $conn->query("SELECT * FROM aset_data ORDER BY kode_aset ASC");
                                 ?>
                                 <select id="kode_aset" name="kode_aset" class="form-control">
 
