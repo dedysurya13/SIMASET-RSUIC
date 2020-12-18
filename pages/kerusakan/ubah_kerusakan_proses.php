@@ -9,7 +9,7 @@ if(isset($_POST['simpan_data'])){
     $uraian_kerusakan = $_POST['uraian_kerusakan'];
     $kode_petugas = $_POST['kode_petugas'];
 
-    $sql = "UPDATE tb_kerusakan_aset SET tanggal_lapor=:tanggal_lapor, jam_lapor=:jam_lapor, uraian_kerusakan=:uraian_kerusakan, kode_petugas=:kode_petugas WHERE kode_kerusakan_aset=:id";
+    $sql = "UPDATE aset_kerusakan_aset SET tanggal_lapor=:tanggal_lapor, jam_lapor=:jam_lapor, uraian_kerusakan=:uraian_kerusakan, kode_petugas=:kode_petugas WHERE kode_kerusakan_aset=:id";
 
     $query = $conn->prepare($sql);
 
