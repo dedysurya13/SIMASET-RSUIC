@@ -23,7 +23,7 @@ if(isset($_POST['simpan_data'])){
         $jam_selesai1=$_POST['jam_selesai'];
     }
 
-    $query = $conn->prepare("INSERT INTO tb_perbaikan_aset (kode_perbaikan_aset, kode_kerusakan_aset, tanggal_diterima, jam_diterima, tanggal_selesai, jam_selesai, uraian_perbaikan, kode_status)
+    $query = $conn->prepare("INSERT INTO aset_perbaikan_aset (kode_perbaikan_aset, kode_kerusakan_aset, tanggal_diterima, jam_diterima, tanggal_selesai, jam_selesai, uraian_perbaikan, kode_status)
     VALUES (:kode_perbaikan_aset, :kode_kerusakan_aset, :tanggal_diterima, :jam_diterima, :tanggal_selesai, :jam_selesai, :uraian_perbaikan, :kode_status)");
 
     $query->bindParam(':kode_perbaikan_aset',$kode_perbaikan_aset);
