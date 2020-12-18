@@ -31,6 +31,10 @@ include "conf/conn.php";
                                 <label for="">Tahun Aset</label>
                                 <select name="tahun_aset" class="form-control" id="">
                                     <option value="">- Pilih Tahun -</option>
+                                    <option value="2015">2011</option>
+                                    <option value="2015">2012</option>
+                                    <option value="2015">2013</option>
+                                    <option value="2015">2014</option>
                                     <option value="2015">2015</option>
                                     <option value="2016">2016</option>
                                     <option value="2017">2017</option>
@@ -56,12 +60,12 @@ include "conf/conn.php";
                             </div>
                             <div class="form-group">
                                 <label for="">Spesifikasi Aset</label>
-                                <textarea name="spesifikasi_aset" class="form-control" rows="4" class="pull-right" placeholder="Spesifikasi aset" autocomplete="off" required></textarea>
+                                <textarea name="spesifikasi_aset" class="form-control" rows="4" class="pull-right" placeholder="Spesifikasi aset / Serial Number / Warna / Ciri" autocomplete="off" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Jenis Aset</label>
                                 <?php
-                                    $jenisQuery = $conn->query("SELECT * FROM tb_jenis ORDER BY nama_jenis ASC");
+                                    $jenisQuery = $conn->query("SELECT * FROM aset_jenis ORDER BY nama_jenis ASC");
                                 ?>
                                 <select id="jenis_aset" name="jenis_aset" class="form-control" id="">
 
@@ -76,7 +80,7 @@ include "conf/conn.php";
                             <div class="form-group">
                                 <label>Nama Unit</label>
                                 <?php
-                                    $unitQuery = $conn->query("SELECT * FROM tb_unit ORDER BY nama_unit ASC");
+                                    $unitQuery = $conn->query("SELECT * FROM aset_unit ORDER BY nama_unit ASC");
                                 ?>
                                 <select id="nama_unit" name="nama_unit" class="form-control" id="">
 
@@ -91,7 +95,7 @@ include "conf/conn.php";
                             <div class="form-group">
                                 <label>Nama Suplier</label>
                                 <?php
-                                    $suplierQuery = $conn->query("SELECT * FROM tb_suplier ORDER BY nama_suplier ASC");
+                                    $suplierQuery = $conn->query("SELECT * FROM aset_suplier ORDER BY nama_suplier ASC");
                                 ?>
                                 <select id="nama_suplier" name="nama_suplier" class="form-control" id="">
 
