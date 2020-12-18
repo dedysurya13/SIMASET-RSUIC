@@ -9,7 +9,7 @@ if(isset($_POST['simpan_data'])){
     $uraian_kerusakan = $_POST['uraian_kerusakan'];
     $kode_petugas = $_POST['kode_petugas'];
 
-    $query = $conn->prepare("INSERT INTO tb_kerusakan_aset (kode_kerusakan_aset, kode_aset, tanggal_lapor, jam_lapor, uraian_kerusakan, kode_petugas)
+    $query = $conn->prepare("INSERT INTO aset_kerusakan_aset (kode_kerusakan_aset, kode_aset, tanggal_lapor, jam_lapor, uraian_kerusakan, kode_petugas)
     VALUES (:kode_kerusakan_aset, :kode_aset, :tanggal_lapor, :jam_lapor, :uraian_kerusakan, :kode_petugas)");
 
     $query->bindParam(':kode_kerusakan_aset',$kode_kerusakan_aset);
