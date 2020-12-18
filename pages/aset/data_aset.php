@@ -4,7 +4,7 @@
         return $hasil;
     }
 
-    $sqlID = "SELECT MAX(kode_aset) FROM tb_aset";
+    $sqlID = "SELECT MAX(kode_aset) FROM aset_data";
     $incrementID = $conn->prepare($sqlID);
     $incrementID->execute();
     $ambilID = $incrementID->fetch(PDO::FETCH_ASSOC);
@@ -15,6 +15,7 @@
     $hurufID = substr((string)$angkaID,1);
     $hurufID = $kodeID."-".$hurufID;
 ?>
+
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Data Aset</h1>
@@ -42,10 +43,10 @@
                         
                     </div>
                     <div class="box-body table-responsive">
-                        <table id="tabelAset" class="table table-bordered table-hover">
+                        <table id="tabelAset" class="table table-bordered table-hover" >
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No</th>
                                     <th>Kode</th>
                                     <th>Nama</th>
                                     <th>Merk</th>
@@ -69,7 +70,7 @@
                                     //echo $row['tanggal_aset']->format('d/m/Y');
                                     //echo substr($row['tanggal_aset'], 0, 11);                                
 
-                                    $sql = "SELECT * FROM tb_aset as a INNER JOIN tb_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_suplier as s ON a.kode_suplier = s.kode_suplier ORDER BY kode_aset ASC";
+                                    $sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier ORDER BY kode_aset ASC";
 
                                     $dataAset = $conn->query($sql);
                                     
