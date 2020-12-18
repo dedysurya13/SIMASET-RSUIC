@@ -13,7 +13,7 @@ if(isset($_POST['simpan_data'])){
     $nama_unit = $_POST['nama_unit'];
     $nama_suplier = $_POST['nama_suplier'];
 
-    $sql = "UPDATE tb_aset SET nama_aset=:nama_aset, merk_aset=:merk_aset, tahun_aset=:tahun_aset, nilai_aset=:nilai_aset, tanggal_aset=:tanggal_aset, spesifikasi_aset=:spesifikasi_aset, kode_jenis=:jenis_aset, kode_unit=:nama_unit, kode_suplier=:nama_suplier WHERE kode_aset=:id";
+    $sql = "UPDATE aset_data SET nama_aset=:nama_aset, merk_aset=:merk_aset, tahun_aset=:tahun_aset, nilai_aset=:nilai_aset, tanggal_aset=:tanggal_aset, spesifikasi_aset=:spesifikasi_aset, kode_jenis=:jenis_aset, kode_unit=:nama_unit, kode_suplier=:nama_suplier WHERE kode_aset=:id";
 
     $query = $conn->prepare($sql);
 
