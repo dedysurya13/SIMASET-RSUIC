@@ -18,7 +18,7 @@ if (!file_exists($pngAbsoluteFilePath)) {
 //cek lokasi file
 //echo 'Server PNG File: '.$pngAbsoluteFilePath;
 
-$sql = "SELECT * FROM tb_aset as a INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit WHERE kode_aset='$id'";
+$sql = "SELECT * FROM aset_data as a INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit WHERE kode_aset='$id'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -34,7 +34,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
     }
     */
     #potong {
-    font-size: 12px;
+    font-size: 13px;
     width: 120px;
     white-space: nowrap;
     overflow: hidden;
@@ -61,9 +61,9 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
         <table style="height: 140px; width: 260px;">
             <tbody>
                 <tr> <!-- tampil qr-->
-                    <td style="width: 70px; height: 70px;"><?php echo '<img src="'.$urlRelativeFilePath.'" />';?>
+                    <td style="width: 70px; height: 60px;"><?php echo '<img src="'.$urlRelativeFilePath.'" />';?>
                     </td>
-                    <td style="width: 190px; height: 70px;">
+                    <td style="width: 190px; height: 60px;">
                         <p id="potong"><?php echo $row['kode_aset']?></p>
                         <p id="potong"><?php echo $row['nama_aset']?></p>
                         <p id="potong"><?php echo $row['merk_aset']?></p>
