@@ -9,7 +9,7 @@ if(isset($_POST['simpan_data'])){
     $telp_petugas = $_POST['telp_petugas'];
     $kode_role = $_POST['kode_role'];
 
-    $query = $conn->prepare("INSERT INTO tb_petugas (kode_petugas, username, password, nama_petugas, telp_petugas, kode_role)
+    $query = $conn->prepare("INSERT INTO aset_petugas (kode_petugas, username, password, nama_petugas, telp_petugas, kode_role)
     VALUES (:kode_petugas, :username, :password, :nama_petugas, :telp_petugas, :kode_role)");
 
     $query->bindParam(':kode_petugas',$kode_petugas);
