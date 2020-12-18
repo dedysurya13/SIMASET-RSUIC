@@ -1,5 +1,5 @@
 <?php
-    $sqlID = "SELECT MAX(kode_kerusakan_aset) FROM tb_kerusakan_aset";
+    $sqlID = "SELECT MAX(kode_kerusakan_aset) FROM aset_kerusakan_aset";
     $incrementID = $conn->prepare($sqlID);
     $incrementID->execute();
     $ambilID = $incrementID->fetch(PDO::FETCH_ASSOC);
@@ -59,7 +59,7 @@
                                     include "conf/conn.php";
                                     $no=0;                           
 
-                                    $sql = "SELECT * FROM tb_kerusakan_aset as ke INNER JOIN tb_aset as a ON  ke.kode_aset = a.kode_aset INNER JOIN tb_unit as u ON a.kode_unit = u.kode_unit INNER JOIN tb_petugas as pe ON ke.kode_petugas = pe.kode_petugas ORDER BY kode_kerusakan_aset DESC";
+                                    $sql = "SELECT * FROM aset_kerusakan_aset as ke INNER JOIN aset_data as a ON  ke.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON ke.kode_petugas = pe.kode_petugas ORDER BY kode_kerusakan_aset DESC";
 
                                     $dataKerusakan = $conn->query($sql);
                                     
