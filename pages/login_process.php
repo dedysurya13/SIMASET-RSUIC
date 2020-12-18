@@ -28,7 +28,7 @@ if(mysql_num_rows($check)>=1){
 
 include "../conf/conn.php";
 
-$sql = "SELECT * FROM tb_petugas where username=:username AND password=:password";
+$sql = "SELECT * FROM aset_petugas where username=:username AND password=:password";
 
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':username', $_POST['username'], PDO::PARAM_STR);
