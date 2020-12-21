@@ -26,25 +26,23 @@ if ($kodeTanggal==$tglSekarang){
 if(isset($_POST['tindaklanjut'])){
     $kode_perbaikan_aset = $kodeBaru;
     $kode_kerusakan_aset = $_POST['kode_kerusakan_aset'];
-    $tanggal_diterima = $_POST['tanggal_lapor'];
+    $tanggal_diterima = $tglSekarang;
     $jam_diterima = $_POST['jam_lapor'];
-    $kode_status = NULL;
+    $kode_status = '2';
     $tanggal_selesai = NULL;
     $jam_selesai = NULL;
     $uraian_perbaikan = NULL;
 
 
-    $query = $conn->prepare("INSERT INTO aset_perbaikan_aset (kode_perbaikan_aset, kode_kerusakan_aset, tanggal_diterima, jam_diterima, tanggal_selesai, jam_selesai, uraian_perbaikan, kode_status)
-    VALUES (:kode_perbaikan_aset, :kode_kerusakan_aset, :tanggal_diterima, :jam_diterima, :tanggal_selesai, :jam_selesai, :uraian_perbaikan, :kode_status)");
+    $query = $conn->prepare("INSERT INTO aset_perbaikan_aset (kode_perbaikan_aset, kode_kerusakan_aset, tanggal_diterima, jam_diterima, kode_status)
+    VALUES (:kode_perbaikan_aset, :kode_kerusakan_aset, :tanggal_diterima, :jam_diterima, :kode_status)");
 
     $query->bindParam(':kode_perbaikan_aset',$kode_perbaikan_aset);
     $query->bindParam(':kode_kerusakan_aset',$kode_kerusakan_aset);
     $query->bindParam(':tanggal_diterima',$tanggal_diterima);
     $query->bindParam(':jam_diterima',$jam_diterima);
     $query->bindParam(':kode_status',$kode_status);
-    $query->bindParam(':tanggal_selesai',$tanggal_selesai);
-    $query->bindParam(':jam_selesai',$jam_selesai);
-    $query->bindParam(':uraian_perbaikan',$uraian_perbaikan);
+
 
     $query->execute();
 
