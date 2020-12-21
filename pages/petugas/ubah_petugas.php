@@ -3,7 +3,7 @@ include "conf/conn.php";
 
 //'".$_GET['kode_aset']."'
 
-$sql = "SELECT * FROM aset_petugas as p INNER JOIN aset_role_petugas as r ON p.kode_role = r.kode_role WHERE kode_petugas='".$_GET['id']."'";
+$sql = "SELECT * FROM aset_petugas as p INNER JOIN aset_role_petugas as r ON p.kode_role = r.kode_role INNER JOIN aset_unit as un ON p.kode_unit = un.kode_unit WHERE kode_petugas='".$_GET['id']."'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -58,6 +58,21 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                                     <?php while ($rowRole = $roleQuery->fetch(PDO::FETCH_ASSOC)){
                                     extract($rowRole);
                                     echo "<option value='{$kode_role}'>{$nama_role}</option>";
+                                    }?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Unit</label>
+                                <?php
+                                    $unitQuery = $conn->query("SELECT * FROM aset_unit");
+                                ?>
+                                <select id="kode_unit" name="kode_unit" class="form-control" id="">
+
+                                    <option value="<?php echo $row['kode_unit']; ?>"><?php echo $row['nama_unit'];?></option>
+
+                                    <?php while ($rowUnit = $unitQuery->fetch(PDO::FETCH_ASSOC)){
+                                    extract($rowUnit);
+                                    echo "<option value='{$kode_unit}'>{$nama_unit}</option>";
                                     }?>
                                 </select>
                             </div>
