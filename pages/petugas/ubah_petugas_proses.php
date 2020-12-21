@@ -8,8 +8,9 @@ if(isset($_POST['simpan_data'])){
     $nama_petugas = $_POST['nama_petugas'];
     $telp_petugas = $_POST['telp_petugas'];
     $kode_role = $_POST['kode_role'];
+    $kode_unit = $_POST['kode_unit'];
 
-    $sql = "UPDATE aset_petugas SET username=:username, password=:password, nama_petugas=:nama_petugas, telp_petugas=:telp_petugas, kode_role=:kode_role WHERE kode_petugas=:id";
+    $sql = "UPDATE aset_petugas SET username=:username, password=:password, nama_petugas=:nama_petugas, telp_petugas=:telp_petugas, kode_role=:kode_role, kode_unit=:kode_unit WHERE kode_petugas=:id";
 
     $query = $conn->prepare($sql);
 
@@ -19,6 +20,7 @@ if(isset($_POST['simpan_data'])){
     $query->bindParam(':nama_petugas',$nama_petugas, PDO::PARAM_STR);
     $query->bindParam(':telp_petugas',$telp_petugas, PDO::PARAM_STR);
     $query->bindParam(':kode_role',$kode_role, PDO::PARAM_STR);
+    $query->bindParam(':kode_unit',$kode_unit, PDO::PARAM_STR);
     $query->execute();
 
     if($query->errorCode() == 0) {
