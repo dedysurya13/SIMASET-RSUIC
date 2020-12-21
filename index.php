@@ -152,7 +152,7 @@ if(isset($_SESSION['kode_role'])==0){
       <li class="header">ASET RUSAK</li>
       <li class=treeview>
           <a href="index.php?page=data_pemeriksaan">
-            <i class="glyphicon glyphicon glyphicon glyphicon-zoom-in"></i> <span>Pemerikasan Aset</span>
+            <i class="glyphicon glyphicon glyphicon glyphicon-zoom-in"></i> <span>Pemerikasan/Perawatan Aset</span>
           </a>
       </li>
       <li class=treeview>
