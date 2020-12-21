@@ -89,7 +89,6 @@
             </div>
         </div>
 
-
         <!-- CHART-->
         <div class="col-md-4 nopadding">
             <h4>Jenis Aset</h4>
