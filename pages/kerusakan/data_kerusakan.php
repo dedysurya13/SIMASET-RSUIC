@@ -1,13 +1,12 @@
 <style>
-.form-control[disabled] {
-    background-color: #fff !important;
-    border-style: none;
-    cursor: default;
-}
-.form-control[disabled]:hover {
-    background-color: #f6f6f6 !important;
-}
-}
+    .form-control[readonly] {
+        background-color: #fff !important;
+        border-style: none;
+        cursor: default;
+    }
+    .form-control[readonly]:hover {
+        background-color: #f6f6f6 !important;
+    }
 </style>
 <div class="content-wrapper">
     <section class="content-header">
@@ -67,14 +66,18 @@
                                 ?>
                                         <tr>
                                             <form role="form" method="post" action="pages/kerusakan/tindaklanjut_kerusakan_proses.php">
-                                                <td><?php echo $no=$no+1;?></td>
-                                                <td><input type="text" name="kode_kerusakan_aset"  class="form-control" disabled value="<?php echo $row['kode_kerusakan_aset'];?>"></td>
+                                                <td>
+                                                    <?php echo $no=$no+1;?>
+                                                    <input type="hidden" name="kode_kerusakan_aset"  class="form-control" readonly value="<?php echo $row['kode_kerusakan_aset'];?>">
+                                                    <input type="hidden" name="jam_lapor"  class="form-control timepicker" readonly value="">
+                                                </td>
+                                                <td><?php echo $row['kode_kerusakan_aset'];?></td>
                                                 <td><?php echo $row['kode_aset'];?></td>
                                                 <td><?php echo $row['nama_aset'];?></td>
                                                 <td><?php echo $row['merk_aset'];?></td>
                                                 <td><?php echo $row['nama_unit'];?></td>
-                                                <td><input type="text" name="tanggal_lapor"  class="form-control" disabled value="<?php echo substr($row['tanggal_lapor'], 0, 11);?>"></td>
-                                                <td><input type="text" name="jam_lapor"  class="form-control" disabled value="<?php echo $row['jam_lapor'];?>"></td>
+                                                <td><?php echo substr($row['tanggal_lapor'], 0, 11);?></td>
+                                                <td><?php echo $row['jam_lapor'];?></td>
                                                 <td><?php echo $row['uraian_kerusakan'];?></td>
                                                 <td><?php echo $row['nama_petugas'];?></td>
                                                 <td>
