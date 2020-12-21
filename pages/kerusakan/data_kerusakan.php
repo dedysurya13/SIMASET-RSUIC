@@ -1,16 +1,14 @@
-<?php
-    $sqlID = "SELECT MAX(kode_kerusakan_aset) FROM aset_kerusakan_aset";
-    $incrementID = $conn->prepare($sqlID);
-    $incrementID->execute();
-    $ambilID = $incrementID->fetch(PDO::FETCH_ASSOC);
-    $kodeID = strtok($ambilID[''], '-');
-    $potongID = substr($ambilID[''], 4);
-    $angkaID = (int)$potongID;
-    $angkaID = $angkaID + 100000001;
-    $hurufID = substr((string)$angkaID,1);
-    $hurufID = $kodeID."-".$hurufID;
-?>
-
+<style>
+.form-control[disabled] {
+    background-color: #fff !important;
+    border-style: none;
+    cursor: default;
+}
+.form-control[disabled]:hover {
+    background-color: #f6f6f6 !important;
+}
+}
+</style>
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Data Kerusakan Aset</h1>
@@ -27,8 +25,9 @@
                     <div class="box-header">
                         <div class="form-group row">
                             <div class="col-sm-1">
-                                <a href="index.php?page=tambah_kerusakan&id=<?php echo $hurufID ?>" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
+                                <a href="index.php?page=tambah_kerusakan" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
                             </div>
+
                             <!--
                             <div class="col-sm-11">
                                 <input class="form-control" id='txt_searchall' type="text" placeholder="Cari Aset" aria-label="Search">
@@ -67,28 +66,38 @@
                                     
                                 ?>
                                         <tr>
-                                            <td><?php echo $no=$no+1;?></td>
-                                            <td><?php echo $row['kode_kerusakan_aset'];?></td>
-                                            <td><?php echo $row['kode_aset'];?></td>
-                                            <td><?php echo $row['nama_aset'];?></td>
-                                            <td><?php echo $row['merk_aset'];?></td>
-                                            <td><?php echo $row['nama_unit'];?></td>
-                                            <td><?php echo substr($row['tanggal_lapor'], 0, 11);?></td>
-                                            <td><?php echo $row['jam_lapor'];?></td>
-                                            <td><?php echo $row['uraian_kerusakan'];?></td>
-                                            <td><?php echo $row['nama_petugas'];?></td>
-                                            <td>
-                                                <a href="index.php?page=ubah_kerusakan&id=<?=$row['kode_kerusakan_aset'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
-
+                                            <form role="form" method="post" action="pages/kerusakan/tindaklanjut_kerusakan_proses.php">
+                                                <td><?php echo $no=$no+1;?></td>
+                                                <td><input type="text" name="kode_kerusakan_aset"  class="form-control" disabled value="<?php echo $row['kode_kerusakan_aset'];?>"></td>
+                                                <td><?php echo $row['kode_aset'];?></td>
+                                                <td><?php echo $row['nama_aset'];?></td>
+                                                <td><?php echo $row['merk_aset'];?></td>
+                                                <td><?php echo $row['nama_unit'];?></td>
+                                                <td><input type="text" name="tanggal_lapor"  class="form-control" disabled value="<?php echo substr($row['tanggal_lapor'], 0, 11);?>"></td>
+                                                <td><input type="text" name="jam_lapor"  class="form-control" disabled value="<?php echo $row['jam_lapor'];?>"></td>
+                                                <td><?php echo $row['uraian_kerusakan'];?></td>
+                                                <td><?php echo $row['nama_petugas'];?></td>
+                                                <td>
                                                 <?php 
-                                                    if($_SESSION['kode_role']==1){
-                                                ?> 
+                                                        if($_SESSION['kode_role']==1 || $_SESSION['kode_role']==3){
+                                                    ?> 
+                                                        <a href="index.php?page=ubah_kerusakan&id=<?=$row['kode_kerusakan_aset'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
 
-                                                    <a href="pages/kerusakan/hapus_kerusakan.php?id=<?=$row['kode_kerusakan_aset'];?>" class="btn btn-danger" role="button" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash"></i></a>
-                                                <?php
-                                                    }
-                                                ?>
-                                            </td>
+                                                    
+
+                                                        <a href="pages/kerusakan/hapus_kerusakan.php?id=<?=$row['kode_kerusakan_aset'];?>" class="btn btn-danger" role="button" title="Hapus Data" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="glyphicon glyphicon-trash"></i></a>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                    <?php 
+                                                        if($_SESSION['kode_role']==2 || $_SESSION['kode_role']==1){
+                                                    ?> 
+                                                        <button type="submit" name="tindaklanjut" class="btn btn-info"><i class="glyphicon glyphicon-ok"></i> Tindak Lanjuti</button>
+                                                    <?php
+                                                        }
+                                                    ?>
+                                                </td>
+                                            </form>
                                         </tr>
                                 <?php
                                     }    
@@ -96,8 +105,21 @@
                             </tbody>
                         </table>
                     </div> <!-- /.box-body -->
+                    
                 </div> <!-- /.box -->
             </div> <!-- /.col -->
         </div> <!-- /.row -->
     </section> <!-- /.content -->
 </div> <!-- /.content-wrapper -->
+<script src="plugins/jQuery/jquery-3.5.1.js"></script>
+<script>
+    $('.table tbody').on('clik','.btn',function(){
+        var currow = $(this).closest('tr');
+        var kode_kerusakan_aset = currow.find('td:eq(1)').text();
+        var tanggal_diterima = currow.find('td:eq(6)').text();
+        var jam_diterima = currow.find('td:eq(7)').text();
+
+        var result = kode_kerusakan_aset + '\n' + tanggal_diterima + '\n' + jam_diterima;
+        alert(result);
+    })
+</script>

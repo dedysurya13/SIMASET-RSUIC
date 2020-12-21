@@ -51,6 +51,8 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                                     <option value="<?php echo $row['status_pemeriksaan_aset']; ?>"><?php echo $row['status_pemeriksaan_aset'];?></option>
                                     <option value="Baik">Baik</option>
                                     <option value="Rusak">Rusak</option>
+                                    <option value="Ditarik">Ditarik</option>
+                                    <option value="Dimusnahkan">Dimusnahkan</option>
                                 </select>
                             </div>
                             <div class="form-group">

@@ -1,8 +1,8 @@
 <?php
 include "conf/conn.php";
 
-
 ?>
+
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Tambah Jenis Aset</h1>
@@ -18,7 +18,6 @@ include "conf/conn.php";
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/jenis_aset/tambah_jenis_proses.php">
                         <div class="box-body">
-                            <input type="hidden" name="kode_jenis" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label for="">Jenis Aset</label>
                                 <input type="text" name="nama_jenis" class="form-control" placeholder="Nama Jenis Aset" autocomplete="off" required>

@@ -1,7 +1,6 @@
 <?php
 include "conf/conn.php";
 
-
 ?>
 <div class="content-wrapper">
     <section class="content-header">
@@ -18,7 +17,6 @@ include "conf/conn.php";
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/aset/tambah_aset_proses.php">
                         <div class="box-body">
-                            <input type="hidden" name="kode_aset" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label for="">Nama Aset</label>
                                 <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex,: Printer" autocomplete="off" required>
@@ -67,7 +65,7 @@ include "conf/conn.php";
                                 <?php
                                     $jenisQuery = $conn->query("SELECT * FROM aset_jenis ORDER BY nama_jenis ASC");
                                 ?>
-                                <select id="jenis_aset" name="jenis_aset" class="form-control" id="">
+                                <select id="jenis_aset" name="jenis_aset" class="form-control" id="" required>
 
                                     <option value=''>- Jenis Aset -</option>
 
@@ -82,7 +80,7 @@ include "conf/conn.php";
                                 <?php
                                     $unitQuery = $conn->query("SELECT * FROM aset_unit ORDER BY nama_unit ASC");
                                 ?>
-                                <select id="nama_unit" name="nama_unit" class="form-control" id="">
+                                <select id="nama_unit" name="nama_unit" class="form-control" id="" required>
 
                                     <option value=''>- Nama Unit -</option>
 
@@ -97,7 +95,7 @@ include "conf/conn.php";
                                 <?php
                                     $suplierQuery = $conn->query("SELECT * FROM aset_suplier ORDER BY nama_suplier ASC");
                                 ?>
-                                <select id="nama_suplier" name="nama_suplier" class="form-control" id="">
+                                <select id="nama_suplier" name="nama_suplier" class="form-control" id="" required>
 
                                     <option value=''>- Nama Suplier -</option>
 

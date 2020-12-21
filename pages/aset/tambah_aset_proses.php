@@ -1,8 +1,31 @@
 <?php
 include "../../conf/conn.php";
 
+$sqlID = "SELECT MAX(kode_aset) FROM aset_data";
+$incrementID = $conn->prepare($sqlID);
+$incrementID->execute();
+$kodeTerakhir = $incrementID->fetchColumn();
+
+$tglSekarang = date("ymd");
+
+$kodeHuruf=substr($kodeTerakhir,0,2);
+$kodeTanggal=substr($kodeTerakhir,2,6);
+$kodeAngka=substr($kodeTerakhir,8);
+
+if ($kodeTanggal==$tglSekarang){
+    $kodeAngka=(int)$kodeAngka;
+    $kodeAngka=$kodeAngka + 10001;
+    $kodeAngka=substr($kodeAngka,1);
+    $kodeBaru = $kodeHuruf.$kodeTanggal.$kodeAngka;
+}else{
+    $kodeAngka=10001;
+    $kodeAngka=substr($kodeAngka,1);
+    $kodeBaru="AS".$tglSekarang.$kodeAngka;
+}
+
+
 if(isset($_POST['simpan_data'])){
-    $kode_aset = $_POST['kode_aset'];
+    $kode_aset = $kodeBaru;
     $nama_aset = $_POST['nama_aset'];
     $merk_aset = $_POST['merk_aset'];
     $tahun_aset = $_POST['tahun_aset'];
@@ -33,7 +56,7 @@ if(isset($_POST['simpan_data'])){
         window.location.href="../../index.php?page=data_aset"</script>';
     } else {
         $errors = $query->errorInfo();
-        echo $errors;
+        print_r($errors);
     }
 }
 

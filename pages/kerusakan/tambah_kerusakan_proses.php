@@ -1,8 +1,30 @@
 <?php
 include "../../conf/conn.php";
 
+$sqlID = "SELECT MAX(kode_kerusakan_aset) FROM aset_kerusakan_aset";
+$incrementID = $conn->prepare($sqlID);
+$incrementID->execute();
+$kodeTerakhir = $incrementID->fetchColumn();
+
+$tglSekarang = date("ymd");
+
+$kodeHuruf=substr($kodeTerakhir,0,2);
+$kodeTanggal=substr($kodeTerakhir,2,6);
+$kodeAngka=substr($kodeTerakhir,8);
+
+if ($kodeTanggal==$tglSekarang){
+    $kodeAngka=(int)$kodeAngka;
+    $kodeAngka=$kodeAngka + 10001;
+    $kodeAngka=substr($kodeAngka,1);
+    $kodeBaru = $kodeHuruf.$kodeTanggal.$kodeAngka;
+}else{
+    $kodeAngka=10001;
+    $kodeAngka=substr($kodeAngka,1);
+    $kodeBaru="RS".$tglSekarang.$kodeAngka;;
+}
+
 if(isset($_POST['simpan_data'])){
-    $kode_kerusakan_aset = $_POST['kode_kerusakan_aset'];
+    $kode_kerusakan_aset = $kodeBaru;
     $kode_aset = $_POST['kode_aset'];
     $tanggal_lapor = $_POST['tanggal_lapor'];
     $jam_lapor = $_POST['jam_lapor'];

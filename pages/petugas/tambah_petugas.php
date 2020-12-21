@@ -19,9 +19,6 @@ if($_SESSION['kode_role']==1){
                     <form role="form" method="post" action="pages/petugas/tambah_petugas_proses.php">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="">Kode Petugas</label>
-                                <input type="text" name="kode_petugas" class="form-control" placeholder="Kode Petugas" autocomplete="off" required>
-                            </div>
                             <div class="form-group">
                                 <label for="">Username </label>
                                 <input type="text" name="username" class="form-control" placeholder="Username" autocomplete="off" required>
@@ -58,7 +55,7 @@ if($_SESSION['kode_role']==1){
                                 <?php
                                     $unitQuery = $conn->query("SELECT * FROM aset_unit");
                                 ?>
-                                <select id="nama_unit" name="nama_unit" class="form-control" id="">
+                                <select id="kode_unit" name="kode_unit" class="form-control" id="">
 
                                     <option value=''>- Pilih Unit -</option>
 

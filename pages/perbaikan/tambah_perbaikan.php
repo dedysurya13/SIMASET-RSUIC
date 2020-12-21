@@ -19,7 +19,6 @@ $kode_petugas = $_SESSION['kode_petugas'];
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/perbaikan/tambah_perbaikan_proses.php">
                         <div class="box-body">
-                                <input type="hidden" name="kode_perbaikan_aset" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label>Kode Kerusakan</label>
                                 <?php

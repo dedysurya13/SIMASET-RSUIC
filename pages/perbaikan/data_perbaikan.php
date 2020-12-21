@@ -1,16 +1,3 @@
-<?php
-    $sqlID = "SELECT MAX(kode_perbaikan_aset) FROM aset_perbaikan_aset";
-    $incrementID = $conn->prepare($sqlID);
-    $incrementID->execute();
-    $ambilID = $incrementID->fetch(PDO::FETCH_ASSOC);
-    $kodeID = strtok($ambilID[''], '-');
-    $potongID = substr($ambilID[''], 4);
-    $angkaID = (int)$potongID;
-    $angkaID = $angkaID + 100000001;
-    $hurufID = substr((string)$angkaID,1);
-    $hurufID = $kodeID."-".$hurufID;
-?>
-
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Data Perbaikan Aset</h1>
@@ -27,7 +14,7 @@
                     <div class="box-header">
                         <div class="form-group row">
                             <div class="col-sm-1">
-                                <a href="index.php?page=tambah_perbaikan&id=<?php echo $hurufID ?>" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
+                                <a href="index.php?page=tambah_perbaikan" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
                             </div>
                             <!--
                             <div class="col-sm-11">

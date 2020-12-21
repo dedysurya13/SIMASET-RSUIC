@@ -19,7 +19,6 @@ $kode_petugas = $_SESSION['kode_petugas'];
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/pemeriksaan/tambah_pemeriksaan_proses.php">
                         <div class="box-body">
-                            <input type="hidden" name="kode_pemeriksaan_aset" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label>Kode Aset</label>
                                 <?php
@@ -50,6 +49,8 @@ $kode_petugas = $_SESSION['kode_petugas'];
                                     <option value="">- Pilih Status -</option>
                                     <option value="Baik">Baik</option>
                                     <option value="Rusak">Rusak</option>
+                                    <option value="Ditarik">Ditarik</option>
+                                    <option value="Dimusnahkan">Dimusnahkan</option>
                                 </select>
                             </div>
                             <div class="form-group">

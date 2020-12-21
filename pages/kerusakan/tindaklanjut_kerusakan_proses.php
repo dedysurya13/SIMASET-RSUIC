@@ -1,6 +1,5 @@
 <?php
 include "../../conf/conn.php";
-
 $sqlID = "SELECT MAX(kode_perbaikan_aset) FROM aset_perbaikan_aset";
 $incrementID = $conn->prepare($sqlID);
 $incrementID->execute();
@@ -23,27 +22,17 @@ if ($kodeTanggal==$tglSekarang){
     $kodeBaru="PB".$tglSekarang.$kodeAngka;;
 }
 
-if(isset($_POST['simpan_data'])){
+
+if(isset($_POST['tindaklanjut'])){
     $kode_perbaikan_aset = $kodeBaru;
     $kode_kerusakan_aset = $_POST['kode_kerusakan_aset'];
-    $tanggal_diterima = $_POST['tanggal_diterima'];
-    $jam_diterima = $_POST['jam_diterima'];
-    $kode_status = $_POST['kode_status'];
-    $tanggal_selesai = $_POST['tanggal_selesai'];
-    $jam_selesai = $_POST['jam_selesai'];
-    $uraian_perbaikan = $_POST['uraian_perbaikan'];
+    $tanggal_diterima = $_POST['tanggal_lapor'];
+    $jam_diterima = $_POST['jam_lapor'];
+    $kode_status = NULL;
+    $tanggal_selesai = NULL;
+    $jam_selesai = NULL;
+    $uraian_perbaikan = NULL;
 
-    if ($tanggal_selesai == ""){
-        $tanggal_selesai1 = NULL;
-    }else{
-        $tanggal_selesai1=$_POST['tanggal_selesai'];
-    }
-
-    if ($jam_selesai == "" || $jam_selesai == "00:00" ){
-        $jam_selesai1 = NULL;
-    }else{
-        $jam_selesai1=$_POST['jam_selesai'];
-    }
 
     $query = $conn->prepare("INSERT INTO aset_perbaikan_aset (kode_perbaikan_aset, kode_kerusakan_aset, tanggal_diterima, jam_diterima, tanggal_selesai, jam_selesai, uraian_perbaikan, kode_status)
     VALUES (:kode_perbaikan_aset, :kode_kerusakan_aset, :tanggal_diterima, :jam_diterima, :tanggal_selesai, :jam_selesai, :uraian_perbaikan, :kode_status)");
@@ -53,8 +42,8 @@ if(isset($_POST['simpan_data'])){
     $query->bindParam(':tanggal_diterima',$tanggal_diterima);
     $query->bindParam(':jam_diterima',$jam_diterima);
     $query->bindParam(':kode_status',$kode_status);
-    $query->bindParam(':tanggal_selesai',$tanggal_selesai1);
-    $query->bindParam(':jam_selesai',$jam_selesai1);
+    $query->bindParam(':tanggal_selesai',$tanggal_selesai);
+    $query->bindParam(':jam_selesai',$jam_selesai);
     $query->bindParam(':uraian_perbaikan',$uraian_perbaikan);
 
     $query->execute();

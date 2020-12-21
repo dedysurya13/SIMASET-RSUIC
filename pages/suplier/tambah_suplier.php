@@ -17,7 +17,6 @@ include "conf/conn.php";
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/suplier/tambah_suplier_proses.php">
                         <div class="box-body">
-                            <input type="hidden" name="kode_suplier" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label for="">Nama Suplier</label>
                                 <input type="text" name="nama_suplier" class="form-control" placeholder="Nama Suplier" autocomplete="off" required>

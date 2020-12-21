@@ -3,6 +3,7 @@ include "conf/conn.php";
 
 $kode_petugas = $_SESSION['kode_petugas'];
 
+
 ?>
 <div class="content-wrapper">
     <section class="content-header">
@@ -19,7 +20,6 @@ $kode_petugas = $_SESSION['kode_petugas'];
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/kerusakan/tambah_kerusakan_proses.php">
                         <div class="box-body">
-                                <input type="hidden" name="kode_kerusakan_aset" value="<?php echo $_GET['id'] ?>">
                             <div class="form-group">
                                 <label>Kode Aset</label>
                                 <?php
