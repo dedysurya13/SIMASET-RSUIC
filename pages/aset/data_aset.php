@@ -23,21 +23,72 @@
                             <div class="col-sm-1">
                                 <a href="index.php?page=tambah_aset" class="btn btn-primary " role="button" title="Tambah Data"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
                             </div>
+                            <div class="col-sm-7">
+                                
+                            </div>
                             <!--
-                            <div class="col-sm-11">
-                                <input class="form-control" id='txt_searchall' type="text" placeholder="Cari Aset" aria-label="Search">
+                            <div class="col-sm-1 text-right">
+                                <h4>Filter :</h4>
+                            </div>
+                            <div class="col-sm-1">
+                                <div class="form-group">
+                                    <?php
+                                        //$jenisQuery = $conn->query("SELECT * FROM aset_jenis ORDER BY kode_jenis ASC");
+                                    ?>
+                                    <select id="kode_jenis" name="kode_jenis" class="form-control" required>
+
+                                        <option value=''>- Jenis -</option>
+
+                                        <?php //while ($rowJenis = $jenisQuery->fetch(PDO::FETCH_ASSOC)){
+                                        //extract($rowJenis);
+                                        //echo "<option value='{$kode_jenis}'>{$nama_jenis}</option>";
+                                        //}?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <div class="form-group">
+                                    <?php
+                                        //$unitQuery = $conn->query("SELECT * FROM aset_unit ORDER BY kode_unit ASC");
+                                    ?>
+                                    <select id="kode_unit" name="kode_unit" class="form-control" required>
+
+                                        <option value=''>- Unit -</option>
+
+                                        <?php //while ($rowUnit = $unitQuery->fetch(PDO::FETCH_ASSOC)){
+                                        //extract($rowUnit);
+                                        //echo "<option value='{$kode_unit}'>{$nama_unit}</option>";
+                                        //}?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <div class="form-group">
+                                    <?php
+                                        //$suplierQuery = $conn->query("SELECT * FROM aset_suplier ORDER BY kode_suplier ASC");
+                                    ?>
+                                    <select id="kode_suplier" name="kode_suplier" class="form-control" required>
+
+                                        <option value=''>- Suplier -</option>
+
+                                        <?php //while ($rowSuplier = $suplierQuery->fetch(PDO::FETCH_ASSOC)){
+                                        //extract($rowSuplier);
+                                        //echo "<option value='{$kode_suplier}'>{$nama_suplier}</option>";
+                                        //}?>
+                                    </select>
+                                </div>
                             </div>
                             -->
                         </div>
                         
                     </div>
                     <div class="box-body table-responsive">
-                        <table id="tabelAset" class="table table-bordered table-hover" >
+                        <table id="tabelAset" class="datatable table table-bordered table-striped table-hover" data-table-source="" data-table-filter-target>
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Kode</th>
-                                    <th>Nama</th>
+                                    <th>Kategori</th>
                                     <th>Merk</th>
                                     <th>Tahun</th>
                                     <th>Nilai Aset</th>
@@ -52,14 +103,14 @@
                             <tbody>
                                 <?php
                                     include "conf/conn.php";
-                                    $no=0;
+                                    
                                     
                                     //a.kode_aset, a.nama_aset, a.merk_aset, a.tahun_aset, a.nilai_aset, date_format(a.tanggal_aset,'%d %m %Y'), a.spesifikasi_aset, j.nama_jenis, u.nama_unit, s.nama_suplier
 
                                     //echo $row['tanggal_aset']->format('d/m/Y');
                                     //echo substr($row['tanggal_aset'], 0, 11);                                
 
-                                    $sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier ORDER BY kode_aset ASC";
+                                    $sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier INNER JOIN aset_kategori_aset AS kat ON a.kode_kategori = kat.kode_kategori ORDER BY kode_aset ASC";
 
                                     $dataAset = $conn->query($sql);
                                     
@@ -67,9 +118,9 @@
                                     
                                 ?>
                                         <tr>
-                                            <td><?php echo $no=$no+1;?></td>
+                                            <td></td>
                                             <td><?php echo $row['kode_aset'];?></td>
-                                            <td><?php echo $row['nama_aset'];?></td>
+                                            <td><?php echo $row['nama_kategori'];?></td>
                                             <td><?php echo $row['merk_aset'];?></td>
                                             <td><?php echo $row['tahun_aset'];?></td>
                                             <td><?php echo buatRupiah($row['nilai_aset']);?></td>
@@ -98,6 +149,22 @@
                                     }    
                                 ?>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div> <!-- /.box-body -->
                 </div> <!-- /.box -->
