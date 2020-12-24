@@ -28,7 +28,7 @@
                         <table id="tabelPemeriksaan" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No</th>
                                     <th>Kode Pemeriksaan</th>
                                     <th>Kode Aset</th>
                                     <th>Nama Aset</th>
@@ -43,8 +43,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    include "conf/conn.php";
-                                    $no=0;                           
+                                    include "conf/conn.php";                           
 
                                     $sql = "SELECT * FROM aset_pemeriksaan_aset as pa INNER JOIN aset_data as a ON  pa.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON pa.kode_petugas = pe.kode_petugas ORDER BY kode_pemeriksaan_aset DESC";
 
@@ -54,7 +53,7 @@
                                     
                                 ?>
                                         <tr>
-                                            <td><?php echo $no=$no+1;?></td>
+                                            <td></td>
                                             <td><?php echo $row['kode_pemeriksaan_aset'];?></td>
                                             <td><?php echo $row['kode_aset'];?></td>
                                             <td><?php echo $row['nama_aset'];?></td>

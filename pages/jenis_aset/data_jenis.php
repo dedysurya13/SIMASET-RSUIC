@@ -28,7 +28,7 @@
                         <table id="tabelJenis" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No</th>
                                     <th>Kode</th>
                                     <th>Jenis Aset</th>
                                     <th>Aksi</th>
@@ -36,8 +36,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    include "conf/conn.php";
-                                    $no=0;                            
+                                    include "conf/conn.php";                           
 
                                     $sql = "SELECT * FROM aset_jenis ORDER BY kode_jenis ASC";
 
@@ -47,7 +46,7 @@
                                     
                                 ?>
                                         <tr>
-                                            <td><?php echo $no=$no+1;?></td>
+                                            <td></td>
                                             <td><?php echo $row['kode_jenis'];?></td>
                                             <td><?php echo $row['nama_jenis'];?></td>
                                             <td>

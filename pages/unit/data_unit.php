@@ -28,7 +28,7 @@
                         <table id="tabelUnit" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No</th>
                                     <th>Kode</th>
                                     <th>Nama Unit</th>
                                     <th>Penanggung Jawab</th>
@@ -37,8 +37,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    include "conf/conn.php";
-                                    $no=0;                            
+                                    include "conf/conn.php";                         
 
                                     $sql = "SELECT * FROM aset_unit ORDER BY kode_unit ASC";
 
@@ -48,7 +47,7 @@
                                     
                                 ?>
                                         <tr>
-                                            <td><?php echo $no=$no+1;?></td>
+                                            <td></td>
                                             <td><?php echo $row['kode_unit'];?></td>
                                             <td><?php echo $row['nama_unit'];?></td>
                                             <td><?php echo $row['nama_pj'];?></td>

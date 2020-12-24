@@ -28,7 +28,7 @@
                         <table id="tabelSuplier" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No</th>
                                     <th>Kode</th>
                                     <th>Nama Suplier</th>
                                     <th>Alamat</th>
@@ -38,8 +38,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    include "conf/conn.php";
-                                    $no=0;                            
+                                    include "conf/conn.php";                            
 
                                     $sql = "SELECT * FROM aset_suplier ORDER BY kode_suplier ASC";
 
@@ -49,7 +48,7 @@
                                     
                                 ?>
                                         <tr>
-                                            <td><?php echo $no=$no+1;?></td>
+                                            <td></td>
                                             <td><?php echo $row['kode_suplier'];?></td>
                                             <td><?php echo $row['nama_suplier'];?></td>
                                             <td><?php echo $row['alamat_suplier'];?></td>

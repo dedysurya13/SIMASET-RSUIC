@@ -39,7 +39,7 @@
                         <table id="tabelKerusakan" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No</th>
                                     <th>Kode Kerusakan</th>
                                     <th>Kode Aset</th>
                                     <th>Nama Aset</th>
@@ -54,8 +54,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    include "conf/conn.php";
-                                    $no=0;                           
+                                    include "conf/conn.php";                           
 
                                     $sql = "SELECT * FROM aset_kerusakan_aset as ke INNER JOIN aset_data as a ON  ke.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON ke.kode_petugas = pe.kode_petugas ORDER BY kode_kerusakan_aset DESC";
 
@@ -67,7 +66,7 @@
                                         <tr>
                                             <form role="form" method="post" action="pages/kerusakan/tindaklanjut_kerusakan_proses.php">
                                                 <td>
-                                                    <?php echo $no=$no+1;?>
+                                                    <?php //echo $no=$no+1;?>
                                                     <input type="hidden" name="kode_kerusakan_aset"  class="form-control" readonly value="<?php echo $row['kode_kerusakan_aset'];?>">
                                                     <input type="hidden" name="jam_lapor"  class="form-control timepicker" readonly value="">
                                                 </td>
