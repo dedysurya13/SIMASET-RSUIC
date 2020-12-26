@@ -41,14 +41,14 @@ $kode_petugas = $_SESSION['kode_petugas'];
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" name="tanggal_lapor" class="form-control pull-right" id="datepicker" autocomplete="off" required>
+                                <input type="text" name="tanggal_lapor" class="form-control pull-right" autocomplete="off" value="<?php echo date("Y/m/d")?>" readonly required>
                                 </div>
                             </div>
                             <div class="bootstrap-timepicker">
                                 <div class="form-group">
                                     <label>Jam Lapor</label>
                                     <div class="input-group">
-                                        <input type="text" name="jam_lapor" class="form-control timepicker" autocomplete="off">
+                                        <input type="text" name="jam_lapor" class="form-control" autocomplete="off" readonly value="<?php echo date("H:i")?>">
 
                                         <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>
