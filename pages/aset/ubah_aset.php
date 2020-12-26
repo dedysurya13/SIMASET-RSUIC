@@ -3,7 +3,7 @@ include "conf/conn.php";
 
 //'".$_GET['kode_aset']."'
 
-$sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier WHERE kode_aset='".$_GET['id']."'";
+$sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier INNER JOIN aset_kategori_aset as kat ON a.kode_kategori = kat.kode_kategori WHERE kode_aset='".$_GET['id']."'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -31,8 +31,19 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                                 <input type="text" name="kode_aset" class="form-control" placeholder="Kode Aset, ex: poli1-0001" value="<?php echo $row['kode_aset']; ?>" autocomplete="off" disabled>
                             </div>
                             <div class="form-group">
-                            <label for="">Nama Aset</label>
-                                <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex: Printer" value="<?php echo $row['nama_aset']; ?>" autocomplete="off" required>
+                                <label>Kategori Aset</label>
+                                <?php
+                                    $kategoriQuery = $conn->query("SELECT * FROM aset_kategori_aset ORDER BY nama_kategori ASC");
+                                ?>
+                                <select id="kode_kategori" name="kode_kategori" class="form-control" id="" required>
+
+                                    <option value="<?php echo $row['kode_kategori']; ?>"><?php echo $row['nama_kategori'];?></option>
+
+                                    <?php while ($rowKategori = $kategoriQuery->fetch(PDO::FETCH_ASSOC)){
+                                    extract($rowKategori);
+                                    echo "<option value='{$kode_kategori}'>{$nama_kategori}</option>";
+                                    }?>
+                                </select>
                             </div>
                             <div class="form-group">
                             <label for="">Merk Aset</label>
