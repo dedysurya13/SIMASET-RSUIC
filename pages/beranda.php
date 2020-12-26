@@ -110,24 +110,30 @@
 	var myChart = new Chart(ctx, {
 		type: 'pie',
 		data: {
-			labels: ["IT", "Medis", "Umum"],
+			labels: ["IT", "Medis", "Non-Medis", "Umum"],
 			datasets: [{
 				label: '',
 				data: [
 				<?php 
-				$maxIT = $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JNS-00000001'");
+				$maxIT = $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JN2012190001'");
                 $maxIT->execute();
                 $maxIT = $maxIT->fetchColumn();
                 echo $maxIT;
 				?>, 
 				<?php 
-				$maxMedis = $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JNS-00000002'");
+				$maxMedis = $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JN2012190002'");
                 $maxMedis->execute();
                 $maxMedis = $maxMedis->fetchColumn();
                 echo $maxMedis;
 				?>, 
 				<?php 
-				$maxUmum= $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JNS-00000003'");
+				$maxNonMedis= $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JN2012190004'");
+                $maxNonMedis->execute();
+                $maxNonMedis = $maxNonMedis->fetchColumn();
+                echo $maxNonMedis;
+                ?>,
+                <?php 
+				$maxUmum= $conn->query("SELECT COUNT(kode_jenis) FROM aset_data WHERE kode_jenis='JN2012190003'");
                 $maxUmum->execute();
                 $maxUmum = $maxUmum->fetchColumn();
                 echo $maxUmum;
@@ -136,12 +142,14 @@
 				backgroundColor: [
 				'rgba(255, 99, 132, 0.2)',
 				'rgba(54, 162, 235, 0.2)',
-				'rgba(255, 206, 86, 0.2)'
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(4, 219, 69, 0.2)'
 				],
 				borderColor: [
 				'rgba(255,99,132,1)',
 				'rgba(54, 162, 235, 1)',
-				'rgba(255, 206, 86, 1)'
+                'rgba(255, 206, 86, 1)',
+                'rgba(4, 219, 69, 1)'
 				],
 				borderWidth: 1
             }]
