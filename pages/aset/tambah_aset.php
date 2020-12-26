@@ -17,9 +17,20 @@ include "conf/conn.php";
                 <div class="box box-primary">
                     <form role="form" method="post" action="pages/aset/tambah_aset_proses.php">
                         <div class="box-body">
-                            <div class="form-group">
-                                <label for="">Nama Aset</label>
-                                <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex,: Printer" autocomplete="off" required>
+                        <div class="form-group">
+                                <label>Kategori Aset</label>
+                                <?php
+                                    $kategoriQuery = $conn->query("SELECT * FROM aset_kategori_aset ORDER BY nama_kategori ASC");
+                                ?>
+                                <select id="kode_kategori" name="kode_kategori" class="form-control" id="" required>
+
+                                    <option value=''>- Kategori Aset -</option>
+
+                                    <?php while ($row = $kategoriQuery->fetch(PDO::FETCH_ASSOC)){
+                                    extract($row);
+                                    echo "<option value='{$kode_kategori}'>{$nama_kategori}</option>";
+                                    }?>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Merk Aset</label>
@@ -27,7 +38,7 @@ include "conf/conn.php";
                             </div>
                             <div class="form-group">
                                 <label for="">Tahun Aset</label>
-                                <select name="tahun_aset" class="form-control" id="">
+                                <select name="tahun_aset" class="form-control" id="tahun_aset">
                                     <option value="">- Pilih Tahun -</option>
                                     <option value="2015">2011</option>
                                     <option value="2015">2012</option>
@@ -53,7 +64,7 @@ include "conf/conn.php";
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker" autocomplete="off" required>
+                                <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker" autocomplete="off" value="<?php echo date("Y/m/d")?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
