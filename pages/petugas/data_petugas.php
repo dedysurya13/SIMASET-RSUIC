@@ -44,6 +44,7 @@
                                 <tbody>
                                     <?php
                                         include "conf/conn.php";
+                                        $no=0;
                                     
                                         $sql = "SELECT * FROM aset_petugas as p INNER JOIN aset_role_petugas as r ON p.kode_role = r.kode_role INNER JOIN aset_unit as u ON p.kode_unit=u.kode_unit ORDER BY kode_petugas ASC";
 
@@ -53,7 +54,7 @@
                                         
                                     ?>
                                             <tr>
-                                                <td></td>
+                                                <td><?php echo $no=$no+1;?></td>
                                                 <td><?php echo $row['kode_petugas'];?></td>
                                                 <td><?php echo $row['username'];?></td>
                                                 <td><?php echo $row['password'];?></td>
