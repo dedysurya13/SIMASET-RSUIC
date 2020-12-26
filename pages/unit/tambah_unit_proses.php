@@ -1,8 +1,30 @@
 <?php
 include "../../conf/conn.php";
 
+$sqlID = "SELECT MAX(kode_unit) FROM aset_unit";
+$incrementID = $conn->prepare($sqlID);
+$incrementID->execute();
+$kodeTerakhir = $incrementID->fetchColumn();
+
+$tglSekarang = date("ymd");
+
+$kodeHuruf=substr($kodeTerakhir,0,2);
+$kodeTanggal=substr($kodeTerakhir,2,6);
+$kodeAngka=substr($kodeTerakhir,8);
+
+if ($kodeTanggal==$tglSekarang){
+    $kodeAngka=(int)$kodeAngka;
+    $kodeAngka=$kodeAngka + 10001;
+    $kodeAngka=substr($kodeAngka,1);
+    $kodeBaru = $kodeHuruf.$kodeTanggal.$kodeAngka;
+}else{
+    $kodeAngka=10001;
+    $kodeAngka=substr($kodeAngka,1);
+    $kodeBaru="UN".$tglSekarang.$kodeAngka;;
+}
+
 if(isset($_POST['simpan_data'])){
-    $kode_unit = $_POST['kode_unit'];
+    $kode_unit = $kodeBaru;
     $nama_unit = $_POST['nama_unit'];
     $nama_pj = $_POST['nama_pj'];
 
