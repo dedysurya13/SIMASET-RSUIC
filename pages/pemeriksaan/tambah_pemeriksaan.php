@@ -40,12 +40,12 @@ $kode_petugas = $_SESSION['kode_petugas'];
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" name="tanggal_pemeriksaan_aset" class="form-control pull-right" id="datepicker" autocomplete="off" required>
+                                <input type="text" name="tanggal_pemeriksaan_aset" class="form-control pull-right" id="datepicker" autocomplete="off" value="<?php echo date("Y/m/d")?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="">Status Pemeriksaan Aset</label>
-                                <select name="status_pemeriksaan_aset" class="form-control" id="">
+                                <select name="status_pemeriksaan_aset" id="status_pemeriksaan_aset"  class="form-control" id="">
                                     <option value="">- Pilih Status -</option>
                                     <option value="Baik">Baik</option>
                                     <option value="Rusak">Rusak</option>
