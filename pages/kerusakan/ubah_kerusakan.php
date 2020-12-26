@@ -42,14 +42,14 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                    <input type="text" name="tanggal_lapor" class="form-control pull-right" id="datepicker" value="<?php echo substr($row['tanggal_lapor'], 0, 11); ?>" autocomplete="off" required>
+                                    <input type="text" name="tanggal_lapor" class="form-control pull-right" value="<?php echo substr($row['tanggal_lapor'], 0, 11); ?>" autocomplete="off" readonly required>
                                 </div>
                             </div>
                             <div class="bootstrap-timepicker">
                                 <div class="form-group">
                                     <label>Jam Lapor</label>
                                     <div class="input-group">
-                                        <input type="text" name="jam_lapor" class="form-control timepicker" value="<?php echo $row['jam_lapor']; ?>" autocomplete="off">
+                                        <input type="text" name="jam_lapor" class="form-control" value="<?php echo $row['jam_lapor']; ?>" autocomplete="off" readonly>
 
                                         <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>
