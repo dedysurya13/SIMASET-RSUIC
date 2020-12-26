@@ -4,7 +4,6 @@ header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
-date_default_timezone_set('Asia/Jakarta');
 
 session_start();
 include "conf/conn.php";
@@ -134,6 +133,11 @@ if(isset($_SESSION['kode_role'])==0){
       <li class="treeview">
           <a href="index.php?page=data_unit">
             <i class="glyphicon glyphicon glyphicon-home"></i> <span>Kelola Unit</span>
+          </a>
+      </li>
+      <li class="treeview">
+          <a href="index.php?page=data_kategori">
+            <i class="glyphicon glyphicon-tag"></i> <span>Kelola Kategori</span>
           </a>
       </li>
       <li class=treeview>
