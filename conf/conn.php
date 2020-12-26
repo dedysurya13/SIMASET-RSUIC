@@ -10,6 +10,8 @@ $username = "sa";
 $password = "admin1";
 $database = "asetrsuic";
 
+date_default_timezone_set('Asia/Jakarta');
+
 try {
     $conn = new PDO("sqlsrv:server=$servername;Database=$database;ConnectionPooling=0", $username, $password);
 } catch (PDOException $e) {
