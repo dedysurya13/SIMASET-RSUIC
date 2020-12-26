@@ -30,9 +30,10 @@ if(isset($_POST['simpan_data'])){
     $jam_lapor = $_POST['jam_lapor'];
     $uraian_kerusakan = $_POST['uraian_kerusakan'];
     $kode_petugas = $_POST['kode_petugas'];
+    $kode_flag = "0";
 
-    $query = $conn->prepare("INSERT INTO aset_kerusakan_aset (kode_kerusakan_aset, kode_aset, tanggal_lapor, jam_lapor, uraian_kerusakan, kode_petugas)
-    VALUES (:kode_kerusakan_aset, :kode_aset, :tanggal_lapor, :jam_lapor, :uraian_kerusakan, :kode_petugas)");
+    $query = $conn->prepare("INSERT INTO aset_kerusakan_aset (kode_kerusakan_aset, kode_aset, tanggal_lapor, jam_lapor, uraian_kerusakan, kode_petugas, kode_flag)
+    VALUES (:kode_kerusakan_aset, :kode_aset, :tanggal_lapor, :jam_lapor, :uraian_kerusakan, :kode_petugas, :kode_flag)");
 
     $query->bindParam(':kode_kerusakan_aset',$kode_kerusakan_aset);
     $query->bindParam(':kode_aset',$kode_aset);
@@ -40,6 +41,7 @@ if(isset($_POST['simpan_data'])){
     $query->bindParam(':jam_lapor',$jam_lapor);
     $query->bindParam(':uraian_kerusakan',$uraian_kerusakan);
     $query->bindParam(':kode_petugas',$kode_petugas);
+    $query->bindParam(':kode_flag', $kode_flag);
 
     $query->execute();
 
