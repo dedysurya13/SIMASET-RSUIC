@@ -26,6 +26,17 @@ if(isset($_GET['page'])){
         break;
 
 
+        case 'data_kategori':
+            include 'pages/kategori/data_kategori.php';
+        break;
+        case 'tambah_kategori';
+            include 'pages/kategori/tambah_kategori.php';
+        break;
+        case 'ubah_kategori';
+            include 'pages/kategori/ubah_kategori.php';
+        break;
+
+
         case 'data_jenis':
             include 'pages/jenis_aset/data_jenis.php';
         break;
