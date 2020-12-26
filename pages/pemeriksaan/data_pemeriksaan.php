@@ -31,7 +31,7 @@
                                     <th>No</th>
                                     <th>Kode Pemeriksaan</th>
                                     <th>Kode Aset</th>
-                                    <th>Nama Aset</th>
+                                    <th>Kategori Aset</th>
                                     <th>Merk Aset</th>
                                     <th>Unit</th>
                                     <th>Tanggal Pemeriksaan</th>
@@ -45,7 +45,7 @@
                                 <?php
                                     include "conf/conn.php";                           
 
-                                    $sql = "SELECT * FROM aset_pemeriksaan_aset as pa INNER JOIN aset_data as a ON  pa.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON pa.kode_petugas = pe.kode_petugas ORDER BY kode_pemeriksaan_aset DESC";
+                                    $sql = "SELECT * FROM aset_pemeriksaan_aset as pa INNER JOIN aset_data as a ON  pa.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON pa.kode_petugas = pe.kode_petugas INNER JOIN aset_kategori_aset as kat ON a.kode_kategori = kat.kode_kategori ORDER BY kode_pemeriksaan_aset DESC";
 
                                     $dataPemeriksaan = $conn->query($sql);
                                     
@@ -56,7 +56,7 @@
                                             <td></td>
                                             <td><?php echo $row['kode_pemeriksaan_aset'];?></td>
                                             <td><?php echo $row['kode_aset'];?></td>
-                                            <td><?php echo $row['nama_aset'];?></td>
+                                            <td><?php echo $row['nama_kategori'];?></td>
                                             <td><?php echo $row['merk_aset'];?></td>
                                             <td><?php echo $row['nama_unit'];?></td>
                                             <td><?php echo substr($row['tanggal_pemeriksaan_aset'], 0, 11);?></td>
