@@ -92,9 +92,7 @@ $(function () {
     });
 
     //Search di select option
-    $('#kode_aset, #jenis_aset, #nama_unit, #kode_unit, #nama_suplier, #kode_role, #kode_kerusakan_aset, #kode_status').select2({
-      
-    });
+    $('#kode_aset, #kode_kategori, #jenis_aset, #tahun_aset, #nama_unit, #kode_unit, #nama_suplier, #kode_role, #kode_kerusakan_aset, #kode_status, #status_pemeriksaan_aset').select2({});
     $('#multi_label').select2({
       maximumSelectionLength: 12,
     });
@@ -263,6 +261,51 @@ $(document).ready(function() {
         } );
     } );
     */
+
+
+   var tblKategori = $('#tabelKategori').DataTable({
+    'paging'      : true,
+    'lengthChange': true,
+    'searching'   : true,
+    'ordering'    : true,
+    'info'        : true,
+    'autoWidth'   : true,
+    dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
+          buttons: [
+            { extend: 'print', 
+              text: ' Print',
+              title: 'Data Kategori Aset',
+              className: 'btn glyphicon glyphicon-print',
+              exportOptions: { columns: [0,1,2] },
+              customize: function (win) {
+                $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+              }
+            },
+            {
+              extend: 'excel',
+              text: ' Excel',
+              title: 'Data Kategori Aset',
+              className: 'btn glyphicon glyphicon-file',
+              exportOptions: { columns: [0,1,2] }
+            }
+          ], 
+    //numbering 1/2
+    "columnDefs": [ {
+      "searchable": false,
+      "orderable": false,
+      "targets": 0
+    } ],
+    "order": [[ 1, 'asc' ]]
+  });
+  //numbering 2/2
+  tblKategori.on( 'order.dt search.dt', function () {
+    tblKategori.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+        cell.innerHTML = i+1;
+        tblKategori.cell(cell).invalidate('dom');
+    } );
+  } ).draw();
+
 
     var tblJenis = $('#tabelJenis').DataTable({
       'paging'      : true,
