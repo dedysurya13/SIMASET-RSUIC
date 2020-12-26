@@ -42,13 +42,14 @@
                                     <th>No</th>
                                     <th>Kode Kerusakan</th>
                                     <th>Kode Aset</th>
-                                    <th>Nama Aset</th>
+                                    <th>Kategori Aset</th>
                                     <th>Merk Aset</th>
                                     <th>Unit</th>
                                     <th>Tanggal Lapor</th>
                                     <th>Jam Lapor</th>
                                     <th>Uraian Kerusakan</th>
                                     <th>Petugas</th>
+                                    <th>Tindak Lanjut</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -56,7 +57,7 @@
                                 <?php
                                     include "conf/conn.php";                           
 
-                                    $sql = "SELECT * FROM aset_kerusakan_aset as ke INNER JOIN aset_data as a ON  ke.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON ke.kode_petugas = pe.kode_petugas ORDER BY kode_kerusakan_aset DESC";
+                                    $sql = "SELECT * FROM aset_kerusakan_aset as ke INNER JOIN aset_data as a ON  ke.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON ke.kode_petugas = pe.kode_petugas INNER JOIN aset_kategori_aset as kat ON a.kode_kategori = kat.kode_kategori INNER JOIN aset_flag_kerusakan as flk ON ke.kode_flag = flk.kode_flag ORDER BY kode_kerusakan_aset DESC";
 
                                     $dataKerusakan = $conn->query($sql);
                                     
@@ -65,20 +66,17 @@
                                 ?>
                                         <tr>
                                             <form role="form" method="post" action="pages/kerusakan/tindaklanjut_kerusakan_proses.php">
-                                                <td>
-                                                    <?php //echo $no=$no+1;?>
-                                                    <input type="hidden" name="kode_kerusakan_aset"  class="form-control" readonly value="<?php echo $row['kode_kerusakan_aset'];?>">
-                                                    <input type="hidden" name="jam_lapor"  class="form-control timepicker" readonly value="">
-                                                </td>
-                                                <td><?php echo $row['kode_kerusakan_aset'];?></td>
+                                                <td></td>
+                                                <td><input type="hidden" name="kode_kerusakan_aset"  class="form-control" value="<?php echo $row['kode_kerusakan_aset'];?>"><?php echo $row['kode_kerusakan_aset'];?></td>
                                                 <td><?php echo $row['kode_aset'];?></td>
-                                                <td><?php echo $row['nama_aset'];?></td>
+                                                <td><?php echo $row['nama_kategori'];?></td>
                                                 <td><?php echo $row['merk_aset'];?></td>
                                                 <td><?php echo $row['nama_unit'];?></td>
                                                 <td><?php echo substr($row['tanggal_lapor'], 0, 11);?></td>
                                                 <td><?php echo $row['jam_lapor'];?></td>
                                                 <td><?php echo $row['uraian_kerusakan'];?></td>
                                                 <td><?php echo $row['nama_petugas'];?></td>
+                                                <td><span class="<?php echo $row['nama_flag'];?>" style="<?php echo $row['warna_flag'];?>"></span></td>
                                                 <td>
                                                 <?php 
                                                         if($_SESSION['kode_role']==1 || $_SESSION['kode_role']==3){
@@ -113,15 +111,3 @@
         </div> <!-- /.row -->
     </section> <!-- /.content -->
 </div> <!-- /.content-wrapper -->
-<script src="plugins/jQuery/jquery-3.5.1.js"></script>
-<script>
-    $('.table tbody').on('clik','.btn',function(){
-        var currow = $(this).closest('tr');
-        var kode_kerusakan_aset = currow.find('td:eq(1)').text();
-        var tanggal_diterima = currow.find('td:eq(6)').text();
-        var jam_diterima = currow.find('td:eq(7)').text();
-
-        var result = kode_kerusakan_aset + '\n' + tanggal_diterima + '\n' + jam_diterima;
-        alert(result);
-    })
-</script>
