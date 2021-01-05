@@ -26,6 +26,17 @@ if(isset($_GET['page'])){
         break;
 
 
+        case 'data_ruangan':
+            include 'pages/ruangan/data_ruangan.php';
+        break;
+        case 'tambah_ruangan';
+            include 'pages/ruangan/tambah_ruangan.php';
+        break;
+        case 'ubah_ruangan';
+            include 'pages/ruangan/ubah_ruangan.php';
+        break;
+
+
         case 'data_kategori':
             include 'pages/kategori/data_kategori.php';
         break;
