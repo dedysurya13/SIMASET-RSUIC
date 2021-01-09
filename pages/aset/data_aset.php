@@ -86,16 +86,32 @@
                         <table id="tabelAset" class="datatable table table-bordered table-striped table-hover" data-table-source="" data-table-filter-target>
                             <thead>
                                 <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
                                     <th>No</th>
                                     <th>Kode</th>
                                     <th>Kategori</th>
-                                    <th>Merk</th>
+                                    <th>Merk/Tipe</th>
                                     <th>Tahun</th>
-                                    <th>Nilai Aset</th>
-                                    <th>Tanggal Aset</th>
+                                    <th>Nilai</th>
+                                    <th>Tanggal</th>
                                     <th>Spesifikasi</th>
                                     <th>Jenis</th>
                                     <th>Unit</th>
+                                    <th>Ruangan</th>
                                     <th>Suplier</th>
                                     <th>AKSI</th>
                                 </tr>
@@ -110,7 +126,7 @@
                                     //echo $row['tanggal_aset']->format('d/m/Y');
                                     //echo substr($row['tanggal_aset'], 0, 11);                                
 
-                                    $sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier INNER JOIN aset_kategori_aset AS kat ON a.kode_kategori = kat.kode_kategori ORDER BY kode_aset ASC";
+                                    $sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier INNER JOIN aset_kategori_aset AS kat ON a.kode_kategori = kat.kode_kategori LEFT JOIN aset_ruangan as ar ON a.kode_ruangan = ar.kode_ruangan ORDER BY kode_aset ASC";
 
                                     $dataAset = $conn->query($sql);
                                     
@@ -128,6 +144,7 @@
                                             <td><?php echo $row['spesifikasi_aset'];?></td>
                                             <td><?php echo $row['nama_jenis'];?></td>
                                             <td><?php echo $row['nama_unit'];?></td>
+                                            <td><?php echo $row['nama_ruangan'];?></td>
                                             <td><?php echo $row['nama_suplier'];?></td>
                                             <td>
                                                 <a href="index.php?page=ubah_aset&id=<?=$row['kode_aset'];?>" class="btn btn-success" role="button" title="Ubah Data"><i class="glyphicon glyphicon-edit"></i></a>
@@ -149,22 +166,6 @@
                                     }    
                                 ?>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div> <!-- /.box-body -->
                 </div> <!-- /.box -->
