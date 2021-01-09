@@ -28,19 +28,40 @@
                         <table id="tabelPerbaikan" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
+                                    <th></th>
+                                    <th></th> 
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
                                     <th>No</th>
                                     <th>Kode Perbaikan</th> 
-                                    <th>Kode Kerusakan</th> 
-                                    <th>Kode Aset</th> 
-                                    <th>Kategori Aset</th>
-                                    <th>Merk Aset</th>
+                                    <th>Kode Kerusakan</th>
+                                    <th>Kode Aset</th>
+                                    <th>Kategori</th>
+                                    <th>Merk</th>
                                     <th>Unit</th>
-                                    <th>Tanggal Lapor</th>
+                                    <th>Ruangan</th>
+                                    <th>Tgl Lapor</th>
                                     <th>Jam Lapor</th>
                                     <th>Uraian Kerusakan</th>
-                                    <th>Tanggal Diterima</th>
-                                    <th>Jam Diterima</th>
-                                    <th>Tanggal Selesai</th>
+                                    <th>Tgl Terima</th>
+                                    <th>Jam Terima</th>
+                                    <th>Tgl Selesai</th>
                                     <th>Jam Selesai</th>
                                     <th>Uraian Perbaikan</th>
                                     <th>Status</th>
@@ -51,7 +72,7 @@
                                 <?php
                                     include "conf/conn.php";                           
 
-                                    $sql = "SELECT * FROM aset_perbaikan_aset as pa INNER JOIN aset_kerusakan_aset as ka ON pa.kode_kerusakan_aset = ka.kode_kerusakan_aset INNER JOIN aset_data as a ON ka.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_status as s ON pa.kode_status = s.kode_status INNER JOIN aset_kategori_aset as kat ON a.kode_kategori = kat.kode_kategori ORDER BY kode_perbaikan_aset DESC";
+                                    $sql = "SELECT * FROM aset_perbaikan_aset as pa INNER JOIN aset_kerusakan_aset as ka ON pa.kode_kerusakan_aset = ka.kode_kerusakan_aset INNER JOIN aset_data as a ON ka.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_status as s ON pa.kode_status = s.kode_status INNER JOIN aset_kategori_aset as kat ON a.kode_kategori = kat.kode_kategori LEFT JOIN aset_ruangan as ar ON a.kode_ruangan = ar.kode_ruangan ORDER BY kode_perbaikan_aset DESC";
 
                                     $dataKerusakan = $conn->query($sql);
                                     
@@ -60,13 +81,18 @@
                                 ?>
                                         <tr>
                                             <form role="form" method="post" action="pages/perbaikan/hapus_perbaikan.php">
-                                                <td></td>
-                                                <td><input type="hidden" name="kode_perbaikan_aset"  class="form-control" value="<?php echo $row['kode_perbaikan_aset'];?>"><?php echo $row['kode_perbaikan_aset'];?></td>
-                                                <td><input type="hidden" name="kode_kerusakan_aset"  class="form-control" value="<?php echo $row['kode_kerusakan_aset'];?>"><?php echo $row['kode_kerusakan_aset'];?></td>
+                                                <td>
+                                                    <input type="hidden" name="kode_perbaikan_aset"  class="form-control" value="<?php echo $row['kode_perbaikan_aset'];?>">
+                                                    <input type="hidden" name="kode_kerusakan_aset"  class="form-control" value="<?php echo $row['kode_kerusakan_aset'];?>">
+                                                </td>
+                                                <td><?php echo $row['kode_perbaikan_aset'];?></td>
+                                                <!--<td><?php //echo '<b>Perbaikan: </b>'.$row['kode_perbaikan_aset'].'<br><b> Kerusakan: </b>'.$row['kode_kerusakan_aset'].'<br><b> Aset: </b>'.$row['kode_aset'];?></td>-->
+                                                <td><?php echo $row['kode_kerusakan_aset'];?></td>
                                                 <td><?php echo $row['kode_aset'];?></td>
                                                 <td><?php echo $row['nama_kategori'];?></td>
                                                 <td><?php echo $row['merk_aset'];?></td>
                                                 <td><?php echo $row['nama_unit'];?></td>
+                                                <td><?php echo $row['nama_ruangan'];?></td>
                                                 <td><?php echo substr($row['tanggal_lapor'], 0, 11);?></td>
                                                 <td><?php echo $row['jam_lapor'];?></td>
                                                 <td><?php echo $row['uraian_kerusakan'];?></td>
