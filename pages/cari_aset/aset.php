@@ -4,7 +4,7 @@ include "../../conf/conn.php";
 
     $kode_aset = $_GET['kode_aset'];
 
-    $sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier WHERE kode_aset='".$kode_aset."'";
+    $sql = "SELECT * FROM aset_data as a INNER JOIN aset_jenis as j ON a.kode_jenis = j.kode_jenis INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_suplier as s ON a.kode_suplier = s.kode_suplier INNER JOIN aset_kategori_aset as ak ON a.kode_kategori = ak.kode_kategori LEFT JOIN aset_ruangan as ar ON a.kode_ruangan = ar. kode_ruangan WHERE kode_aset='".$kode_aset."'";
 
     $sth = $conn->prepare($sql);
     $sth->execute();
@@ -35,25 +35,25 @@ function buatRupiah($angka){
                             <div class="col-md-4">
                                 <div class="form-group">
                                 <label for="">Kode Aset</label>
-                                    <input type="text" name="kode_aset" class="form-control" placeholder="Kode Aset, ex: poli1-0001" value="<?php echo $row['kode_aset']; ?>" autocomplete="off" disabled>
+                                    <input type="text" name="kode_aset" class="form-control" placeholder="Kode Aset, ex: poli1-0001" value="<?php echo $row['kode_aset']; ?>" autocomplete="off" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                <label for="">Nama Aset</label>
-                                    <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex: Printer" value="<?php echo $row['nama_aset']; ?>" autocomplete="off" disabled>
+                                <label for="">Kategori Aset</label>
+                                    <input type="text" name="nama_aset" class="form-control" placeholder="Nama Aset, ex: Printer" value="<?php echo $row['nama_kategori']; ?>" autocomplete="off" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                 <label for="">Merk Aset</label>
-                                    <input type="text" name="merk_aset" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['merk_aset']; ?>" autocomplete="off" disabled>
+                                    <input type="text" name="merk_aset" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['merk_aset']; ?>" autocomplete="off" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                 <label for="">Tahun Aset</label>
-                                    <input type="text" name="tahun_aset" class="form-control" placeholder="" value="<?php echo $row['tahun_aset']; ?>" autocomplete="off" disabled>
+                                    <input type="text" name="tahun_aset" class="form-control" placeholder="" value="<?php echo $row['tahun_aset']; ?>" autocomplete="off" readonly>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -63,37 +63,43 @@ function buatRupiah($angka){
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                        <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker" value="<?php echo substr($row['tanggal_aset'], 0, 11); ?>" autocomplete="off" disabled>
+                                        <input type="text" name="tanggal_aset" class="form-control pull-right" id="datepicker" value="<?php echo substr($row['tanggal_aset'], 0, 11); ?>" autocomplete="off" readonly>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Nilai Aset</label>
-                                    <input type="text" name="nilai_aset" class="form-control" placeholder="Nilai Aset, ex: 300000" value="<?php echo buatRupiah($row['nilai_aset']); ?>" autocomplete="off" disabled>
+                                    <input type="text" name="nilai_aset" class="form-control" placeholder="Nilai Aset, ex: 300000" value="<?php echo buatRupiah($row['nilai_aset']); ?>" autocomplete="off" readonly>
                                 </div>
                             </div>
 
                             <div class="form-group col-md-12">
                                 <label for="">Spesifikasi Aset</label>
-                                <textarea name="spesifikasi_aset" class="form-control" rows="4" class="pull-right" placeholder="Spesifikasi aset"  value=""  autocomplete="off" disabled><?php echo $row['spesifikasi_aset']; ?></textarea>
+                                <textarea name="spesifikasi_aset" class="form-control" rows="4" class="pull-right" placeholder="Spesifikasi aset"  value=""  autocomplete="off" readonly><?php echo $row['spesifikasi_aset']; ?></textarea>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                             <div class="form-group">
                             <label for="">Jenis Aset</label>
-                                <input type="text" name="nama_jenis" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['nama_jenis']; ?>" autocomplete="off" disabled>
+                                <input type="text" name="nama_jenis" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['nama_jenis']; ?>" autocomplete="off" readonly>
                             </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                 <label for="">Unit</label>
-                                    <input type="text" name="nama_unit" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['nama_unit']; ?>" autocomplete="off" disabled>
+                                    <input type="text" name="nama_unit" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['nama_unit']; ?>" autocomplete="off" readonly>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                <label for="">Ruangan</label>
+                                    <input type="text" name="nama_ruangan" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['nama_ruangan']; ?>" autocomplete="off" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="form-group">
                                 <label for="">Suplier</label>
-                                    <input type="text" name="nama_suplier" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['nama_suplier']; ?>" autocomplete="off" disabled>
+                                    <input type="text" name="nama_suplier" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['nama_suplier']; ?>" autocomplete="off" readonly>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +126,7 @@ function buatRupiah($angka){
                         <table id="tabelPemeriksaanAset" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No</th>
                                     <th>Kode Pemeriksaan</th>
                                     <th>Tanggal Pemeriksaan</th>
                                     <th>Status</th>
@@ -168,7 +174,7 @@ function buatRupiah($angka){
                         <table id="tabelPemeriksaanAset" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No</th>
                                     <th>Kode Kerusakan</th>
                                     <th>Tanggal Lapor</th>
                                     <th>Jam Lapor</th>
@@ -216,7 +222,7 @@ function buatRupiah($angka){
                         <table id="tabelPemeriksaanAset" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>No</th>
                                     <th>Kode Perbaikan</th>
                                     <th>Kode Kerusakan</th>
                                     <th>Tanggal Diterima</th>
