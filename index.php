@@ -23,6 +23,8 @@ if(isset($_SESSION['kode_role'])==0){
   <link rel="icon" href="dist/img/logorsi.ico" type="image/gif" sizes="16x16">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+<!-- STYLE -->
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -53,6 +55,8 @@ if(isset($_SESSION['kode_role'])==0){
   <link rel="stylesheet" href="plugins/datatables/extensions/Button/buttons.dataTable.min.css">
   <!-- ChartJs -->
   <link rel="stylesheet" href="plugins/chartjs/Chart.min.css">
+  <!-- Bootstrap Select-->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap-select.min.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -65,13 +69,63 @@ if(isset($_SESSION['kode_role'])==0){
       margin: 0 !important;
     }
   </style>
+
+<!-- SCRIPT -->
+  <!-- jQuery 2.2.3 -->
+  <script src="plugins/jQuery/jquery-3.5.1.js"></script>
+  <!-- Bootstrap 3.3.6 -->
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <!-- Select2 -->
+  <script src="plugins/select2/select2.full.min.js"></script>
+  <!-- InputMask -->
+  <script src="plugins/input-mask/jquery.inputmask.js"></script>
+  <script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+  <script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
+  <!-- date-range-picker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+  <script src="plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- bootstrap datepicker -->
+  <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+  <!-- bootstrap color picker -->
+  <script src="plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+  <!-- bootstrap time picker -->
+  <script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
+  <!-- SlimScroll 1.3.0 -->
+  <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+  <!-- iCheck 1.0.1 -->
+  <script src="plugins/iCheck/icheck.min.js"></script>
+  <!-- FastClick -->
+  <script src="plugins/fastclick/fastclick.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/app.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+  <!-- DataTables -->
+  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <!-- DataTables Button -->
+  <script src="plugins/datatables/extensions/Button/dataTable.buttons.min.js"></script>
+  <script src="plugins/datatables/extensions/Button/buttons.html5.min.js"></script>
+  <script src="plugins/datatables/extensions/Button/buttons.print.min.js"></script>
+  <script src="plugins/datatables/extensions/Button/pdfmake.min.js"></script>
+  <script src="plugins/datatables/extensions/Button/vfs_fonts.js"></script>
+  <script src="plugins/datatables/extensions/Button/jszip.min.js"></script>
+  <!--<script src="plugins/datatebles/extensions/Button/buttons.colVis.min.js"></script>-->
+  <!-- ChartJs -->
+  <script src="plugins/chartjs/Chart.min.js"></script>
+  <!-- Bootstrap Select-->
+  <script src="bootstrap/js/bootstrap-select.min.js"></script>
+  <!-- tambahan javascript-->
+  <script src="dist/js/index.js"></script>
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">ASET</span>
       <!-- logo for regular state and mobile devices -->
@@ -136,6 +190,11 @@ if(isset($_SESSION['kode_role'])==0){
           </a>
       </li>
       <li class="treeview">
+          <a href="index.php?page=data_ruangan">
+            <i class="glyphicon glyphicon glyphicon-home"></i> <span>Kelola Ruangan</span>
+          </a>
+      </li>
+      <li class="treeview">
           <a href="index.php?page=data_kategori">
             <i class="glyphicon glyphicon-tag"></i> <span>Kelola Kategori</span>
           </a>
@@ -195,7 +254,7 @@ if(isset($_SESSION['kode_role'])==0){
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2020 <a href="#">RSU Islam Cawas</a></strong>
+    <strong>Copyright &copy; 2021 <a href="#">RSU Islam Cawas</a></strong>
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed
@@ -203,51 +262,6 @@ if(isset($_SESSION['kode_role'])==0){
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery 2.2.3 -->
-<script src="plugins/jQuery/jquery-3.5.1.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<!-- Select2 -->
-<script src="plugins/select2/select2.full.min.js"></script>
-<!-- InputMask -->
-<script src="plugins/input-mask/jquery.inputmask.js"></script>
-<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
-<!-- date-range-picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap datepicker -->
-<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- bootstrap color picker -->
-<script src="plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<!-- bootstrap time picker -->
-<script src="plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<!-- SlimScroll 1.3.0 -->
-<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- iCheck 1.0.1 -->
-<script src="plugins/iCheck/icheck.min.js"></script>
-<!-- FastClick -->
-<script src="plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<!-- DataTables -->
-<script src="plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-<!-- DataTables Button -->
-<script src="plugins/datatables/extensions/Button/dataTable.buttons.min.js"></script>
-<script src="plugins/datatables/extensions/Button/buttons.html5.min.js"></script>
-<script src="plugins/datatables/extensions/Button/buttons.print.min.js"></script>
-<script src="plugins/datatables/extensions/Button/pdfmake.min.js"></script>
-<script src="plugins/datatables/extensions/Button/vfs_fonts.js"></script>
-<script src="plugins/datatables/extensions/Button/jszip.min.js"></script>
-<!--<script src="plugins/datatebles/extensions/Button/buttons.colVis.min.js"></script>-->
-<!-- ChartJs -->
-<script src="plugins/chartjs/Chart.min.js"></script>
-<!-- tambahan javascript-->
-<script src="dist/js/index.js"></script>
 
 </body>
 </html>
