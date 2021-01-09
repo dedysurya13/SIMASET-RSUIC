@@ -18,7 +18,7 @@ if (!file_exists($pngAbsoluteFilePath)) {
 //cek lokasi file
 //echo 'Server PNG File: '.$pngAbsoluteFilePath;
 
-$sql = "SELECT * FROM aset_data as a INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit WHERE kode_aset='$id'";
+$sql = "SELECT * FROM aset_data as a INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_kategori_aset as ak ON a.kode_kategori = ak.kode_kategori LEFT JOIN aset_ruangan as ar ON a.kode_ruangan = ar.kode_ruangan WHERE kode_aset='$id'";
 $sth = $conn->prepare($sql);
 $sth->execute();
 $row = $sth->fetch(PDO::FETCH_ASSOC);
@@ -36,6 +36,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
     #potong {
     font-size: 13px;
     width: 120px;
+    margin : 6px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis /*This is where the magic happens*/
@@ -65,9 +66,10 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                     </td>
                     <td style="width: 190px; height: 60px;">
                         <p id="potong"><?php echo $row['kode_aset']?></p>
-                        <p id="potong"><?php echo $row['nama_aset']?></p>
+                        <p id="potong"><?php echo $row['nama_kategori']?></p>
                         <p id="potong"><?php echo $row['merk_aset']?></p>
                         <p id="potong"><?php echo $row['nama_unit']?></p>
+                        <p id="potong"><?php echo $row['nama_ruangan']?></p>
                     </td>
                 </tr>
             </tbody>
@@ -75,5 +77,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
     </body>
 <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 <?php
+//hapus qr
+//unlink($tempDir.$fileName);
 ?>
 
