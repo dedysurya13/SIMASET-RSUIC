@@ -46,7 +46,7 @@ $row = $sth->fetch(PDO::FETCH_ASSOC);
                                 </select>
                             </div>
                             <div class="form-group">
-                            <label for="">Merk Aset</label>
+                            <label for="">Merk/Tipe Aset</label>
                                 <input type="text" name="merk_aset" class="form-control" placeholder="Merk Aset, ex: Epson L310" value="<?php echo $row['merk_aset']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
