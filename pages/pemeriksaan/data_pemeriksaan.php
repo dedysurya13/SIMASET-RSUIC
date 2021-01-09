@@ -28,15 +28,30 @@
                         <table id="tabelPemeriksaan" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
                                     <th>No</th>
-                                    <th>Kode Pemeriksaan</th>
+                                    <th>Kode Periksa</th>
                                     <th>Kode Aset</th>
                                     <th>Kategori Aset</th>
                                     <th>Merk Aset</th>
                                     <th>Unit</th>
-                                    <th>Tanggal Pemeriksaan</th>
-                                    <th>Status Pemeriksaan</th>
-                                    <th>Hasil Pemeriksaan</th>
+                                    <th>Ruangan</th>
+                                    <th>Tanggal Periksa</th>
+                                    <th>Status Periksa</th>
+                                    <th>Hasil Periksa</th>
                                     <th>Petugas</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -45,7 +60,7 @@
                                 <?php
                                     include "conf/conn.php";                           
 
-                                    $sql = "SELECT * FROM aset_pemeriksaan_aset as pa INNER JOIN aset_data as a ON  pa.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON pa.kode_petugas = pe.kode_petugas INNER JOIN aset_kategori_aset as kat ON a.kode_kategori = kat.kode_kategori ORDER BY kode_pemeriksaan_aset DESC";
+                                    $sql = "SELECT * FROM aset_pemeriksaan_aset as pa INNER JOIN aset_data as a ON  pa.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON pa.kode_petugas = pe.kode_petugas INNER JOIN aset_kategori_aset as kat ON a.kode_kategori = kat.kode_kategori LEFT JOIN aset_ruangan as ar ON a.kode_ruangan = ar.kode_ruangan ORDER BY kode_pemeriksaan_aset DESC";
 
                                     $dataPemeriksaan = $conn->query($sql);
                                     
@@ -59,6 +74,7 @@
                                             <td><?php echo $row['nama_kategori'];?></td>
                                             <td><?php echo $row['merk_aset'];?></td>
                                             <td><?php echo $row['nama_unit'];?></td>
+                                            <td><?php echo $row['nama_ruangan'];?></td>
                                             <td><?php echo substr($row['tanggal_pemeriksaan_aset'], 0, 11);?></td>
                                             <td><?php echo $row['status_pemeriksaan_aset'];?></td>
                                             <td><?php echo $row['hasil_pemeriksaan_aset'];?></td>
