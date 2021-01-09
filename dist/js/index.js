@@ -92,7 +92,7 @@ $(function () {
     });
 
     //Search di select option
-    $('#kode_aset, #kode_kategori, #jenis_aset, #tahun_aset, #nama_unit, #kode_unit, #nama_suplier, #kode_role, #kode_kerusakan_aset, #kode_status, #status_pemeriksaan_aset').select2({});
+    $('#kode_aset, #kode_kategori, #kode_unit, #jenis_aset, #tahun_aset, #nama_suplier, #kode_role, #kode_kerusakan_aset, #kode_status, #status_pemeriksaan_aset').select2({});
     $('#multi_label').select2({
       maximumSelectionLength: 12,
     });
@@ -171,7 +171,14 @@ $(function () {
   })(jQuery);
 */
 
+// Motong STRING
+function strtrunc(str, max, add){
+  add = add || '...';
+  return (typeof str === 'string' && str.length > max ? str.substring(0, max) + add : str);
+};
+
 $(document).ready(function() {
+  //TABEL ASET
     var tblAset = $('#tabelAset').DataTable({
       'paging'      : true,
       'lengthChange': true,
@@ -189,10 +196,41 @@ $(document).ready(function() {
               text: ' Print',
               title: 'Data Aset',
               className: 'btn glyphicon glyphicon-print',
-              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] },
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11] },
                 customize: function (win) {
-                    $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                    $(win.document.body).find('table').addClass('display').css('font-size', '10pt');
                     $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                    $(win.document.body).find('table').addClass('display').css('max-width', '60px');
+                    $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                    $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
+                    $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
+                    $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
+                    $(win.document.body).find('th, td').addClass('display').css('max-width', '60px');
+                    $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
+                    $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
+                    $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+
+                    var last = null;
+                    var current = null;
+                    var bod = [];
+    
+                    var css = '@page { size: landscape;}',
+                        head = win.document.head || win.document.getElementsByTagName('head')[0],
+                        style = win.document.createElement('style');
+    
+                    style.type = 'text/css';
+                    style.media = 'print';
+    
+                    if (style.styleSheet)
+                    {
+                      style.styleSheet.cssText = css;
+                    }
+                    else
+                    {
+                      style.appendChild(win.document.createTextNode(css));
+                    }
+    
+                    head.appendChild(style);
                 }
               },
               {
@@ -200,7 +238,7 @@ $(document).ready(function() {
                 text: ' Excel',
                 title: 'Data Aset',
                 className: 'btn glyphicon glyphicon-file',
-                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11] }
               },
 
               /*
@@ -217,10 +255,11 @@ $(document).ready(function() {
               
             ], //filter select option
             initComplete: function () {
-              this.api().columns([2,4,6,8,9,10]).every( function () {
+              this.api().columns([2,4,6,8,9,10,11]).every( function () {
                   var column = this;
                   var select = $('<select><option value=""></option></select>')
-                      .appendTo( $(column.footer()).empty() )
+                      //.appendTo( $(column.footer()).empty() )
+                      .appendTo( $("#tabelAset thead tr:eq(0) th").eq(column.index()).empty() )
                       .on( 'change', function () {
                           var val = $.fn.dataTable.util.escapeRegex(
                               $(this).val()
@@ -242,7 +281,7 @@ $(document).ready(function() {
             "orderable": false,
             "targets": 0
           } ],
-          "order": [[ 1, 'asc' ]]
+          "order": [[ 1, 'desc' ]]
     });
     //numbering 2/2
     tblAset.on( 'order.dt search.dt', function () {
@@ -262,8 +301,8 @@ $(document).ready(function() {
     } );
     */
 
-
-   var tblKategori = $('#tabelKategori').DataTable({
+  //TABEL KATEGORI
+  var tblKategori = $('#tabelKategori').DataTable({
     'paging'      : true,
     'lengthChange': true,
     'searching'   : true,
@@ -296,7 +335,7 @@ $(document).ready(function() {
       "orderable": false,
       "targets": 0
     } ],
-    "order": [[ 1, 'asc' ]]
+    "order": [[ 2, 'asc' ]]
   });
   //numbering 2/2
   tblKategori.on( 'order.dt search.dt', function () {
@@ -307,6 +346,7 @@ $(document).ready(function() {
   } ).draw();
 
 
+  //TABEL JENIS
     var tblJenis = $('#tabelJenis').DataTable({
       'paging'      : true,
       'lengthChange': true,
@@ -350,6 +390,8 @@ $(document).ready(function() {
       } );
     } ).draw();
 
+
+    //TABEL SUPLIER
     var tblSuplier = $('#tabelSuplier').DataTable({
       'paging'      : true,
       'lengthChange': true,
@@ -383,7 +425,7 @@ $(document).ready(function() {
         "orderable": false,
         "targets": 0
       } ],
-      "order": [[ 1, 'asc' ]]
+      "order": [[ 2, 'asc' ]]
     });
     //numbering 2/2
     tblSuplier.on( 'order.dt search.dt', function () {
@@ -393,6 +435,8 @@ $(document).ready(function() {
       } );
     } ).draw();
 
+
+    //TABEL UNIT
     var tblUnit = $('#tabelUnit').DataTable({
       'paging'      : true,
       'lengthChange': true,
@@ -427,7 +471,7 @@ $(document).ready(function() {
         "orderable": false,
         "targets": 0
       } ],
-      "order": [[ 1, 'asc' ]]
+      "order": [[ 2, 'asc' ]]
     });
     //numbering 2/2
     tblUnit.on( 'order.dt search.dt', function () {
@@ -437,21 +481,23 @@ $(document).ready(function() {
       } );
     } ).draw();
 
-    var tblPemeriksaan = $('#tabelPemeriksaan').DataTable({
+
+    //TABEL RUANGAN
+    var tblRuangan = $('#tabelRuangan').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,
       'ordering'    : true,
       'info'        : true,
       'autoWidth'   : true,
-      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>", 
+      //'lfrtiBp'
             buttons: [
-              { 
-              extend: 'print', 
-              text: ' Print',
-              title: 'Data Pemeriksaan Aset',
-              className: 'btn glyphicon glyphicon-print',
-              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] },
+              { extend: 'print', 
+                text: ' Print',
+                title: 'Data Ruangan',
+                className: 'btn glyphicon glyphicon-print',
+                exportOptions:{ columns: [0,1,2,3] },
                 customize: function (win) {
                   $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
                   $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
@@ -460,9 +506,64 @@ $(document).ready(function() {
               {
                 extend: 'excel',
                 text: ' Excel',
+                title: 'Data Ruangan',
+                className: 'btn glyphicon glyphicon-file',
+                exportOptions: { columns: [0,1,2,3] }
+              }
+            ],
+      //numbering 1/2
+      "columnDefs": [ {
+        "searchable": false,
+        "orderable": false,
+        "targets": 0
+      } ],
+      "order": [[ 2, 'asc' ],[3,'asc']]
+    });
+    //numbering 2/2
+    tblRuangan.on( 'order.dt search.dt', function () {
+      tblRuangan.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+          cell.innerHTML = i+1;
+          tblRuangan.cell(cell).invalidate('dom');
+      } );
+    } ).draw();
+
+
+    //TABEL PEMERIKSAAN
+    var tblPemeriksaan = $('#tabelPemeriksaan').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true, 
+      'autoWidth'   : true,
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
+            buttons: [
+              { 
+              extend: 'print', 
+              text: ' Print',
+              title: 'Data Pemeriksaan Aset',
+              className: 'btn glyphicon glyphicon-print',
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] },
+                customize: function (win) {
+                  $(win.document.body).find('table').addClass('display').css('font-size', '8pt');
+                  $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                  $(win.document.body).find('table').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
+                  $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
+                  $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                }
+              },
+              {
+                extend: 'excel',
+                text: ' Excel',
                 title: 'Data Pemeriksaan Aset',
                 className: 'btn glyphicon glyphicon-file',
-                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
               },
 
               /*
@@ -474,14 +575,34 @@ $(document).ready(function() {
                 exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
               }
               */
-            ],
+            ],//filter select option
+            initComplete: function () {
+              this.api().columns([3,5,6,7,8,10]).every( function () {
+                  var column = this;
+                  var select = $('<select><option value=""></option></select>')
+                      .appendTo( $("#tabelPemeriksaan thead tr:eq(0) th").eq(column.index()).empty() )
+                      .on( 'change', function () {
+                          var val = $.fn.dataTable.util.escapeRegex(
+                              $(this).val()
+                          );
+      
+                          column
+                              .search( val ? '^'+val+'$' : '', true, false )
+                              .draw();
+                      } );
+      
+                  column.data().unique().sort().each( function ( d, j ) {
+                      select.append( '<option value="'+d+'">'+d+'</option>' )
+                  } );
+              } );
+          }, 
       //numbering 1/2
       "columnDefs": [ {
         "searchable": false,
         "orderable": false,
         "targets": 0
       } ],
-      "order": [[ 1, 'asc' ]]
+      "order": [[ 1, 'desc' ]]
     });
     //numbering 2/2
     tblPemeriksaan.on( 'order.dt search.dt', function () {
@@ -491,6 +612,8 @@ $(document).ready(function() {
       } );
     } ).draw();
 
+
+    //TABEL KERUSAKAN
     var tblKerusakan = $('#tabelKerusakan').DataTable({
       'paging'      : true,
       'lengthChange': true,
@@ -505,10 +628,19 @@ $(document).ready(function() {
               text: ' Print',
               title: 'Data Kerusakan Aset',
               className: 'btn glyphicon glyphicon-print',
-              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] },
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] },
                 customize: function (win) {
-                  $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
+                  $(win.document.body).find('table').addClass('display').css('font-size', '8pt');
                   $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                  $(win.document.body).find('table').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
+                  $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
+                  $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
                 }
               },
               {
@@ -516,7 +648,7 @@ $(document).ready(function() {
                 text: ' Excel',
                 title: 'Data Kerusakan Aset',
                 className: 'btn glyphicon glyphicon-file',
-                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] }
               },
               /*
               {
@@ -524,18 +656,38 @@ $(document).ready(function() {
                 text: ' PDF',
                 title: 'Data Kerusakan Aset',
                 className: 'btn glyphicon glyphicon-file',
-                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] }
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9] },
               }
               */
 
-            ],
+            ],//filter select option
+            initComplete: function () {
+              this.api().columns([3,5,6,10]).every( function () {
+                  var column = this;
+                  var select = $('<select><option value=""></option></select>')
+                      .appendTo( $("#tabelKerusakan thead tr:eq(0) th").eq(column.index()).empty() )
+                      .on( 'change', function () {
+                          var val = $.fn.dataTable.util.escapeRegex(
+                              $(this).val()
+                          );
+      
+                          column
+                              .search( val ? '^'+val+'$' : '', true, false )
+                              .draw();
+                      } );
+      
+                  column.data().unique().sort().each( function ( d, j ) {
+                      select.append( '<option value="'+d+'">'+d+'</option>' )
+                  } );
+              } );
+          },
       //numbering 1/2
       "columnDefs": [ {
         "searchable": false,
         "orderable": false,
         "targets": 0
       } ],
-      "order": [[ 1, 'asc' ]]
+      "order": [[ 1, 'desc' ]]
     });
     //numbering 2/2
     tblKerusakan.on( 'order.dt search.dt', function () {
@@ -545,6 +697,8 @@ $(document).ready(function() {
       } );
     } ).draw();
 
+
+    //TABEL PERBAIKAN
     var tblPerbaikan = $('#tabelPerbaikan').DataTable({
       'paging'      : true,
       'lengthChange': true,
@@ -560,11 +714,131 @@ $(document).ready(function() {
               title: 'Data Perbaikan Aset',
               className: 'btn glyphicon glyphicon-print',
               orientation: 'landscape',
-              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] },
+              exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] },
+              customize: function(win)
+                {
+                  //$(win.document.body).find('table thead tr th:eq(0)').addClass('display').css('width', '5px');
+                  //$(win.document.body).find('table').addClass('display').css('table-layout', 'fixed');
+                  //$(win.document.body).find('th, td').addClass('display').css('display','inline');
+                  $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                  $(win.document.body).find('table').addClass('display').css('font-size', '8pt');
+                  $(win.document.body).find('table').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
+                  $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
+                  $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+
+                  var last = null;
+                  var current = null;
+                  var bod = [];
+  
+                  var css = '@page { size: landscape;}',
+                      head = win.document.head || win.document.getElementsByTagName('head')[0],
+                      style = win.document.createElement('style');
+  
+                  style.type = 'text/css';
+                  style.media = 'print';
+  
+                  if (style.styleSheet)
+                  {
+                    style.styleSheet.cssText = css;
+                  }
+                  else
+                  {
+                    style.appendChild(win.document.createTextNode(css));
+                  }
+  
+                  head.appendChild(style);
+                }
+              },
+              {
+                extend: 'excel',
+                text: ' Excel',
+                title: 'Data Perbaikan Aset',
+                className: 'btn glyphicon glyphicon-file',
+                orientation: 'landscape',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] },
+              },
+              /*
+              {
+                extend: 'pdf',
+                text: ' PDF',
+                title: 'Data Perbaikan Aset',
+                className: 'btn glyphicon glyphicon-file',
+                orientation: 'landscape',
+                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] }
+              }
+              */
+            ],//filter select option
+            initComplete: function () {
+              this.api().columns([3,4, 5,6,7,8,11,13]).every( function () {
+                  var column = this;
+                  var select = $('<select><option value=""></option></select>')
+                      .appendTo( $("#tabelPerbaikan thead tr:eq(0) th").eq(column.index()).empty() )
+                      .on( 'change', function () {
+                          var val = $.fn.dataTable.util.escapeRegex(
+                              $(this).val()
+                          );
+      
+                          column
+                              .search( val ? '^'+val+'$' : '', true, false )
+                              .draw();
+                      } );
+      
+                  column.data().unique().sort().each( function ( d, j ) {
+                      select.append( '<option value="'+d+'">'+d+'</option>' )
+                  } );
+              } );
+          },
+      //numbering 1/2
+      "columnDefs": [ {
+        "searchable": false,
+        "orderable": false,
+        "targets": 0
+      },//{
+        //targets: 12,
+        //render: function ( data, type, row ) {
+        //    return data.substr( 0, 10 );
+        //}
+        //} 
+      ],
+      "order": [[ 1, 'desc' ]]
+    });
+    //numbering 2/2
+    tblPerbaikan.on( 'order.dt search.dt', function () {
+      tblPerbaikan.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+          cell.innerHTML = i+1;
+          tblPerbaikan.cell(cell).invalidate('dom');
+      } );
+    } ).draw();
+
+
+    //TABEL PETUGAS
+    var tblPetugas = $('#tabelPetugas').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true,
+      dom: "<'row'<'col-md-6'l><'col-md-6'f>>" + "<'row'<'col-md-6'><'col-md-6'>>" + "<'row'<'col-md-12't>><'row'<'col-md-6'iB><'col-md-6'p>>",
+            buttons: [
+              /*
+              { 
+              extend: 'print', 
+              text: ' Print',
+              title: 'Data Petugas',
+              className: 'btn glyphicon glyphicon-print',
+              orientation: 'landscape',
+              exportOptions: { columns: [0,1,2,3,4,5,6,7] },
               customize: function(win)
                 {
                   
-                  $(win.document.body).find('table').addClass('display').css('font-size', '11pt');
+                  $(win.document.body).find('table').addClass('display').css('font-size', '10pt');
                   $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
 
                   var last = null;
@@ -593,19 +867,19 @@ $(document).ready(function() {
               {
                 extend: 'excel',
                 text: ' Excel',
-                title: 'Data Perbaikan Aset',
+                title: 'Data Petugas',
                 className: 'btn glyphicon glyphicon-file',
                 orientation: 'landscape',
-                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] },
+                exportOptions: { columns: [0,1,2,3,4,5,6,7] },
               },
-              /*
+              
               {
                 extend: 'pdf',
                 text: ' PDF',
-                title: 'Data Perbaikan Aset',
+                title: 'Data Petugas',
                 className: 'btn glyphicon glyphicon-file',
                 orientation: 'landscape',
-                exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15] }
+                exportOptions: { columns: [0,1,2,3,4,5,6,7] }
               }
               */
             ],
@@ -615,14 +889,35 @@ $(document).ready(function() {
         "orderable": false,
         "targets": 0
       } ],
-      "order": [[ 1, 'asc' ]]
+      "order": [[ 1, 'desc' ]]
     });
     //numbering 2/2
-    tblPerbaikan.on( 'order.dt search.dt', function () {
-      tblPerbaikan.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+    tblPetugas.on( 'order.dt search.dt', function () {
+      tblPetugas.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
           cell.innerHTML = i+1;
-          tblPerbaikan.cell(cell).invalidate('dom');
+          tblPetugas.cell(cell).invalidate('dom');
       } );
     } ).draw();
 });
 
+/* DEPENDENT SELECT UNIT-RUANGAN
+$("select[name='unit_list']").change(function(){
+  var kodeUnit=$(this).val();
+
+  if(kodeUnit){
+      $.ajax({
+          url:"/../../pages/aset/load_ruangan.php",
+          datatype:'json',
+          data:{'kode_unit':kodeUnit},
+          success:function(data){
+              $('select[name="ruangan_list"]').empty();
+              $.each(data, function(key, value){
+                  $('select[name="ruangan_list"]').append('<option value="'+key+'">'+value+'</option>');
+              });
+          }
+      });
+  }else{
+      $('select[name="ruangan_list"]').empty();
+  }
+});
+*/
