@@ -1,7 +1,29 @@
 <?php
-include "conf/conn.php";
+include "/../../conf/conn.php";
 
 ?>
+
+<!--
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#units").change(function(){
+            var kode_unit = $("#units").val();
+            $.ajax({
+                url: 'load_ruangan.php',
+                method: 'post',
+                data: 'kode_unit='+kode_unit
+            }).done(function(ruangans){
+                console.log(ruangans);
+                ruangans = JSON.parse(ruangans);
+                $("#ruangans").empty();
+                ruangans.forEach(function(ruangan){
+                    $('#ruangans').append('<option>'+ruangan.nama_ruangan+'</option>')
+                })
+            })
+        })
+    })
+</script>
+-->
 <div class="content-wrapper">
     <section class="content-header">
         <h1>Tambah Aset</h1>
@@ -33,17 +55,17 @@ include "conf/conn.php";
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Merk Aset</label>
+                                <label for="">Merk/Tipe Aset</label>
                                 <input type="text" name="merk_aset" class="form-control" placeholder="Merk Aset, ex: Epson L310" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Tahun Aset</label>
                                 <select name="tahun_aset" class="form-control" id="tahun_aset">
                                     <option value="">- Pilih Tahun -</option>
-                                    <option value="2015">2011</option>
-                                    <option value="2015">2012</option>
-                                    <option value="2015">2013</option>
-                                    <option value="2015">2014</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2014">2014</option>
                                     <option value="2015">2015</option>
                                     <option value="2016">2016</option>
                                     <option value="2017">2017</option>
@@ -76,7 +98,7 @@ include "conf/conn.php";
                                 <?php
                                     $jenisQuery = $conn->query("SELECT * FROM aset_jenis ORDER BY nama_jenis ASC");
                                 ?>
-                                <select id="jenis_aset" name="jenis_aset" class="form-control" id="" required>
+                                <select id="jenis_aset" name="jenis_aset" class="form-control" required>
 
                                     <option value=''>- Jenis Aset -</option>
 
@@ -91,16 +113,40 @@ include "conf/conn.php";
                                 <?php
                                     $unitQuery = $conn->query("SELECT * FROM aset_unit ORDER BY nama_unit ASC");
                                 ?>
-                                <select id="nama_unit" name="nama_unit" class="form-control" id="" required>
+                                <select id="kode_unit" name="kode_unit" class="form-control unit_ruangan" required onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
 
                                     <option value=''>- Nama Unit -</option>
-
+                                    
                                     <?php while ($row = $unitQuery->fetch(PDO::FETCH_ASSOC)){
                                     extract($row);
                                     echo "<option value='{$kode_unit}'>{$nama_unit}</option>";
                                     }?>
                                 </select>
                             </div>
+                            <div class="form-group row" id="pilihRuangan">
+                                <div class="col-md-12">
+                                    <label for="">Nama Ruangan</label>
+                                </div>
+                                
+                                <?php
+                                    $ruanganQuery = $conn->query("SELECT * FROM aset_ruangan ORDER BY nama_ruangan ASC");
+                                ?>
+                                <div class="col-md-10">
+                                    <select name="ruangan" id="ruangan" class="form-control">
+                                            
+                                            <option value="">- Nama Ruangan -</option>
+
+                                            <?php while ($row = $ruanganQuery->fetch(PDO::FETCH_ASSOC)){
+                                            extract($row);
+                                            echo "<option value='{$kode_unit}' data-ruangan='{$kode_ruangan}' >{$nama_ruangan}</option>";
+                                            }?>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" name="kode_ruangan" id="kode_ruangan" class="form-control" placeholder="KodeRuangan" autocomplete="off" readonly>
+                                </div> 
+                            </div>
+                            
                             <div class="form-group">
                                 <label>Nama Suplier</label>
                                 <?php
@@ -126,3 +172,33 @@ include "conf/conn.php";
         </div>
     </section>
 </div>
+<script type="text/javascript">
+    $('#pilihRuangan').hide();
+    $('#kode_unit').change(function() {
+        $('#ruangan option').hide();
+        $('#pilihRuangan').show();
+        $('#ruangan option[value="' + $(this).val() + '"]').show();
+        
+        // add this code to select 1'st of streets automaticaly 
+        // when city changed
+            if ($('#ruangan option[value="' + $(this).val() + '"]').length) {
+                $('#ruangan option[value="' + $(this).val() + '"]');
+                $('#ruangan').val('');
+                $('#kode_ruangan').val('');
+            }
+            // in case if there's no corresponding street: 
+            // reset select element
+            else {
+                $('#ruangan').val('');
+                $('#kode_ruangan').val('');
+                $('#pilihRuangan').hide();
+            };
+        
+    });
+
+    $('#ruangan').change(function(){
+        $("#kode_ruangan").val($(this).find(':selected').attr('data-ruangan')); 
+    })
+
+</script>
+
