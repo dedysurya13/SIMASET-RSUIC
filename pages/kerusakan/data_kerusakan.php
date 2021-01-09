@@ -39,12 +39,28 @@
                         <table id="tabelKerusakan" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr> 
+                                <tr>
                                     <th>No</th>
                                     <th>Kode Kerusakan</th>
                                     <th>Kode Aset</th>
                                     <th>Kategori Aset</th>
-                                    <th>Merk Aset</th>
+                                    <th>Merk/Tipe Aset</th>
                                     <th>Unit</th>
+                                    <th>Ruangan</th>
                                     <th>Tanggal Lapor</th>
                                     <th>Jam Lapor</th>
                                     <th>Uraian Kerusakan</th>
@@ -57,7 +73,7 @@
                                 <?php
                                     include "conf/conn.php";                           
 
-                                    $sql = "SELECT * FROM aset_kerusakan_aset as ke INNER JOIN aset_data as a ON  ke.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON ke.kode_petugas = pe.kode_petugas INNER JOIN aset_kategori_aset as kat ON a.kode_kategori = kat.kode_kategori INNER JOIN aset_flag_kerusakan as flk ON ke.kode_flag = flk.kode_flag ORDER BY kode_kerusakan_aset DESC";
+                                    $sql = "SELECT * FROM aset_kerusakan_aset as ke INNER JOIN aset_data as a ON  ke.kode_aset = a.kode_aset INNER JOIN aset_unit as u ON a.kode_unit = u.kode_unit INNER JOIN aset_petugas as pe ON ke.kode_petugas = pe.kode_petugas INNER JOIN aset_kategori_aset as kat ON a.kode_kategori = kat.kode_kategori INNER JOIN aset_flag_kerusakan as flk ON ke.kode_flag = flk.kode_flag LEFT JOIN aset_ruangan as ar ON a.kode_ruangan = ar.kode_ruangan ORDER BY kode_kerusakan_aset DESC";
 
                                     $dataKerusakan = $conn->query($sql);
                                     
@@ -72,11 +88,12 @@
                                                 <td><?php echo $row['nama_kategori'];?></td>
                                                 <td><?php echo $row['merk_aset'];?></td>
                                                 <td><?php echo $row['nama_unit'];?></td>
+                                                <td><?php echo $row['nama_ruangan'];?></td>
                                                 <td><?php echo substr($row['tanggal_lapor'], 0, 11);?></td>
                                                 <td><?php echo $row['jam_lapor'];?></td>
                                                 <td><?php echo $row['uraian_kerusakan'];?></td>
                                                 <td><?php echo $row['nama_petugas'];?></td>
-                                                <td><span class="<?php echo $row['nama_flag'];?>" style="<?php echo $row['warna_flag'];?>"></span></td>
+                                                <td style="text-align: center"><span class="<?php echo $row['nama_flag'];?>" style="<?php echo $row['warna_flag'];?>; font-size: 20px;"></span></td>
                                                 <td>
                                                 <?php 
                                                         if($_SESSION['kode_role']==1 || $_SESSION['kode_role']==3){
