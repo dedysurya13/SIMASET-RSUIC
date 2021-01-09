@@ -39,7 +39,7 @@
                                 <?php
                                     include "conf/conn.php";                         
 
-                                    $sql = "SELECT * FROM aset_unit ORDER BY kode_unit ASC";
+                                    $sql = "SELECT * FROM aset_unit ORDER BY nama_unit ASC";
 
                                     $dataUnit = $conn->query($sql);
                                     
