@@ -319,6 +319,16 @@ $(document).ready(function() {
               customize: function (win) {
                 $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
                 $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                $(win.document.body).find('table').addClass('display').css('max-width', '200px');
+                $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
+                $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
+                $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
+                $(win.document.body).find('th, td').addClass('display').css('max-width', '60px');
+                $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
+                $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
+                $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+              
               }
             },
             {
@@ -364,6 +374,16 @@ $(document).ready(function() {
                 customize: function (win) {
                   $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
                   $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                  $(win.document.body).find('table').addClass('display').css('max-width', '200px');
+                  $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
+                  $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
+                  $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                
                 }
               },
               {
@@ -409,6 +429,16 @@ $(document).ready(function() {
                 customize: function (win) {
                   $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
                   $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                  $(win.document.body).find('table').addClass('display').css('max-width', '200px');
+                  $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
+                  $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
+                  $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                
                 }
               },
               {
@@ -455,6 +485,15 @@ $(document).ready(function() {
                 customize: function (win) {
                   $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
                   $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                  $(win.document.body).find('table').addClass('display').css('max-width', '200px');
+                  $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
+                  $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
+                  $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
                 }
               },
               {
@@ -501,6 +540,15 @@ $(document).ready(function() {
                 customize: function (win) {
                   $(win.document.body).find('table').addClass('display').css('font-size', '12pt');
                   $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
+                  $(win.document.body).find('table').addClass('display').css('max-width', '200px');
+                  $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
+                  $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('th, td').addClass('display').css('max-width', '60px');
+                  $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
+                  $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
+                  $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
                 }
               },
               {
@@ -898,6 +946,8 @@ $(document).ready(function() {
           tblPetugas.cell(cell).invalidate('dom');
       } );
     } ).draw();
+
+
 });
 
 /* DEPENDENT SELECT UNIT-RUANGAN
