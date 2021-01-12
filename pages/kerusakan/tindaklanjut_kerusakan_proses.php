@@ -52,7 +52,7 @@ if(isset($_POST['tindaklanjut'])){
         $query->execute();
         
         if($query->errorCode() == 0) {
-            echo '<script>alert("Data Berhasil Ditambahkan.");
+            echo '<script>//alert("Data Berhasil Ditambahkan.");
             window.location.href="../../index.php?page=data_perbaikan"</script>';
         } else {
             $errors = $query->errorInfo();
