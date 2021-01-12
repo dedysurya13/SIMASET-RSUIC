@@ -57,12 +57,12 @@
                                     <th>Unit</th>
                                     <th>Ruangan</th>
                                     <th>Tgl Lapor</th>
-                                    <th>Jam Lapor</th>
+                                    <th>Jm Lapor</th>
                                     <th>Uraian Kerusakan</th>
                                     <th>Tgl Terima</th>
-                                    <th>Jam Terima</th>
+                                    <th>Jm Terima</th>
                                     <th>Tgl Selesai</th>
-                                    <th>Jam Selesai</th>
+                                    <th>Jm Selesai</th>
                                     <th>Uraian Perbaikan</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
@@ -81,9 +81,10 @@
                                 ?>
                                         <tr>
                                             <form role="form" method="post" action="pages/perbaikan/hapus_perbaikan.php">
+                                                <input type="hidden" name="kode_perbaikan_aset"  class="form-control" value="<?php echo $row['kode_perbaikan_aset'];?>">
+                                                <input type="hidden" name="kode_kerusakan_aset"  class="form-control" value="<?php echo $row['kode_kerusakan_aset'];?>">
                                                 <td>
-                                                    <input type="hidden" name="kode_perbaikan_aset"  class="form-control" value="<?php echo $row['kode_perbaikan_aset'];?>">
-                                                    <input type="hidden" name="kode_kerusakan_aset"  class="form-control" value="<?php echo $row['kode_kerusakan_aset'];?>">
+                                                    
                                                 </td>
                                                 <td><?php echo $row['kode_perbaikan_aset'];?></td>
                                                 <!--<td><?php //echo '<b>Perbaikan: </b>'.$row['kode_perbaikan_aset'].'<br><b> Kerusakan: </b>'.$row['kode_kerusakan_aset'].'<br><b> Aset: </b>'.$row['kode_aset'];?></td>-->
