@@ -68,6 +68,24 @@ if(isset($_SESSION['kode_role'])==0){
       padding: 0 !important;
       margin: 0 !important;
     }
+
+    input:focus {
+      background-color: rgb(218, 232, 237);
+      color: black;
+    }
+    textarea:focus{
+      background-color: rgb(218, 232, 237);
+      color: black;
+    }
+    .select2-container *:focus {
+      background-color: rgb(218, 232, 237);
+      color: black;
+    }
+    li *:focus{
+      border-left : 3px solid #87CEEB !important;
+      background-color: white !important;
+      color: black !important;
+    }
   </style>
 
 <!-- SCRIPT -->
