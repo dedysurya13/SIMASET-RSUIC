@@ -96,5 +96,5 @@ if(isset($_POST['cetak_label'])){
     echo '</table>';
 }
 //hapus qr
-//unlink($tempDir.$fileName);
+//unlink($urlRelativeFilePath);
 ?>
