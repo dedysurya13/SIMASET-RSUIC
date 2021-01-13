@@ -37,7 +37,7 @@
                                         <th>Nama petugas</th>
                                         <th>Telepon</th>
                                         <th>Role</th>
-                                        <th></th>
+                                        <th>Unit</th>
                                         <th>AKSI</th>
                                     </tr>
                                 </thead>
