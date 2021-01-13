@@ -1,9 +1,12 @@
 @media print {
-    html, body {
-        height: 99%;    
-    }
-}
+	html, body {
+	   border: 1px solid white;
+	   height: auto;
+	   page-break-after: avoid;
+	   page-break-before: avoid;
+	}
 
+}
 div.dataTables_length label {
 	font-weight: normal;
 	text-align: left;

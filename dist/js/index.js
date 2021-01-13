@@ -209,6 +209,7 @@ $(document).ready(function() {
                     $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
                     $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
                     $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                    $(win.document.body).find('h1').addClass('display').css('font-size', '18pt');
 
                     var last = null;
                     var current = null;
@@ -257,7 +258,7 @@ $(document).ready(function() {
             initComplete: function () {
               this.api().columns([2,4,6,8,9,10,11]).every( function () {
                   var column = this;
-                  var select = $('<select><option value=""></option></select>')
+                  var select = $('<select style="min-width:5px; max-width:60px;"><option value=""></option></select>')
                       //.appendTo( $(column.footer()).empty() )
                       .appendTo( $("#tabelAset thead tr:eq(0) th").eq(column.index()).empty() )
                       .on( 'change', function () {
@@ -328,6 +329,7 @@ $(document).ready(function() {
                 $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
                 $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
                 $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                $(win.document.body).find('h1').addClass('display').css('font-size', '18pt');
               
               }
             },
@@ -383,6 +385,7 @@ $(document).ready(function() {
                   $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
                   $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
                   $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                  $(win.document.body).find('h1').addClass('display').css('font-size', '18pt');
                 
                 }
               },
@@ -438,6 +441,7 @@ $(document).ready(function() {
                   $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
                   $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
                   $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                  $(win.document.body).find('h1').addClass('display').css('font-size', '18pt');
                 
                 }
               },
@@ -494,6 +498,7 @@ $(document).ready(function() {
                   $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
                   $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
                   $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                  $(win.document.body).find('h1').addClass('display').css('font-size', '18pt');
                 }
               },
               {
@@ -549,6 +554,7 @@ $(document).ready(function() {
                   $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
                   $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
                   $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                  $(win.document.body).find('h1').addClass('display').css('font-size', '18pt');
                 }
               },
               {
@@ -604,6 +610,7 @@ $(document).ready(function() {
                   $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
                   $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
                   $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                  $(win.document.body).find('h1').addClass('display').css('font-size', '18pt');
                 }
               },
               {
@@ -627,7 +634,7 @@ $(document).ready(function() {
             initComplete: function () {
               this.api().columns([3,5,6,7,8,10]).every( function () {
                   var column = this;
-                  var select = $('<select><option value=""></option></select>')
+                  var select = $('<select style="min-width:5px; max-width:60px;"><option value=""></option></select>')
                       .appendTo( $("#tabelPemeriksaan thead tr:eq(0) th").eq(column.index()).empty() )
                       .on( 'change', function () {
                           var val = $.fn.dataTable.util.escapeRegex(
@@ -678,7 +685,7 @@ $(document).ready(function() {
               className: 'btn glyphicon glyphicon-print',
               exportOptions: { columns: [0,1,2,3,4,5,6,7,8,9,10] },
                 customize: function (win) {
-                  $(win.document.body).find('table').addClass('display').css('font-size', '8pt');
+                  $(win.document.body).find('table').addClass('display').css('font-size', '7.5pt');
                   $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
                   $(win.document.body).find('table').addClass('display').css('max-width', '60px');
                   $(win.document.body).find('table').addClass('display').css('min-width', '5px');
@@ -689,6 +696,7 @@ $(document).ready(function() {
                   $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
                   $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
                   $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                  $(win.document.body).find('h1').addClass('display').css('font-size', '18pt');
                 }
               },
               {
@@ -712,7 +720,7 @@ $(document).ready(function() {
             initComplete: function () {
               this.api().columns([3,5,6,10]).every( function () {
                   var column = this;
-                  var select = $('<select><option value=""></option></select>')
+                  var select = $('<select style="min-width:5px; max-width:60px;"><option value=""></option></select>')
                       .appendTo( $("#tabelKerusakan thead tr:eq(0) th").eq(column.index()).empty() )
                       .on( 'change', function () {
                           var val = $.fn.dataTable.util.escapeRegex(
@@ -769,9 +777,9 @@ $(document).ready(function() {
                   //$(win.document.body).find('table').addClass('display').css('table-layout', 'fixed');
                   //$(win.document.body).find('th, td').addClass('display').css('display','inline');
                   $(win.document.body).find('table').addClass('display').css('font-family', '"Times New Roman", Times, serif');
-                  $(win.document.body).find('table').addClass('display').css('font-size', '8pt');
+                  $(win.document.body).find('table').addClass('display').css('font-size', '7.5pt');
                   $(win.document.body).find('table').addClass('display').css('max-width', '60px');
-                  $(win.document.body).find('table').addClass('display').css('min-width', '5px');
+                  $(win.document.body).find('table').addClass('display').css('min-width', '10px');
                   $(win.document.body).find('th, td').addClass('display').css('border-width', '1px');
                   $(win.document.body).find('th, td').addClass('display').css('padding', '1px');
                   $(win.document.body).find('th, td').addClass('display').css('min-width', '5px');
@@ -779,6 +787,7 @@ $(document).ready(function() {
                   $(win.document.body).find('th, td').addClass('display').css('white-space','nowrap');
                   $(win.document.body).find('th, td').addClass('display').css('overflow','hidden');
                   $(win.document.body).find('th, td').addClass('display').css('text-overflow', 'ellipsis');
+                  $(win.document.body).find('h1').addClass('display').css('font-size', '18pt');
 
                   var last = null;
                   var current = null;
@@ -823,9 +832,9 @@ $(document).ready(function() {
               */
             ],//filter select option
             initComplete: function () {
-              this.api().columns([3,4, 5,6,7,8,11,13]).every( function () {
+              this.api().columns([1,2,3,4, 5,6,7,8,11,13]).every( function () {
                   var column = this;
-                  var select = $('<select><option value=""></option></select>')
+                  var select = $('<select style="min-width:5px; max-width:60px;"><option value=""></option></select>')
                       .appendTo( $("#tabelPerbaikan thead tr:eq(0) th").eq(column.index()).empty() )
                       .on( 'change', function () {
                           var val = $.fn.dataTable.util.escapeRegex(
