@@ -125,17 +125,17 @@
 
         <!-- CHART-->
         <div>
-            <div class="col-md-3 col-xs-12" style="text-align: center;">
+            <div class="col-lg-3 col-xs-12" style="text-align: center;">
                 <h4 ><b>Jenis Aset</b></h4>
                 <canvas id="jenisAset"></canvas>
             </div>
 
-            <div class="col-md-3 col-xs-12" style="text-align: center;">
+            <div class="col-lg-3 col-xs-12" style="text-align: center;">
                 <h4><b>Tindak Lanjut Kerusakan</b></h4>
                 <canvas id="tindakLanjut"></canvas>
             </div>
 
-            <div class="col-md-3 col-xs-12" style="text-align: center;">
+            <div class="col-lg-3 col-xs-12" style="text-align: center;">
                 <h4><b>Status Perbaikan</b></h4>
                 <canvas id="statusPerbaikan"></canvas>
             </div>
