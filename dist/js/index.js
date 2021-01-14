@@ -235,7 +235,7 @@ $(document).ready(function() {
                 }
               },
               {
-                extend: 'excel',
+                extend: 'excelHtml5',
                 text: ' Excel',
                 title: 'Data Aset',
                 className: 'btn glyphicon glyphicon-file',
@@ -334,7 +334,7 @@ $(document).ready(function() {
               }
             },
             {
-              extend: 'excel',
+              extend: 'excelHtml5',
               text: ' Excel',
               title: 'Data Kategori Aset',
               className: 'btn glyphicon glyphicon-file',
@@ -390,7 +390,7 @@ $(document).ready(function() {
                 }
               },
               {
-                extend: 'excel',
+                extend: 'excelHtml5',
                 text: ' Excel',
                 title: 'Data Jenis Aset',
                 className: 'btn glyphicon glyphicon-file',
@@ -446,7 +446,7 @@ $(document).ready(function() {
                 }
               },
               {
-                extend: 'excel',
+                extend: 'excelHtml5',
                 text: ' Excel',
                 title: 'Data Suplier',
                 className: 'btn glyphicon glyphicon-file',
@@ -502,7 +502,7 @@ $(document).ready(function() {
                 }
               },
               {
-                extend: 'excel',
+                extend: 'excelHtml5',
                 text: ' Excel',
                 title: 'Data Unit',
                 className: 'btn glyphicon glyphicon-file',
@@ -558,7 +558,7 @@ $(document).ready(function() {
                 }
               },
               {
-                extend: 'excel',
+                extend: 'excelHtml5',
                 text: ' Excel',
                 title: 'Data Ruangan',
                 className: 'btn glyphicon glyphicon-file',
@@ -614,7 +614,7 @@ $(document).ready(function() {
                 }
               },
               {
-                extend: 'excel',
+                extend: 'excelHtml5',
                 text: ' Excel',
                 title: 'Data Pemeriksaan Aset',
                 className: 'btn glyphicon glyphicon-file',
@@ -700,7 +700,7 @@ $(document).ready(function() {
                 }
               },
               {
-                extend: 'excel',
+                extend: 'excelHtml5',
                 text: ' Excel',
                 title: 'Data Kerusakan Aset',
                 className: 'btn glyphicon glyphicon-file',
@@ -813,7 +813,7 @@ $(document).ready(function() {
                 }
               },
               {
-                extend: 'excel',
+                extend: 'excelHtml5',
                 text: ' Excel',
                 title: 'Data Perbaikan Aset',
                 className: 'btn glyphicon glyphicon-file',
@@ -922,7 +922,7 @@ $(document).ready(function() {
                 }
               },
               {
-                extend: 'excel',
+                extend: 'excelHtml5',
                 text: ' Excel',
                 title: 'Data Petugas',
                 className: 'btn glyphicon glyphicon-file',
