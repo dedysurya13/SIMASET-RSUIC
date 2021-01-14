@@ -107,9 +107,10 @@
                                                         }
                                                     ?>
                                                     <?php 
-                                                        if($_SESSION['kode_role']==2 || $_SESSION['kode_role']==1){
+                                                        if(($_SESSION['kode_role']==2 || $_SESSION['kode_role']==1)&& $row['kode_flag']==0){
+                                                            
                                                     ?> 
-                                                        <button type="submit" name="tindaklanjut" class="btn btn-info"><i class="glyphicon glyphicon-ok"></i> Tindak Lanjuti</button>
+                                                        <button type="submit" name="tindaklanjut" class="btn btn-info" onclick="return confirm('Tidak lanjuti kerusakan ini?')"><i class="glyphicon glyphicon-ok"></i> Tindak Lanjuti</button>
                                                     <?php
                                                         }
                                                     ?>
